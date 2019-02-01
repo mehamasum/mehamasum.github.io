@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{143:function(n,e,t){"use strict";t.r(e);var o=t(5),r=t.n(o),i=t(0),u=t.n(i),c=function(n){function e(){return n.apply(this,arguments)||this}return r()(e,n),e.prototype.render=function(){return u.a.createElement("h1",null,"Like the mythical unicorn, our serch page does not exist (yet).")},e}(u.a.Component);e.default=c}}]);
+//# sourceMappingURL=component---src-pages-search-js-c8a7f319da6e3a637454.js.map
