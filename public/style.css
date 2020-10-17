@@ -61,6 +61,10 @@ a {
     content: "mehamasum@gmail.com";
 }
 
+.cryptedtel:after {
+    content: "+880 152 111 20 85"
+}
+
 .bio-section:before {
     content: "";
     display: block;
@@ -75,16 +79,9 @@ a {
     color: #646464;
 }
 
-.tag:hover {
-    color: #33658a;
-    background-color: #cee0ed;
-}
-
 .tag {
     font-size: 85%;
     vertical-align: baseline;
-    color: #39739d;
-    background-color: #e1ecf4;
     margin-right: .5rem;
     margin-bottom: .5rem;
     display: inline-block;
@@ -92,26 +89,18 @@ a {
     border-radius: 3px;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
-}
-
-.interested-tag,
-.interested-tag:hover {
-    color: #558b2f;
-    background-color: #c5e1a5;
+    background-color: #eef6fc;
+    color: #1d72aa;
 }
 
 .interested-tag {
-    background-color: #dcedc8;
-}
-
-.disliked-tag:hover {
-    color: #5e666e;
-    background-color: #d6d9dc;
+    background-color: #effaf3;
+    color: #257942;
 }
 
 .disliked-tag {
+    background-color: #f5f5f5;
     color: #6a737c;
-    background-color: #e4e6e8;
 }
 
 article>header>h5 {
