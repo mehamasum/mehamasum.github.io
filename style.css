@@ -1,0 +1,237 @@
+body {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, “Helvetica Neue”, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    background: #f6f6f6;
+    background: #fff;
+    color: #4a4a4a;
+}
+
+
+/* Increase all font sizes on mobile */
+
+@media (max-width: 767px) {
+    body {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 24px;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Oswald', sans-serif;
+    color: #3c78d8;
+    color: #003e54;
+    color: #4a4a4a;
+}
+
+a {
+    color: #3c78d8;
+}
+
+.avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.fa {
+    margin-right: 0.25rem;
+}
+
+.social-info>a:hover {
+    text-decoration: none;
+}
+
+.social-info>a>i {
+    margin-right: 1rem;
+}
+
+.cryptedmail:after {
+    content: "mehamasum@gmail.com";
+}
+
+.bio-section:before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 2px;
+    background: #3c78d8;
+    margin: 10px 0;
+}
+
+.preference-label {
+    font-size: 90%;
+    color: #646464;
+}
+
+.tag:hover {
+    color: #33658a;
+    background-color: #cee0ed;
+}
+
+.tag {
+    font-size: 85%;
+    vertical-align: baseline;
+    color: #39739d;
+    background-color: #e1ecf4;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+    display: inline-block;
+    padding: .2em .6em;
+    border-radius: 3px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+}
+
+.interested-tag,
+.interested-tag:hover {
+    color: #558b2f;
+    background-color: #c5e1a5;
+}
+
+.interested-tag {
+    background-color: #dcedc8;
+}
+
+.disliked-tag:hover {
+    color: #5e666e;
+    background-color: #d6d9dc;
+}
+
+.disliked-tag {
+    color: #6a737c;
+    background-color: #e4e6e8;
+}
+
+article>header>h5 {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, “Helvetica Neue”, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+q::before {
+    height: 1.125rem;
+    border-left-width: 0.225rem;
+    content: " ";
+    display: inline-block;
+    margin-right: 0.5rem;
+    border-left: 2px solid #47a1d8;
+    padding: 0;
+    width: 0;
+}
+
+address {
+    display: inline;
+    font-style: italic;
+}
+
+address+time {
+    margin-left: 6px;
+}
+
+address+time:before {
+    content: "-";
+    margin-right: 6px;
+}
+
+.fa-trophy {
+    color: #ffc107;
+}
+
+address,
+time {
+    color: #a8a8a8;
+}
+
+.resume-section>h4 {
+    text-transform: uppercase;
+}
+
+.copyright {
+    font-size: 0.8em;
+}
+
+.nav-link {
+    padding: .5rem 0;
+    margin: 0 .5rem;
+}
+
+.nav-link.active {
+    border-bottom: 2px solid #e1ecf4;
+}
+
+.quote {
+    font-size: 16px;
+}
+
+.quote blockquote {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: none;
+    color: gray;
+    font-style: italic;
+    line-height: 1.4 !important;
+    margin: 0;
+    position: relative;
+    text-shadow: 0 1px white;
+    z-index: 600;
+}
+
+.quote blockquote * {
+    box-sizing: border-box;
+}
+
+.quote blockquote p {
+    color: #75808a;
+    line-height: 1.4 !important;
+}
+
+.quote blockquote p:first-child:before {
+    content: '\201C';
+    color: #81bedb;
+    font-size: 7.5em;
+    font-weight: 700;
+    opacity: .3;
+    position: absolute;
+    top: -.4em;
+    left: -.2em;
+    text-shadow: none;
+    z-index: -300;
+}
+
+.quote cite {
+    color: gray;
+    display: block;
+    font-size: .8em;
+}
+
+.quote cite span {
+    color: #5e5e5e;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 1px white;
+}
+
+.quote {
+    position: relative;
+}
+
+.quote.right cite {
+    text-align: right;
+}
