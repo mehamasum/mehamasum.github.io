@@ -26,7 +26,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             templateParameters: {
-                homepage: process.env.HOMEPAGE || 'https://mehamasum.github.io',
+                homepage: process.env.HOMEPAGE || 'https://mehamasum.github.io/',
                 year: new Date().getFullYear()
             },
             template: 'public/index.ejs'
