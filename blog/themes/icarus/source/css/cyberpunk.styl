@@ -1,0 +1,221 @@
+// base colors
+$white ?= #fff
+$white-bis ?= #cdcdcd
+$grey ?= #848484
+$black ?= #2d2d2d
+$black-bis ?= #171717
+$orange ?= #ff8e3c
+$yellow ?= #fcee09
+$green ?= #00ff41
+$blue ?= #02d7f2
+$purple ?= #9561d2
+$red ?= #ff003c
+$primary ?= $yellow
+$info ?= $blue
+$success ?= $green
+$warning ?= $orange
+$danger ?= $red
+// invert colors
+$orange-invert ?= #121617
+$yellow-invert ?= #121617
+$green-invert ?= #121617
+$blue-invert ?= #121617
+$purple-invert ?= #121617
+$red-invert ?= #121617
+$primary-invert ?= #121617
+$info-invert ?= #121617
+$success-invert ?= #121617
+$warning-invert ?= #121617
+$danger-invert ?= #121617
+// derived colors
+$scheme-main ?= $black
+$link ?= $blue
+$link-hover ?= $primary
+$text ?= $white-bis
+$text-strong ?= $yellow
+$body-background-color ?= $scheme-main
+$input-color ?= $text
+$input-placeholder-color ?= rgba($input-color, .8)
+$footer-color ?= $black
+$footer-background-color ?= $yellow
+$navbar-background-color ?= $yellow
+$navbar-item-color ?= $black
+$navbar-item-active-color ?= $black
+$navbar-item-hover-color ?= $black
+$navbar-item-hover-background-color ?= transparent
+$navbar-item-margin-v ?= 1.25rem
+$navbar-item-margin-h ?= .25rem
+$navbar-item-padding-v ?= 0
+$navbar-item-padding-h ?= .5rem
+$card-background-color ?= transparent
+$menu-label-color ?= $blue
+$menu-item-hover-color ?= $black
+$menu-item-hover-background-color ?= $yellow
+$menu-item-active-color ?= $black
+$menu-item-active-background-color ?= $yellow
+$menu-list-border-left ?= 1px solid $text
+$tag-color ?= $black
+$tag-background-color ?= $blue
+$timeline-fg-line ?= $blue
+$timeline-bg-line ?= $body-background-color
+$post-navigation-fg ?= $white-bis
+$searchbox-bg-container ?= $black-bis
+$searchbox-border ?= $blue
+$searchbox-bg-input ?= $black-bis
+$searchbox-bg-close-hover ?= $black
+$searchbox-bg-close-active ?= $searchbox-bg-close-hover
+$searchbox-bg-result-item-hover ?= $black
+
+@import 'style'
+
+clip-path(clip)
+    clip-path: clip
+    -webkit-clip-path: clip
+
+undercover-before()
+    position: relative
+
+    &:before
+        content: ''
+        position: absolute
+        z-index: -1
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+
+body
+    counter-reset: card
+
+::selection
+    color: $black
+    background: $blue
+
+.card:not(#back-to-top)
+    position: relative
+    counter-increment: card
+    background-color: $black-bis
+
+    &, .card-content
+        undercover-before()
+
+clip-button($color, $color-invert)
+    &:before
+        background-color: $color
+        color: $color-invert
+
+    &:hover:before, &.is-hovered:before
+        background-color: darken($color, 2.5%)
+        color: $color-invert
+
+    &:focus:before, &.is-focused:before
+        color: $color-invert
+
+    &:active:before, &.is-active:before
+        background-color: darken($color, 5%)
+        color: $color-invert
+
+    &[disabled]:before, fieldset[disabled] &:before
+        background-color: $color
+
+    &.is-inverted
+        &:before
+            background-color: $color-invert
+            color: $color
+
+            &:hover:before, &.is-hovered:before
+                background-color: darken($color-invert, 5%)
+
+            &[disabled]:before, fieldset[disabled] &:before
+                background-color: $color-invert
+                border-color: transparent
+                box-shadow: none
+                color: $color
+
+.button:not(input)
+    border: none
+    outline: none
+    undercover-before()
+
+    // clip-path will cut off overflown content inside a button
+    // thus we need to use :before pseudo-element to style the buttons
+    for $name, $pair in $colors
+        $color = $pair['1']
+        $color-invert = $pair['2']
+
+        &.is-{$name}
+            clip-button($color, $color-invert)
+
+
+.tags.has-addons
+    .tag:first-child
+        background: $yellow !important
+
+    .tag:last-child
+        background: $blue !important
+
+.pagination-previous, .pagination-next, .pagination-link
+    &:hover
+        background-color: $blue
+
+        &, a
+            color: $black
+
+.navbar-main
+    .navbar-menu
+        .navbar-item
+            &:hover, &.is-active
+                color: $navbar-background-color
+                background-color: $body-background-color !important
+
+article.article
+    .article-more
+        clip-button($info, $info-invert)
+
+.article-licensing
+    background: $black-ter
+
+.content
+    blockquote
+        background: transparent
+        border: .5px solid $blue
+        border-left: 5px solid $blue
+
+.footer
+    position: relative
+
+.searchbox .searchbox-container
+    border: 1px solid $blue
+
+    .searchbox-body
+        border-bottom: 1px solid $searchbox-border
+
+        li:last-child .searchbox-result-section
+            border-bottom: none
+
+    .searchbox-result-item
+        em
+            color: $black
+
+#back-to-top
+    color: $black
+    background: $blue
+    margin-top: 45px
+
+.cc-window, .cc-revoke
+    border-radius: 0 !important
+
+.cc-window
+    &:not(.cc-banner)
+        border: 1px solid $blue
+
+    &.cc-theme-classic, &.cc-theme-block
+        .cc-compliance > .cc-btn
+            border-radius: 0
+
+    &.cc-banner
+        .cc-compliance > .cc-btn
+            background-color: $blue
+
+            &:hover, &:focus
+                background-color: darken($blue, 2.5%)

@@ -1,0 +1,41 @@
+$body-background-color ?= #ffffff
+
+$primary ?= #4a4a4a
+$tag-background-color ?= #eef6fc
+$tag-color ?= #1d72aa
+
+.tags.has-addons
+    .tag:first-child
+        background: $tag-background-color !important
+        color: $tag-color !important
+    .tag:last-child
+        background: none !important
+        color: $primary !important
+
+$menu-item-hover-color ?= $tag-color
+$menu-item-hover-background-color ?= none
+$menu-item-active-color ?= $tag-color
+$menu-item-active-background-color ?= none
+
+$card-radius ?= 0
+$card-media-margin ?= 0.75rem
+$card-shadow ?= none
+$card-content-padding ?= 1.5rem 0
+
+$border ?= #ccc
+$border-light ?= #eee
+
+$pagination-current-background-color ?= $tag-background-color
+$pagination-current-color ?= $tag-color
+
+@import 'style'
+
+.pagination-previous, .pagination-next, .pagination-link:not(.is-current)
+        &:hover, a:hover
+            color: $tag-color
+
+
+#back-to-top
+    color: $tag-color
+    background: $tag-background-color
+
