@@ -49,13 +49,21 @@ a {
     margin-right: 0.25rem;
 }
 
-.social-info>a:hover {
-    text-decoration: none;
+.social-info {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.social-info>a>i {
+.social-info > li {
     margin-right: 1rem;
 }
+
+.social-info > li > a > i {
+    margin: 0;
+}
+
 
 .cryptedmail:after {
     content: "mehamasum@gmail.com";

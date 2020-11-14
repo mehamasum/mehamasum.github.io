@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>First-Class Functions - পাইথনে ক্লিন কোড - Blog by Meha Masum</title><link rel="manifest" href="/blog/manifest.json"><meta name="theme-color" content="#3c78d8"><meta name="application-name" content="Blog by Meha Masum"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="msapplication-TileColor" content="#3c78d8"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Blog by Meha Masum"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="First-Class Functions কি এবং কেন- উদাহরণ ও অনুশীলন।"><meta property="og:type" content="blog"><meta property="og:title" content="First-Class Functions - পাইথনে ক্লিন কোড"><meta property="og:url" content="https://mehamasum.github.io/blog/2019/05/first-class-functions/"><meta property="og:site_name" content="Blog by Meha Masum"><meta property="og:description" content="First-Class Functions কি এবং কেন- উদাহরণ ও অনুশীলন।"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://images.unsplash.com/photo-1509023916490-b91305c54674?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ"><meta property="article:published_time" content="2019-05-26T18:00:00.000Z"><meta property="article:author" content="Mehedi Hasan Masum"><meta property="article:tag" content="python"><meta property="article:tag" content="clean code"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://images.unsplash.com/photo-1509023916490-b91305c54674?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ"><meta property="twitter:creator" content="@mehamasum"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehamasum.github.io/blog/2019/05/first-class-functions/"},"headline":"Blog by Meha Masum","image":[],"datePublished":"2019-05-26T18:00:00.000Z","author":{"@type":"Person","name":"Mehedi Hasan Masum"},"description":"First-Class Functions কি এবং কেন- উদাহরণ ও অনুশীলন।"}</script><link rel="canonical" href="https://mehamasum.github.io/blog/2019/05/first-class-functions/"><link rel="icon" href="/blog/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/blog/css/default.css"><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-106861471-1" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-106861471-1');</script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/">/blog by @mehamasum</a></div><div class="navbar-menu"><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="About Me" href="/blog/../">About Me</a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://images.unsplash.com/photo-1509023916490-b91305c54674?ixlib=rb-1.2.1&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjExNzczfQ" alt="First-Class Functions - পাইথনে ক্লিন কোড"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2019-05-26T18:00:00.000Z" title="2019-05-26T18:00:00.000Z">2019-05-27</time></span><span class="level-item"><a class="link-muted" href="/blog/categories/Tutorial/">Tutorial</a></span><span class="level-item">29 minutes read</span></div></div><h1 class="title is-3 is-size-4-mobile">First-Class Functions - পাইথনে ক্লিন কোড</h1><div class="content"><p>আজকে আমরা First-Class Functions নিয়ে কথা বলব।
+উদাহরণগুলো পাইথনে লেখা, কিন্তু যদি একটা ভাষায় ফাংশন First-Class হয় (যেমন পাইথন, জাভাস্ক্রিপ্ট) তাহলে এই লেখার সব কয়টা উদাহরণ একটু আধটু এডিট করে হুবুহু ঐ ভাষায় বদলে ফেলা যাবে। এই টপিকটা “Higher Order Functions”, “Currying”, “Closures”, “Decorators” ইত্যাদি টপিক বুঝতে সাহায্য করবে।</p>
+<h2 id="First-Class-Functions-কি"><a href="#First-Class-Functions-কি" class="headerlink" title="First-Class Functions কি?"></a>First-Class Functions কি?</h2><p>যেসব ভাষায় Function কে First-Class Object হিসেবে ট্রিট করা হয়, বলা হয় যে তারা First-Class Functions সাপোর্ট করে। First-Class Object হিসেবে ট্রিট করা হয় মানে ওই ভাষার অন্যান্য Object এর উপর যেসব অপারেশন চালানো যায়, Function এর উপরেও সেগুলো চালানো যায়। যেমন ধর, অন্য ফাংশনের আর্গুমেন্ট হিসাবে ফাংশন পাঠানো, কোনো ফাংশন থেকে ফাংশন রিটার্ন করা, ফাংশনকে কোন ভ্যারিয়েবলে অ্যাসাইন করা বা ডাটা স্ট্রাকচারে সেভ করা- এসব আরকি। সব কয়টা কাজেরই আমরা একটা করে উদাহরণ দেখব।</p>
+<h2 id="ভ্যারিয়েবলে-অ্যাসাইন-করা-ও-ডাটা-স্ট্রাকচারে-ঢোকানো"><a href="#ভ্যারিয়েবলে-অ্যাসাইন-করা-ও-ডাটা-স্ট্রাকচারে-ঢোকানো" class="headerlink" title="ভ্যারিয়েবলে অ্যাসাইন করা ও ডাটা স্ট্রাকচারে ঢোকানো"></a>ভ্যারিয়েবলে অ্যাসাইন করা ও ডাটা স্ট্রাকচারে ঢোকানো</h2><p>একটা ফাংশন লেখি যেটা দুইটা নাম্বার ইনপুট নেয় এবং সেগুলোর যোগফল রিটার্ন করেঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">a, b</span>):</span></span><br><span class="line">  <span class="keyword">return</span> a + b</span><br></pre></td></tr></tbody></table></figure>
+
+<p>এই ফাংশনটা আমরা সচরাচর কিভাবে execute করি? ফাংশনের নামের পর parentheses (ফার্স্ট ব্রাকেট) দিয়ে। parentheses এর ভেতর আর্গুমেন্ট লেখি একে একে। যেমন, ১ আর ১ যোগ করতে চাইলেঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">add(<span class="number">1</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>যদি রিটার্ন করা ভ্যালুটা কোন ভ্যারিয়েবল এ অ্যাসাইন করতাম তাহলে এভাবেঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v = add(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">print(v)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></tbody></table></figure>
+
+<p>এবার আমরা ফাংশনটাকে সরাসরি execute না করে একটা ভ্যারিয়েবলে অ্যাসাইন করিঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = add</span><br></pre></td></tr></tbody></table></figure>
+
+<p>লক্ষ্য কর, এবার কিন্তু আমরা ফাংশনের নামের পর parentheses দেই নাই, কারণ ফাংশনের নামের পর parentheses দেওয়ার মানে ওই ফাংশন কল দেওয়া (execute করা)। এবার শুধু ফাংশনটাকে আরেকটা ভ্যারিয়েবল <code>f</code> এ অ্যাসাইন করেছি। <code>f</code> এর ভ্যালু প্রিন্ট করলে দেখা যাবে <code>f</code> একটা ফাংশনঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(f)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;function add at 0x7f135afc7048&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<p>তারমানে আমরা এখন <code>f</code> কে parentheses দিয়ে execute করতে পারিঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(<span class="number">1</span>, <span class="number">1</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>যদি রিটার্ন করা ভ্যালুটা কোন ভ্যারিয়েবল এ অ্যাসাইন করতাম তাহলেঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v = f(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">print(v)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></tbody></table></figure>
+
+<p>এভাবে First-Class ফাংশনকে ভ্যারিয়েবলে অ্যাসাইন করা যায়। এমনকি যেকোনো ডাটা স্ট্রাকচারেও ঢোকানো যায়। যেমন এখানে ফাংশনকে একটা লিস্টের প্রথম ইলিমেন্ট হিসাবে নিলাম। এবার প্রথম ইলিমেন্টটাকে কল দিলামঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">my_list = [add, ]</span><br><span class="line">first_element = my_list[<span class="number">0</span>]</span><br><span class="line">v = first_element(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">print(v)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="অন্য-ফাংশনের-আর্গুমেন্ট-হিসাবে-পাঠানো"><a href="#অন্য-ফাংশনের-আর্গুমেন্ট-হিসাবে-পাঠানো" class="headerlink" title="অন্য ফাংশনের আর্গুমেন্ট হিসাবে পাঠানো"></a>অন্য ফাংশনের আর্গুমেন্ট হিসাবে পাঠানো</h2><p>আমরা এমন একটা ফাংশন লিখব যেটা আগের add ফাংশনটার মত দুইটা নাম্বার ইনপুট নিবে কিন্তু দুইটা নাম্বারের ওপর কি অপারেশন চালাবে সেটা ফিক্সড না, সেটা নির্ভর করবে ৩য় প্যারামিটার এর ওপর। যদি ৩য় প্যারামিটার যোগ করতে বলে তাহলে যোগফল রিটার্ন করে অথবা যদি বিয়োগ করতে বলে তাহলে বিয়োগফল রিটার্ন করে, ইত্যাদি।</p>
+<p>এটা কিভাবে করা যেত? আমরা ৩য় প্যারামিটার হিসেবে একটা স্ট্রিং নিয়ে এর ভ্যালুর ওপর if-else লিখে করতে পারতামঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc</span>(<span class="params">a, b, operation</span>):</span></span><br><span class="line">  <span class="keyword">if</span> operation == <span class="string">'add'</span>:</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">  <span class="keyword">elif</span> operation == <span class="string">'subtract'</span>:</span><br><span class="line">    <span class="keyword">return</span> a - b</span><br></pre></td></tr></tbody></table></figure>
+
+<p>তারপর যোগ করতে গেলেঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = calc(<span class="number">1</span>, <span class="number">1</span>, <span class="string">'add'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></tbody></table></figure>
+
+<p>বিয়োগ করতে গেলেঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x = calc(<span class="number">1</span>, <span class="number">1</span>, <span class="string">'subtract'</span>)</span><br><span class="line">print(x)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>এভাবে লেখার চেয়ে আরেকটু ভালো সল্যুশন হচ্ছে দুইটা নাম্বারের ওপর কি অপারেশন চালবে সেটা একটা ফাংশন হিসাবে ইনপুট নেওয়াঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calc</span>(<span class="params">a, b, operation</span>):</span></span><br><span class="line">  r = operation(a, b)</span><br><span class="line">  <span class="keyword">return</span> r</span><br></pre></td></tr></tbody></table></figure>
+
+<p>লক্ষ্য কর আমরা আগের মতই <code>operation</code> নামের একটা ইনপুট নিয়েছি। কিন্তু <code>operation</code> আর আগের মত স্ট্রিং না, এটা একটা ফাংশন। এর মানে আমরা এর নামের নামের পর parentheses বসিয়ে ওই ফাংশন কল দিতে পারি। লক্ষ্য কর ফাংশনের ভেতরে তাই করা হচ্ছে। এই <code>calc</code> ফাংশন যেই দুইটি নম্বর ইনপুট নিত, সেই দুইটি নম্বরকে দিয়েই <code>operation</code> নামের ফাংশনটা কল দেওয়া হয়েছে এবং রিটার্ন ভ্যালুটিকে calc ফাংশন এর রিটার্ন ভ্যালু হিসাবে ফেরত পাঠানো হচ্ছে।</p>
+<p>তাহলে এবার <code>calc</code> ফাংশন কিভাবে ব্যবহার করা হবে?</p>
+<p>যোগ করার জন্য ৩য় আর্গুমেন্ট হিসেবে আমাদের একটু আগে লেখা add ফাংশনটা পাঠিয়ে দিলেই হয়!</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v = calc(<span class="number">1</span>, <span class="number">1</span>, add)</span><br><span class="line">print(v)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></tbody></table></figure>
+
+<p>লক্ষ্য কর, <code>calc</code> এর ৩য় আর্গুমেন্ট হিসেবে শুধু ফাংশন এর নাম পাঠানো হয়েছে, ফাংশনটা কল দেওয়া হবে <code>calc</code> এর ভেতরে যেয়ে।</p>
+<p>এবার বিয়োগ করার জন্য আরেকটা ফাংশন লেখা যাকঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">subtract</span>(<span class="params">a, b</span>):</span></span><br><span class="line">  <span class="keyword">return</span> a - b</span><br></pre></td></tr></tbody></table></figure>
+
+<p><code>calc</code> ফাংশনটি দিয়ে বিয়োগ করতে এবার এই নতুন ফাংশনটা পাঠিয়ে দিলেই হলঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v = calc(<span class="number">1</span>, <span class="number">1</span>, subtract)</span><br><span class="line">print(v)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>মাথায় প্রশ্ন আসার কথা এই কাজটা কেন এমন করে করা লাগলো? আগের মত স্ট্রিং নিলে কি হত?</p>
+<p>আগের মত রাখলে নতুন কোনো অপারেশন (যেমন multiplication) করতে গেলে আমাদের <code>calc</code> ফাংশন এর ভেতরে নতুন করে <code>else if</code> লেখা লাগত। সেটা যদি করা সম্ভব না হয় তাহলে নতুন কোনো অপারেশন করা সম্ভব হত না। ধর তোমার লেখা <code>calc</code> ফাংশন একটা লাইব্রেরি থেকে পাবলিশ করা হলো। এখন কেউ যদি তোমার <code>calc</code> ফাংশন বাবহার করে দুইটা নম্বর গুন করতে চায়, তাহলে সে আর তা করতে পারবে না কারণ লাইব্রেরি এর কোড সে এডিট করতে পারবে না। তাছাড়াও এভাবে <code>if-else</code> করে কোড লেখা খুবই বাজে প্রাকটিস। আমরা সেটা নিয়ে পরে একদিন কথা বলব।</p>
+<p>আমরা দেখলাম কিভাবে একটা ফাংশনকে আরেকটা ফাংশনের আর্গুমেন্ট হিসাবে পাঠানো যায়।</p>
+<h2 id="ফাংশন-থেকে-ফাংশন-রিটার্ন"><a href="#ফাংশন-থেকে-ফাংশন-রিটার্ন" class="headerlink" title="ফাংশন থেকে ফাংশন রিটার্ন"></a>ফাংশন থেকে ফাংশন রিটার্ন</h2><p>ফাংশন থেকে অন্যান্য সব কিছুর মত একটা আস্ত ফাংশনও রিটার্ন করা যায়। একটা ফাংশন লেখা যাক যেটা একটা স্ট্রিং ইনপুট নেয়। কিন্তু সাথে সাথে প্রিন্ট করে না। বরং একটা ফাংশন রিটার্ন করে দেয়, যাতে পরবর্তীতে সেই ফাংশনটা কল করলে ইনপুটটা প্রিন্ট হয়।</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_msg</span>(<span class="params">msg</span>):</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">inner_func</span>():</span></span><br><span class="line">    print(msg)</span><br><span class="line">  <span class="keyword">return</span> inner_func</span><br></pre></td></tr></tbody></table></figure>
+
+<p>উপরের উদাহরণে <code>print_msg</code> নামের ফাংশনটার ভেতরে আরেকটা ফাংশন ডিফাইন করা হয়েছে এবং তা রিটার্ন করা হয়েছে। আবারো লক্ষ কর, রিটার্ন স্টেটমেন্টে খালি নাম পাঠানো হয়েছে, ফাংশন কল দেওয়া হয়নাই। তারমানে দাড়ায় <code>print_msg</code> ফাংশনটার রিটার্ন ভ্যালু কে একটা ভ্যারিয়েবলএ অ্যাসাইন করে তারপর সেটাকে কল করা যায়ঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">v = print_msg(<span class="string">'hello world'</span>)</span><br><span class="line">v()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>এখানে <code>v</code> একটা ফাংশন। v এর পর parentheses (ফার্স্ট ব্রাকেট) দিয়ে তাকে কল দেওয়া হয়েছে।</p>
+<p>এই কাজটা কিন্তু এক লাইনেও করা যেতঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print_msg(<span class="string">'hello world'</span>)()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>এখানে <code>print_msg</code> ফাংশনটা কল দিয়ে যেই রিটার্ন ভ্যালু তা পাওয়া গেল তাকে আবার কল দেওয়া হয়েছে। এই জন্য পর পর দুইটা parentheses। আগের বার এই কাজটাকে ভেঙ্গে দুই ধাপে করা হয়েছিল।</p>
+<p>এই উদাহরণটা খুব কাজের কিছু হয়নি, আমরা Decorators শেখার সময় ফাংশন থেকে ফাংশন রিটার্ন করা নিয়ে আরও অনেক উদাহরণ দেখব।</p>
+<p>ভালো কথা, একটা জিনিস লক্ষ্য করেছ? <code>print_msg</code> ফাংশনটাকে আমি “hello world” স্ট্রিং দিয়ে কল দিয়েছিলাম। এই স্ট্রিং টা কিন্তু <code>inner_func</code> ও ব্যবহার করেছে। এভাবে একটা ফাংশন এর ভেতরের কোন ফাংশন তার বাইরের scope (enclosing scope) এর ভ্যারিয়েবল এক্সেস করতে পারে। এটাকে বলে “Clousure”.</p>
+<p>আর যেসব ফাংশন অন্য ফাংশনকে ইনপুট হিসেবে নেয় বা আরেকটা ফাংশন রিটার্ন করে তাদের Higher Order Functions বলে। সফটওয়্যার ডেভেলপমেন্ট লাইফে বহু জায়গায় বহু রূপে এদের দেখা পাবে।</p>
+<h2 id="শেষের-কথা"><a href="#শেষের-কথা" class="headerlink" title="শেষের কথা"></a>শেষের কথা</h2><p>নিজে কোড করে দেখার কোন বিকল্প নাই। হাজার হাজার টিউটোরিয়াল দেখে তুমি যতটুক না শিখতে পারবে তারচে বেশি শিখবে নিজে কোড লিখে প্রিন্ট দিয়ে দিয়ে।</p>
+<h3 id="অনুশীলন"><a href="#অনুশীলন" class="headerlink" title="অনুশীলন"></a>অনুশীলন</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_tag</span>(<span class="params">tag</span>):</span></span><br><span class="line">  <span class="comment"># write your code here</span></span><br><span class="line">  <span class="comment"># and remove the pass statement</span></span><br><span class="line">  <span class="keyword">pass</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>উপরের ফাংশনটা শেষ কর। তারপর নিচের কলগুলো execute করলে এরকম আউটউট আসবেঃ</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(make_tag(<span class="string">'h1'</span>)(<span class="string">'Wikipedia'</span>))</span><br><span class="line">print(make_tag(<span class="string">'h2'</span>)(<span class="string">'The Free Encyclopedia'</span>))</span><br><span class="line">print(make_tag(<span class="string">'h2'</span>)(<span class="string">'Wikipedia is a '</span> + make_tag(<span class="string">'strong'</span>)(<span class="string">'free'</span>) + <span class="string">' online encyclopedia'</span>))</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Output:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;h1&gt;Wikipedia&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt;The Free Encyclopedia&lt;/h2&gt;</span><br><span class="line">&lt;h2&gt;Wikipedia is a &lt;strong&gt;free&lt;/strong&gt; online encyclopedia&lt;/h2&gt;</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="আরো-জানতে"><a href="#আরো-জানতে" class="headerlink" title="আরো জানতে"></a>আরো জানতে</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/python-closures/">Python closures</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/higher-order-functions-currying/">Higher Order Functions and Currying</a></li>
+</ul>
+<p>আজ এ পর্যন্তই। সামনের পর্বে অন্য কিছু নিয়ে কথা হবে, সে পর্যন্ত ভালো থাকো।</p>
+<script>
+        document.querySelectorAll('.not-gallery-item')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div><div class="article-licensing box"><div class="licensing-title"><p>First-Class Functions - পাইথনে ক্লিন কোড</p><p><a href="https://mehamasum.github.io/blog/2019/05/first-class-functions/">https://mehamasum.github.io/blog/2019/05/first-class-functions/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Mehedi Hasan Masum</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2019-05-27</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/blog/tags/python/">python</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/clean-code/">clean code</a></div><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c1d3e20a1e1ce87" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/blog/2016/06/paintshop-solution/"><span class="level-item">OS/161: Paint Shop Synchronization Problem</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://mehamasum.github.io/blog/2019/05/first-class-functions/';
+            this.page.identifier = '2019/05/first-class-functions/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'mehamasum' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#First-Class-Functions-কি"><span class="level-left"><span class="level-item">First-Class Functions কি?</span></span></a></li><li><a class="level is-mobile" href="#ভ্যারিয়েবলে-অ্যাসাইন-করা-ও-ডাটা-স্ট্রাকচারে-ঢোকানো"><span class="level-left"><span class="level-item">ভ্যারিয়েবলে অ্যাসাইন করা ও ডাটা স্ট্রাকচারে ঢোকানো</span></span></a></li><li><a class="level is-mobile" href="#অন্য-ফাংশনের-আর্গুমেন্ট-হিসাবে-পাঠানো"><span class="level-left"><span class="level-item">অন্য ফাংশনের আর্গুমেন্ট হিসাবে পাঠানো</span></span></a></li><li><a class="level is-mobile" href="#ফাংশন-থেকে-ফাংশন-রিটার্ন"><span class="level-left"><span class="level-item">ফাংশন থেকে ফাংশন রিটার্ন</span></span></a></li><li><a class="level is-mobile" href="#শেষের-কথা"><span class="level-left"><span class="level-item">শেষের কথা</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#অনুশীলন"><span class="level-left"><span class="level-item">অনুশীলন</span></span></a></li><li><a class="level is-mobile" href="#আরো-জানতে"><span class="level-left"><span class="level-item">আরো জানতে</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/blog/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/categories/Academic/"><span class="level-start"><span class="level-item">Academic</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/Tutorial/"><span class="level-start"><span class="level-item">Tutorial</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/blog/tags/clean-code/"><span class="tag">clean code</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/os161/"><span class="tag">os161</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/python/"><span class="tag">python</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/">/blog by @mehamasum</a><p class="is-size-7">© 2020 Mehedi Hasan Masum • All rights reserved</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="StackOverflow Profile" href="https://stackoverflow.com/users/4135289/mehamasum"><i class="fab fa-stack-overflow"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub Profile" href="https://github.com/mehamasum"><i class="fab fa-github"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Connect on LinkedIn" href="https://linkedin.com/in/mehamasum"><i class="fab fa-linkedin"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/blog/js/column.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-right",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><!--!--><!--!--><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><script src="/blog/js/main.js" defer></script><!--!--><!-- hexo injector body_end start -->
+    <script>
+    (() => {
+        function switchTab() {
+            if (!location.hash) {
+              return;
+            }
+            Array
+                .from(document.querySelectorAll('.tab-content'))
+                .forEach($tab => {
+                    $tab.classList.add('is-hidden');
+                });
+            Array
+                .from(document.querySelectorAll('.tabs li'))
+                .forEach($tab => {
+                    $tab.classList.remove('is-active');
+                });
+            const $activeTab = document.querySelector(location.hash);
+            if ($activeTab) {
+                $activeTab.classList.remove('is-hidden');
+            }
+            const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+            if ($tabMenu) {
+                $tabMenu.parentElement.classList.add('is-active');
+            }
+        }
+        switchTab();
+        window.addEventListener('hashchange', switchTab, false);
+    })();
+    </script>
+    <!-- hexo injector body_end end --></body></html>
