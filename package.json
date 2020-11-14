@@ -5,7 +5,9 @@
     "scripts": {
         "start": "webpack --watch",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "webpack",
+        "web-build": "webpack",
+        "blog-build": "cd blog && npm run build && cd ..",
+        "build": "rm -rf dist && npm run web-build && npm run blog-build",
         "deploy": "npm run build && gh-pages -d dist"
     },
     "keywords": [],
