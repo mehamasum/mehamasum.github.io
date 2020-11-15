@@ -1,5 +1,6 @@
 title: 'OS/161: Paint Shop Synchronization Problem'
 date: 2016-06-01
+disqusId: paintshop-solution
 categories:
 - Academic
 tags:

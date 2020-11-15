@@ -1,5 +1,6 @@
 title: 'First-Class Functions - পাইথনে ক্লিন কোড'
 date: 2019-05-27
+disqusId: first-class-functions
 categories:
 - Tutorial
 tags:
