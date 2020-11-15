@@ -5,7 +5,7 @@ categories:
 tags:
 - python
 - clean code
-language: en
+language: bn
 toc: true
 cover: 'https://images.unsplash.com/photo-1509023916490-b91305c54674?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ'
 excerpt: 'First-Class Functions কি এবং কেন- উদাহরণ ও অনুশীলন।'

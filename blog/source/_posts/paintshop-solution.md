@@ -4,7 +4,7 @@ categories:
 - Academic
 tags:
 - os161
-language: bn
+language: en
 toc: true
 cover: 'https://images.unsplash.com/photo-1554757388-29a2a86ef02f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80'
 excerpt: 'Ideas (and code) to solve OS/161 Coding Assignment Part 3: Paint shop synchronization.'
