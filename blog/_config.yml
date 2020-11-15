@@ -85,7 +85,7 @@ theme: icarus
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: https://github.com/ppoffice/hexo-theme-icarus.git
+  repository: https://github.com/mehamasum/mehamasum.github.io.git
   branch: gh-pages
 
 marked:
@@ -93,8 +93,3 @@ marked:
 
 githubEmojis:
   className: not-gallery-item
-
-algolia:
-  applicationID: T0CJF4ZB1O
-  apiKey: bcbeb94d417749ab5c65b082fce32333
-  indexName: hexo-icarus
