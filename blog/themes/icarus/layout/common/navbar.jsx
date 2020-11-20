@@ -68,6 +68,12 @@ class Navbar extends Component {
                         {showSearch ? <a class="navbar-item search" title={searchTitle} href="javascript:;">
                             <i class="fas fa-search"></i>
                         </a> : null}
+                        <div class="navbar-item" id="footer-theme">
+                            <input type="checkbox" id="theme-switch"/>
+                            <label for="theme-switch">
+                                <i class="fas"/>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>

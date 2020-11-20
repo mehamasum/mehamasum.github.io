@@ -53,3 +53,15 @@ $navbar-item-margin-h ?= 0
 
     img
         max-height: $logo-height
+
+input#theme-switch[type=checkbox]
+    display: none;
+
+input#theme-switch[type=checkbox] + label > i
+  cursor: pointer
+  &:before
+    content: "\f186"
+
+input#theme-switch[type=checkbox]:checked + label > i
+  &:before
+    content: "\f185"
