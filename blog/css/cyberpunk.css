@@ -10982,6 +10982,18 @@ a.article-nav-next span {
 .navbar-logo img {
   max-height: 1.75rem;
 }
+input#theme-switch[type=checkbox] {
+  display: none;
+}
+input#theme-switch[type=checkbox] + label > i {
+  cursor: pointer;
+}
+input#theme-switch[type=checkbox] + label > i:before {
+  content: "\f186";
+}
+input#theme-switch[type=checkbox]:checked + label > i:before {
+  content: "\f185";
+}
 footer.footer {
   border-top: 1px solid #ededed;
 }

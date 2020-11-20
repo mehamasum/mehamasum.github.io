@@ -6,6 +6,39 @@
   background: none !important;
   color: #4a4a4a !important;
 }
+html * {
+  transition: background 0.5s;
+}
+html[data-theme='dark'] {
+  background: #2d2d2d;
+  color: #e7e8eb;
+}
+html[data-theme='dark'] .body,
+html[data-theme='dark'] .card {
+  background: #2d2d2d;
+}
+html[data-theme='dark'] .body,
+html[data-theme='dark'] .card,
+html[data-theme='dark'] strong {
+  color: #e7e8eb;
+}
+html[data-theme='dark'] h1,
+html[data-theme='dark'] h2,
+html[data-theme='dark'] h3,
+html[data-theme='dark'] h4,
+html[data-theme='dark'] h5,
+html[data-theme='dark'] h6 {
+  color: #fff !important;
+}
+html[data-theme='dark'] .section a:not(.button) {
+  color: #3ca4ff !important;
+}
+html[data-theme='dark'] .section a:not(.button):hover {
+  color: #378ad3 !important;
+}
+html[data-theme='dark'] .tags.has-addons .tag:last-child {
+  color: #e7e8eb !important;
+}
 @-moz-keyframes spinAround {
   from {
     transform: rotate(0deg);
@@ -10988,6 +11021,18 @@ a.article-nav-next span {
 }
 .navbar-logo img {
   max-height: 1.75rem;
+}
+input#theme-switch[type=checkbox] {
+  display: none;
+}
+input#theme-switch[type=checkbox] + label > i {
+  cursor: pointer;
+}
+input#theme-switch[type=checkbox] + label > i:before {
+  content: "\f186";
+}
+input#theme-switch[type=checkbox]:checked + label > i:before {
+  content: "\f185";
 }
 footer.footer {
   border-top: 1px solid #eee;
