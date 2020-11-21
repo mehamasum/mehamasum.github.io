@@ -1,21 +1,10 @@
-const moment = require('moment');
+const readingTime = require('reading-time');
+
 const { Component, Fragment } = require('inferno');
 const Share = require('./share');
 const Donates = require('./donates');
 const Comment = require('./comment');
 const ArticleLicensing = require('hexo-component-inferno/lib/view/misc/article_licensing');
-
-/**
- * Get the word count of text.
- */
-function getWordCount(content) {
-    if (typeof content === 'undefined') {
-        return 0;
-    }
-    content = content.replace(/<\/?[a-z][^>]*>/gi, '');
-    content = content.trim();
-    return content ? (content.match(/[\u00ff-\uffff]|[a-zA-Z]+/g) || []).length : 0;
-}
 
 module.exports = class extends Component {
     render() {
@@ -68,9 +57,8 @@ module.exports = class extends Component {
                             {/* Read time */}
                             {article && article.readtime && article.readtime === true ? <span class="level-item">
                                 {(() => {
-                                    const words = getWordCount(page._content);
-                                    const time = moment.duration((words / 150.0) * 60, 'seconds');
-                                    return `${_p('article.read_time', time.locale(index ? indexLaunguage : language).humanize())}`;
+                                    const time = readingTime(page._content);
+                                    return time.text;
                                 })()}
                             </span> : null}
                             {/* Visitor counter */}
