@@ -30,6 +30,9 @@ html[data-theme='dark'] h5,
 html[data-theme='dark'] h6 {
   color: #fff !important;
 }
+html[data-theme='dark'] .licensing-meta h6 {
+  color: #2d2d2d !important;
+}
 html[data-theme='dark'] .section a:not(.button) {
   color: #3ca4ff !important;
 }
