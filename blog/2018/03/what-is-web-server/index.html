@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>ওয়েব সার্ভার কি? HTTP কি? এগুলো কিভাবে কাজ করে? - Blog by Meha Masum</title><link rel="manifest" href="/blog/manifest.json"><meta name="theme-color" content="#3c78d8"><meta name="application-name" content="Blog by Meha Masum"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="msapplication-TileColor" content="#3c78d8"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Blog by Meha Masum"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="যখন আমরা একটা ওয়েব ব্রাউজার খুলে তার এড্রেসবারে একটা ওয়েবসাইটের এড্রেস লিখে Enter চাপি তখন আসলে কি হয়?"><meta property="og:type" content="blog"><meta property="og:title" content="ওয়েব সার্ভার কি? HTTP কি? এগুলো কিভাবে কাজ করে?"><meta property="og:url" content="https://mehamasum.github.io/blog/2018/03/what-is-web-server/"><meta property="og:site_name" content="Blog by Meha Masum"><meta property="og:description" content="যখন আমরা একটা ওয়েব ব্রাউজার খুলে তার এড্রেসবারে একটা ওয়েবসাইটের এড্রেস লিখে Enter চাপি তখন আসলে কি হয়?"><meta property="og:locale" content="bn"><meta property="og:image" content="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=2639&amp;q=80"><meta property="article:published_time" content="2018-03-01T00:00:00.000Z"><meta property="article:author" content="Mehedi Hasan Masum"><meta property="article:tag" content="python"><meta property="article:tag" content="web"><meta property="article:tag" content="http"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=2639&amp;q=80"><meta property="twitter:creator" content="@mehamasum"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehamasum.github.io/blog/2018/03/what-is-web-server/"},"headline":"Blog by Meha Masum","image":[],"datePublished":"2018-03-01T00:00:00.000Z","author":{"@type":"Person","name":"Mehedi Hasan Masum"},"description":"যখন আমরা একটা ওয়েব ব্রাউজার খুলে তার এড্রেসবারে একটা ওয়েবসাইটের এড্রেস লিখে Enter চাপি তখন আসলে কি হয়?"}</script><link rel="canonical" href="https://mehamasum.github.io/blog/2018/03/what-is-web-server/"><link rel="icon" href="/blog/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/blog/css/default.css"><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-106861471-1" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-106861471-1');</script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/">Blog by @mehamasum</a></div><div class="navbar-menu"><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="About Me" href="/blog/../">About Me</a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><div class="navbar-item" id="footer-theme"><input type="checkbox" id="theme-switch"><label for="theme-switch"><i class="fas"></i></label></div></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="https://images.unsplash.com/photo-1506399558188-acca6f8cbf41?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=2639&amp;q=80" alt="ওয়েব সার্ভার কি? HTTP কি? এগুলো কিভাবে কাজ করে?"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2018-03-01T00:00:00.000Z" title="2018-03-01T00:00:00.000Z">২০১৮-০৩-০১</time></span><span class="level-item"><a class="link-muted" href="/blog/categories/Tutorial/">Tutorial</a></span><span class="level-item">4 min read</span></div></div><h1 class="title is-3 is-size-4-mobile">ওয়েব সার্ভার কি? HTTP কি? এগুলো কিভাবে কাজ করে?</h1><div class="content"><p>যখন আমরা একটা ওয়েব ব্রাউজার যেমন Chrome খুলে তার এড্রেস বারে একটা ওয়েবসাইটের এড্রেস যেমন http://example.com লিখি তখন আসলে আমরা ব্রাউজার কে বলি এই অ্যাড্রেসে যেই ওয়েব সার্ভার আছে তার সাথে যোগাযোগ করো। যেন চিঠি পাঠানোর মত। ব্রাউজার আমাদের চিঠি ওয়েব সার্ভার কাছে নিয়ে যাচ্ছে এবং ওয়েব সার্ভার সেই চিঠির উত্তরে যা বলবে তা আমাদের কাছে নিয়ে আসবে। ওয়েব সার্ভার মানে ধরে নিন একটি কম্পিউটার যেখানে সারাদিন একটা প্রোগ্রাম চলে। এই প্রোগ্রাম আমাদের চিঠির আশায় বসে থাকে এবং চিঠি পেলে তার উত্তর দেয়।</p>
+<img src="/blog/images/what-is-web-server/01_overview.png" class="" title="Overview">
+
+<h2 id="URL-কি"><a href="#URL-কি" class="headerlink" title="URL কি?"></a>URL কি?</h2><p>এড্রেসবারে আমরা যে এড্রেসটি লিখি তাকে URL বলে
+এই URL এই বলা থাকে আমাদের ব্রাউজার কার সাথে যোগাযোগ করব কিভাবে যোগাযোগ করবে এবং তাকে কি বলবে। </p>
+<img src="/blog/images/what-is-web-server/02_url.png" class="" title="URL">
+
+<p>যোগাযোগের ভাষা হচ্ছে HTTP, Host আর Port হচ্ছে যোগাযোগের ঠিকানা।
+যেমন ধরেন কাউকে বললাম বাংলায় লেখা একটি চিঠি অমুক শহরে অমুক বাড়িতে পাঠান।</p>
+<p>এখন ব্রাউজার এই URL এর ঠিকানা HTTP ভাষায় যোগাযোগ করবে এবং ওই ওয়েব সার্ভার আমাদের চিঠির যেই উত্তর দিবে আমাদের দেখাবে, যেমন আমরা ফেসবুকের বেলায় একটি সুন্দর HTML ওয়েবপেজ দেখতে পাবো।</p>
+<p>যোগাযোগের ব্যাপারটা মোটেও এত সহজে হয় না। শুরুতে ব্রাউজার ওয়েব সার্ভার এর সাথে একটি TCP কানেকশন তৈরি করে। তারপরেই TCP কানেকশন দিয়ে HTTP Request পাঠায়। তারপর সার্ভারের উত্তরের জন্য অপেক্ষা করে এবং সার্ভারের উত্তর (HTTP Response) দিলে তা নিয়ে ফেরত আসে এবং  আমাদের দেখায় কি উত্তর এলো।</p>
+<p>এই সাহায্যে শুধুমাত্র ব্রাউজার এর সাথে কথা বলতে পারে তা না, এটি হতে পারে যে কোন কিছু যা HTTP ভাষায় (Protocol) কথা বলতে পারে। এদের Client বলে।</p>
+<h2 id="Python-Socket-দিয়ে-ওয়েব-সার্ভার-লিখি"><a href="#Python-Socket-দিয়ে-ওয়েব-সার্ভার-লিখি" class="headerlink" title="Python Socket দিয়ে ওয়েব সার্ভার লিখি"></a>Python Socket দিয়ে ওয়েব সার্ভার লিখি</h2><p>তাহলে এবার একটু পরীক্ষা করে দেখা যাক জিনিসটা কিভাবে কাজ করে। </p>
+<p>Python Socket দিয়ে অতি সাধারণ ওয়েব সার্ভার লিখি (server.py)</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">HOST=<span class="string">'127.0.0.1'</span></span><br><span class="line">PORT= <span class="number">8000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="keyword">as</span> s:</span><br><span class="line">   s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, <span class="number">1</span>)</span><br><span class="line">   s.bind((HOST, PORT))</span><br><span class="line">   s.listen()</span><br><span class="line">   print(<span class="string">'Server up ...'</span>)</span><br><span class="line">   <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">       conn, addr = s.accept()</span><br><span class="line">       <span class="keyword">with</span> conn:</span><br><span class="line">           request = conn.recv(<span class="number">1024</span>)</span><br><span class="line">           print(<span class="string">'Client said'</span>, request)</span><br><span class="line">           response = <span class="string">b'HTTP/1.1 200 OK\r\n\nHello, World!'</span></span><br><span class="line">           conn.sendall(response)</span><br><span class="line">           print(<span class="string">'Server said'</span>, response)</span><br><span class="line">           conn.close()</span><br></pre></td></tr></tbody></table></figure>
+
+<h3 id="কি-লিখলাম"><a href="#কি-লিখলাম" class="headerlink" title="কি লিখলাম?"></a>কি লিখলাম?</h3><p>শুরুতে বলে দিলাম হচ্ছে আমাদের ওয়েব সার্ভার <code>HOST</code> এবং <code>PORT</code>। </p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HOST=<span class="string">'127.0.0.1'</span></span><br><span class="line">PORT= <span class="number">8000</span></span><br></pre></td></tr></tbody></table></figure>
+
+<p>এরপর TCP সকেট খুললাম, সকেটে কিছু অপশন সেট করলাম, Host এবং Port এ Bind করলাম এবং সকেট দিয়ে Listen করা শুরু করলাম।</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> socket.socket(socket.AF_INET, socket.SOCK_STREAM) <span class="keyword">as</span> s:</span><br><span class="line">   s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, <span class="number">1</span>)</span><br><span class="line">   s.bind((HOST, PORT))</span><br><span class="line">   s.listen()</span><br><span class="line">   print(<span class="string">'Server up ...'</span>)</span><br></pre></td></tr></tbody></table></figure>
+
+<p>তারপর নতুন কানেকশন Accept করলাম, কানেকশন এ Client সাইড থেকে কি বলা হয়েছে তা Print দিলাম এবং উত্তরে “Hello world” পাঠিয়ে দিলাম, তা Print দিলাম।</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">conn, addr = s.accept()</span><br><span class="line"><span class="keyword">with</span> conn:</span><br><span class="line">    request = conn.recv(<span class="number">1024</span>)</span><br><span class="line">    print(<span class="string">'Client said'</span>, request)</span><br><span class="line">    response = <span class="string">b'HTTP/1.1 200 OK\r\n\nHello, World!'</span></span><br><span class="line">    conn.sendall(response)</span><br><span class="line">    print(<span class="string">'Server said'</span>, response)</span><br><span class="line">    conn.close()</span><br></pre></td></tr></tbody></table></figure>
+
+
+<p>যেকোনো টার্মিনালে প্রোগ্রামটি রান দিলাম </p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python server.py</span><br></pre></td></tr></tbody></table></figure>
+
+<p>এবার একটি ওয়েব ব্রাউজার খুলে এই http://127.0.0.1:8000/ অ্যাড্রেসে গেলে “Hello world” লেখাটা দেখতে পাবো</p>
+<p>এভাবেই আমরা একটি HTTP সার্ভার লিখে ফেললাম.</p>
+<h2 id="HTTP-Syntax"><a href="#HTTP-Syntax" class="headerlink" title="HTTP Syntax"></a>HTTP Syntax</h2><p>অন্য যেকোনো ভাষার মতো HTTP Protocol এর নিজস্ব সিনট্যাক্স রয়েছে। আমাদের code এ প্রিন্ট দেওয়া লাইন দুটো দেখলে এটা বোঝা যায়। চলো দেখি কি প্রিন্ট হয়েছে টার্মিনালে। </p>
+<p>খেয়াল করলে দেখবে <code>Client said</code> এই লাইনে সে কথাটি প্রিন্ট হয়েছে:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Client said b'GET / HTTP/1.1\r\n...blah blah...'</span><br></pre></td></tr></tbody></table></figure>
+
+<p>সব HTTP Request এভাবে লেখা লাগে:</p>
+<img src="/blog/images/what-is-web-server/03_request.png" class="" title="HTTP Request">
+
+
+
+<ul>
+<li>শুরুতে থাকে HTTP Method, এক্ষেত্রে GET কেননা আমরা সার্ভার থেকে উত্তর “পেতে” যাচ্ছি </li>
+<li>তারপর একটা স্পেস দিয়ে থাকে path (এই ক্ষেত্রে /) </li>
+<li>তারপর একটা স্পেস দিয়ে HTTP Version (1.1)</li>
+<li>তার পরের লাইনে HTTP Header। আমাদের বেলায় ব্রাউজার একগাদা হেডার পাঠিয়েছে</li>
+</ul>
+<p>এবার দেখি আমাদের সার্ভার কি উত্তর দিয়েছিল:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Server said b'HTTP/1.1 200 OK\r\n\nHello, World!'</span><br></pre></td></tr></tbody></table></figure>
+
+<p>আবার সব HTTP Response এই ফরম্যাটে লেখা লাগে</p>
+<img src="/blog/images/what-is-web-server/04_response.png" class="" title="HTTP Response">
+
+
+<ul>
+<li>শুরুতেই থাকে HTTP Version</li>
+<li>তারপর একটা স্পেস দিয়ে Status Code </li>
+<li>তার পরের লাইনে HTTP Header যদি থাকে </li>
+<li>তারপর এক লাইন গ্যাপ দিয়ে Response Body। স্ট্যাটাস কোড আমাদের বুঝায় সার্ভার ঠিকঠাক উত্তর দিয়েছে কিনা। যেমন এক্ষেত্রে সার্ভার “ওকে”। সার্ভার যদি ঠিকঠাক উত্তর দিতে না পারে তাহলে অন্য স্ট্যাটাস রিটার্ন করতে পারে। আমাদের পরিচিত একটা স্ট্যাটাস হচ্ছে 500 Internel Server Error</li>
+</ul>
+<h2 id="আরো-জানতে"><a href="#আরো-জানতে" class="headerlink" title="আরো জানতে:"></a>আরো জানতে:</h2><ul>
+<li>URL: https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_is_a_URL</li>
+<li>HTTP Overview https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview</li>
+</ul>
+<script>
+        document.querySelectorAll('.not-gallery-item')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div><div class="article-licensing box"><div class="licensing-title"><p>ওয়েব সার্ভার কি? HTTP কি? এগুলো কিভাবে কাজ করে?</p><p><a href="https://mehamasum.github.io/blog/2018/03/what-is-web-server/">https://mehamasum.github.io/blog/2018/03/what-is-web-server/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Mehedi Hasan Masum</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>২০১৮-০৩-০১</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/blog/tags/python/">python</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/web/">web</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/http/">http</a></div><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c1d3e20a1e1ce87" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/blog/2019/05/first-class-functions/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">First-Class Functions - পাইথনে ক্লিন কোড</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/blog/2016/06/paintshop-solution/"><span class="level-item">OS/161: Paint Shop Synchronization Problem</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://mehamasum.github.io/blog/2018/03/what-is-web-server/';
+            this.page.identifier = 'what-is-web-server';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'mehamasum' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#URL-কি"><span class="level-left"><span class="level-item">URL কি?</span></span></a></li><li><a class="level is-mobile" href="#Python-Socket-দিয়ে-ওয়েব-সার্ভার-লিখি"><span class="level-left"><span class="level-item">Python Socket দিয়ে ওয়েব সার্ভার লিখি</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#কি-লিখলাম"><span class="level-left"><span class="level-item">কি লিখলাম?</span></span></a></li></ul></li><li><a class="level is-mobile" href="#HTTP-Syntax"><span class="level-left"><span class="level-item">HTTP Syntax</span></span></a></li><li><a class="level is-mobile" href="#আরো-জানতে"><span class="level-left"><span class="level-item">আরো জানতে:</span></span></a></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/blog/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/categories/Academic/"><span class="level-start"><span class="level-item">Academic</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/Tutorial/"><span class="level-start"><span class="level-item">Tutorial</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/blog/tags/clean-code/"><span class="tag">clean code</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/http/"><span class="tag">http</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/os161/"><span class="tag">os161</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/python/"><span class="tag">python</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/web/"><span class="tag">web</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/">Blog by @mehamasum</a><p class="is-size-7">© ২০২১ Mehedi Hasan Masum • All rights reserved</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="StackOverflow Profile" href="https://stackoverflow.com/users/4135289/mehamasum"><i class="fab fa-stack-overflow"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub Profile" href="https://github.com/mehamasum"><i class="fab fa-github"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Connect on LinkedIn" href="https://linkedin.com/in/mehamasum"><i class="fab fa-linkedin"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("bn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/blog/js/column.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-right",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><!--!--><!--!--><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><script src="/blog/js/main.js" defer></script><!--!--><!-- hexo injector body_end start -->
+    <script>
+    (() => {
+        function switchTab() {
+            if (!location.hash) {
+              return;
+            }
+            Array
+                .from(document.querySelectorAll('.tab-content'))
+                .forEach($tab => {
+                    $tab.classList.add('is-hidden');
+                });
+            Array
+                .from(document.querySelectorAll('.tabs li'))
+                .forEach($tab => {
+                    $tab.classList.remove('is-active');
+                });
+            const $activeTab = document.querySelector(location.hash);
+            if ($activeTab) {
+                $activeTab.classList.remove('is-hidden');
+            }
+            const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+            if ($tabMenu) {
+                $tabMenu.parentElement.classList.add('is-active');
+            }
+        }
+        switchTab();
+        window.addEventListener('hashchange', switchTab, false);
+    })();
+    </script>
+    
+<script src="/blog/js/theme.js"></script>
+<!-- hexo injector body_end end --></body></html>
