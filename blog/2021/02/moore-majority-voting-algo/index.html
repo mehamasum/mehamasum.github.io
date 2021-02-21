@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>Explaination of Boyer-Moore Majority Voting Algorithm - Blog by Meha Masum</title><link rel="manifest" href="/blog/manifest.json"><meta name="theme-color" content="#3c78d8"><meta name="application-name" content="Blog by Meha Masum"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="msapplication-TileColor" content="#3c78d8"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Blog by Meha Masum"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="Simulation and explaination of a linear time majority vote algorithm invented by Boyer and Moore"><meta property="og:type" content="blog"><meta property="og:title" content="Explaination of Boyer-Moore Majority Voting Algorithm"><meta property="og:url" content="https://mehamasum.github.io/blog/2021/02/moore-majority-voting-algo/"><meta property="og:site_name" content="Blog by Meha Masum"><meta property="og:description" content="Simulation and explaination of a linear time majority vote algorithm invented by Boyer and Moore"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://mehamasum.github.io/blog/images/moore-majority-voting-algo/cover.png"><meta property="article:published_time" content="2021-02-21T00:00:00.000Z"><meta property="article:author" content="Mehedi Hasan Masum"><meta property="article:tag" content="algorithm"><meta property="article:tag" content="simulation"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/blog/images/moore-majority-voting-algo/cover.png"><meta property="twitter:creator" content="@mehamasum"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://mehamasum.github.io/blog/2021/02/moore-majority-voting-algo/"},"headline":"Blog by Meha Masum","image":["https://mehamasum.github.io/blog/images/moore-majority-voting-algo/cover.png"],"datePublished":"2021-02-21T00:00:00.000Z","author":{"@type":"Person","name":"Mehedi Hasan Masum"},"description":"Simulation and explaination of a linear time majority vote algorithm invented by Boyer and Moore"}</script><link rel="canonical" href="https://mehamasum.github.io/blog/2021/02/moore-majority-voting-algo/"><link rel="icon" href="/blog/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/blog/css/default.css"><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=UA-106861471-1" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'UA-106861471-1');</script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><!--!--><!--!--><meta name="generator" content="Hexo 5.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/blog/">Blog by @mehamasum</a></div><div class="navbar-menu"><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="About Me" href="/blog/../">About Me</a><a class="navbar-item is-hidden-tablet catalogue" title="Catalogue" href="javascript:;"><i class="fas fa-list-ul"></i></a><div class="navbar-item" id="footer-theme"><input type="checkbox" id="theme-switch"><label for="theme-switch"><i class="fas"></i></label></div></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/blog/images/moore-majority-voting-algo/cover.png" alt="Explaination of Boyer-Moore Majority Voting Algorithm"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-02-21T00:00:00.000Z" title="2021-02-21T00:00:00.000Z">2021-02-21</time></span><span class="level-item"><a class="link-muted" href="/blog/categories/Algorithm/">Algorithm</a></span><span class="level-item">4 min read</span></div></div><h1 class="title is-3 is-size-4-mobile">Explaination of Boyer-Moore Majority Voting Algorithm</h1><div class="content"><h2 id="The-algorithm"><a href="#The-algorithm" class="headerlink" title="The algorithm"></a>The algorithm</h2><p>Given a sequence of votes, we want to know who won by majority.</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  A A A C C B B C C C B C C</span><br><span class="line"> ^</span><br><span class="line">?:0</span><br></pre></td></tr></tbody></table></figure>
+<p>We will sweep down the sequence starting at the pointer position shown above.</p>
+<p>As we sweep we maintain a pair consisting of a <code>current candidate</code> and a <code>counter</code>.
+Initially, the <code>current candidate</code> is unknown and the <code>counter</code> is 0.</p>
+<p>When we move the pointer forward over an element <code>e</code>:</p>
+<p>If the <code>counter</code> is 0
+    - we set the <code>current candidate</code> to <code>e</code> and we set the <code>counter</code> to 1.
+If the <code>counter</code> is not 0
+    - we increment or decrement the <code>counter</code> according to whether <code>e</code> is the <code>current candidate</code>.</p>
+<p>When we are done, the <code>current candidate</code> is the majority element, if there is a majority.</p>
+<h2 id="How-does-it-work"><a href="#How-does-it-work" class="headerlink" title="How does it work?"></a>How does it work?</h2><p>For a cadidate to win by majority, they should get more than half of the total votes cast.</p>
+<p>A vote counts towards majority of a candidate until there is a vote cast for any of the oppositions.<br>I.e. a vote is “nullified” in counting toward majority by any other vote that was cast to a different cadidate. </p>
+<p>So if someone wants to win by majority, thay would have to have some votes that were not nullified.</p>
+<p>Now compare this to this logic to the algorithm written above.</p>
+<h2 id="Simulation"><a href="#Simulation" class="headerlink" title="Simulation"></a>Simulation</h2><p>Lets say there are 3 cadidates (<code>A</code> <code>B</code> and <code>C</code>) and 13 votes cast.</p>
+<h3 id="Initial"><a href="#Initial" class="headerlink" title="Initial"></a>Initial</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  A A A C C B B C C C B C C</span><br><span class="line"> ^</span><br><span class="line">?:0</span><br></pre></td></tr></tbody></table></figure>
+
+<p>At first, we don’t know who has majority and how “strong” their majority may be.  </p>
+<h3 id="Vote-1"><a href="#Vote-1" class="headerlink" title="Vote 1"></a>Vote 1</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line"> ^</span><br><span class="line">A:1</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><code>A</code> gets a vote. So we assume <code>A</code> could have majority by the end of counting.</p>
+<h3 id="Vote-2"><a href="#Vote-2" class="headerlink" title="Vote 2"></a>Vote 2</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">   ^</span><br><span class="line">  A:2</span><br></pre></td></tr></tbody></table></figure>
+<p><code>A</code> gets aonther vote. It counts towards her majority.</p>
+<h3 id="Vote-3"><a href="#Vote-3" class="headerlink" title="Vote 3"></a>Vote 3</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">     ^</span><br><span class="line">    A:3</span><br></pre></td></tr></tbody></table></figure>
+<p><code>A</code> gets aonther vote. It counts towards her majority.</p>
+<h3 id="Vote-4"><a href="#Vote-4" class="headerlink" title="Vote 4"></a>Vote 4</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">       ^</span><br><span class="line">      A:2</span><br></pre></td></tr></tbody></table></figure>
+<p><code>C</code> gets a vote. <code>A</code>‘s majority is hurt. But this vote doesn’t count towards <code>C</code>‘s majority. It only “hurts” <code>A</code>.</p>
+<h3 id="Vote-5"><a href="#Vote-5" class="headerlink" title="Vote 5"></a>Vote 5</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">         ^</span><br><span class="line">        A:1</span><br></pre></td></tr></tbody></table></figure>
+<p><code>C</code> gets another vote. <code>A</code>‘s majority takes more damage.</p>
+<h3 id="Vote-6"><a href="#Vote-6" class="headerlink" title="Vote 6"></a>Vote 6</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">           ^</span><br><span class="line">          ?:0</span><br></pre></td></tr></tbody></table></figure>
+<p><code>B</code> gets a vote now. <code>A</code>‘s majority is hurt even more. Inface, no one has majority at this moment.</p>
+<h3 id="Vote-7"><a href="#Vote-7" class="headerlink" title="Vote 7"></a>Vote 7</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">             ^</span><br><span class="line">            B:1</span><br></pre></td></tr></tbody></table></figure>
+<p><code>B</code> gets another vote. It counts towards <code>B</code>‘s majority.</p>
+<h3 id="Vote-8"><a href="#Vote-8" class="headerlink" title="Vote 8"></a>Vote 8</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">               ^</span><br><span class="line">              ?:0</span><br></pre></td></tr></tbody></table></figure>
+<p><code>C</code> gets a vote. <code>B</code>‘s majority is hurt.</p>
+<h3 id="Vote-9"><a href="#Vote-9" class="headerlink" title="Vote 9"></a>Vote 9</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">                 ^</span><br><span class="line">                C:1</span><br></pre></td></tr></tbody></table></figure>
+<p><code>C</code> gets a vote. At last <code>C</code> has a vote that counts towards <code>C</code>‘s majority. All the other votes were used to counter-balance oppositions.</p>
+<h3 id="Vote-10"><a href="#Vote-10" class="headerlink" title="Vote 10"></a>Vote 10</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">                   ^</span><br><span class="line">                  C:2</span><br></pre></td></tr></tbody></table></figure>
+<p><code>C</code> gets another vote. It counts towards <code>C</code>‘s majority.</p>
+<h3 id="Vote-11"><a href="#Vote-11" class="headerlink" title="Vote 11"></a>Vote 11</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">                     ^</span><br><span class="line">                    C:1</span><br></pre></td></tr></tbody></table></figure>
+<p><code>B</code> gets a vote. <code>C</code>‘s majority is hurt.</p>
+<h3 id="Vote-12"><a href="#Vote-12" class="headerlink" title="Vote 12"></a>Vote 12</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C</span><br><span class="line">                       ^</span><br><span class="line">                      C:2</span><br></pre></td></tr></tbody></table></figure>
+<p><code>C</code> gets another vote. It counts towards <code>C</code>‘s majority.</p>
+<h3 id="Vote-13"><a href="#Vote-13" class="headerlink" title="Vote 13"></a>Vote 13</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">A A A C C B B C C C B C C </span><br><span class="line">                         ^</span><br><span class="line">                        C:3</span><br></pre></td></tr></tbody></table></figure>
+<p><code>C</code> gets another vote. It counts towards <code>C</code>‘s majority.</p>
+<p><code>C</code> is the winner!
+There were 13 votes and notice how many votes were “counted” towards C’s majority.</p>
+<p>Hope this helps someone.</p>
+<p>Example was taken from <a target="_blank" rel="noopener" href="https://www.cs.utexas.edu/~moore/best-ideas/mjrty/example.html">Moore’s website</a>.</p>
+<script>
+        document.querySelectorAll('.not-gallery-item')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script></div><div class="article-licensing box"><div class="licensing-title"><p>Explaination of Boyer-Moore Majority Voting Algorithm</p><p><a href="https://mehamasum.github.io/blog/2021/02/moore-majority-voting-algo/">https://mehamasum.github.io/blog/2021/02/moore-majority-voting-algo/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Mehedi Hasan Masum</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2021-02-21</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="" rel="noopener" target="_blank" title="CC BY-NC-SA 4.0" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/blog/tags/algorithm/">algorithm</a><a class="link-muted mr-2" rel="tag" href="/blog/tags/simulation/">simulation</a></div><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5c1d3e20a1e1ce87" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/blog/2019/05/first-class-functions/"><span class="level-item">First-Class Functions - পাইথনে ক্লিন কোড</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://mehamasum.github.io/blog/2021/02/moore-majority-voting-algo/';
+            this.page.identifier = 'moore-majority-voting-algo';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'mehamasum' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">Catalogue</h3><ul class="menu-list"><li><a class="level is-mobile" href="#The-algorithm"><span class="level-left"><span class="level-item">The algorithm</span></span></a></li><li><a class="level is-mobile" href="#How-does-it-work"><span class="level-left"><span class="level-item">How does it work?</span></span></a></li><li><a class="level is-mobile" href="#Simulation"><span class="level-left"><span class="level-item">Simulation</span></span></a><ul class="menu-list"><li><a class="level is-mobile" href="#Initial"><span class="level-left"><span class="level-item">Initial</span></span></a></li><li><a class="level is-mobile" href="#Vote-1"><span class="level-left"><span class="level-item">Vote 1</span></span></a></li><li><a class="level is-mobile" href="#Vote-2"><span class="level-left"><span class="level-item">Vote 2</span></span></a></li><li><a class="level is-mobile" href="#Vote-3"><span class="level-left"><span class="level-item">Vote 3</span></span></a></li><li><a class="level is-mobile" href="#Vote-4"><span class="level-left"><span class="level-item">Vote 4</span></span></a></li><li><a class="level is-mobile" href="#Vote-5"><span class="level-left"><span class="level-item">Vote 5</span></span></a></li><li><a class="level is-mobile" href="#Vote-6"><span class="level-left"><span class="level-item">Vote 6</span></span></a></li><li><a class="level is-mobile" href="#Vote-7"><span class="level-left"><span class="level-item">Vote 7</span></span></a></li><li><a class="level is-mobile" href="#Vote-8"><span class="level-left"><span class="level-item">Vote 8</span></span></a></li><li><a class="level is-mobile" href="#Vote-9"><span class="level-left"><span class="level-item">Vote 9</span></span></a></li><li><a class="level is-mobile" href="#Vote-10"><span class="level-left"><span class="level-item">Vote 10</span></span></a></li><li><a class="level is-mobile" href="#Vote-11"><span class="level-left"><span class="level-item">Vote 11</span></span></a></li><li><a class="level is-mobile" href="#Vote-12"><span class="level-left"><span class="level-item">Vote 12</span></span></a></li><li><a class="level is-mobile" href="#Vote-13"><span class="level-left"><span class="level-item">Vote 13</span></span></a></li></ul></li></ul></div></div><style>#toc .menu-list > li > a.is-active + .menu-list { display: block; }#toc .menu-list > li > a + .menu-list { display: none; }</style><script src="/blog/js/toc.js" defer></script></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">Categories</h3><ul class="menu-list"><li><a class="level is-mobile" href="/blog/categories/Academic/"><span class="level-start"><span class="level-item">Academic</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/Algorithm/"><span class="level-start"><span class="level-item">Algorithm</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/Cheatsheet/"><span class="level-start"><span class="level-item">Cheatsheet</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/blog/categories/Tutorial/"><span class="level-start"><span class="level-item">Tutorial</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/blog/tags/algorithm/"><span class="tag">algorithm</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/cheatsheet/"><span class="tag">cheatsheet</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/clean-code/"><span class="tag">clean code</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/cpp/"><span class="tag">cpp</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/http/"><span class="tag">http</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/java/"><span class="tag">java</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/os161/"><span class="tag">os161</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/python/"><span class="tag">python</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/simulation/"><span class="tag">simulation</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/blog/tags/web/"><span class="tag">web</span><span class="tag">1</span></a></div></div></div></div></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/blog/">Blog by @mehamasum</a><p class="is-size-7">© 2021 Mehedi Hasan Masum • All rights reserved</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="StackOverflow Profile" href="https://stackoverflow.com/users/4135289/mehamasum"><i class="fab fa-stack-overflow"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub Profile" href="https://github.com/mehamasum"><i class="fab fa-github"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Connect on LinkedIn" href="https://linkedin.com/in/mehamasum"><i class="fab fa-linkedin"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/blog/js/column.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/blog/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-right",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><!--!--><!--!--><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><script src="/blog/js/main.js" defer></script><!--!--><!-- hexo injector body_end start -->
+    <script>
+    (() => {
+        function switchTab() {
+            if (!location.hash) {
+              return;
+            }
+            Array
+                .from(document.querySelectorAll('.tab-content'))
+                .forEach($tab => {
+                    $tab.classList.add('is-hidden');
+                });
+            Array
+                .from(document.querySelectorAll('.tabs li'))
+                .forEach($tab => {
+                    $tab.classList.remove('is-active');
+                });
+            const $activeTab = document.querySelector(location.hash);
+            if ($activeTab) {
+                $activeTab.classList.remove('is-hidden');
+            }
+            const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+            if ($tabMenu) {
+                $tabMenu.parentElement.classList.add('is-active');
+            }
+        }
+        switchTab();
+        window.addEventListener('hashchange', switchTab, false);
+    })();
+    </script>
+    
+<script src="/blog/js/theme.js"></script>
+<!-- hexo injector body_end end --></body></html>
