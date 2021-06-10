@@ -22,13 +22,15 @@ function detectColorScheme() {
         if(localStorage.getItem("theme") === "dark"){
             theme = "dark";
         }
-    } else if(!window.matchMedia) { 
+    } 
+    
+    /* else if(!window.matchMedia) { 
         // matchMedia not supported  
         return false;
     } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
         // OS has set Dark Mode
         theme = "dark";
-    }
+    } */
 
     // set detected theme
     if (theme === "dark") {
