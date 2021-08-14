@@ -1,5 +1,5 @@
 title: 'How to change Docker data directory in ubuntu'
-date: 2021-02-21
+date: 2021-07-31
 disqusId: how-to-change-docker-data-directory-in-ubuntu
 categories:
 - Tips
@@ -44,7 +44,7 @@ For a newly created file, the file will look like this:
 and delete these once you confirm docker is working fine  
 `sudo rm -rf /var/lib/docker-backup`  
   
-- OR, delete them parmanently now ¯/_(ツ)_/¯  
+- OR, delete them parmanently now 🤷  
 `sudo rm -rf /var/lib/docker`  
    
 ### Start docker and check if everything is running like before  
