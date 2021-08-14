@@ -1,3 +1,16 @@
+title: 'How to change Docker data directory in ubuntu'
+date: 2021-02-21
+disqusId: how-to-change-docker-data-directory-in-ubuntu
+categories:
+- Tips
+tags:
+- ubuntu
+- docker
+language: en
+toc: true
+cover: 'https://images.unsplash.com/photo-1605745341075-1b7460b99df8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80'
+excerpt: 'Running on low disk space for root partition? You may want to move Docker data to a separate partition'
+---
 
 If you have a lot of Docker images, containers, volumes etc on your root partition and removing all unnecessary stuff with `docker system prune` didn't help- you might want to move your Docker data out of the root partition to a different partition (for example, `/home` partition).  
 Here are the steps to do that.  
