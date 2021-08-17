@@ -4,9 +4,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const { getProjects } = require('./src/ssr');
+
 
 module.exports = {
-    entry: './src/index.js',
+    entry: './src/runtime.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
@@ -27,6 +29,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             templateParameters: {
                 homepage: process.env.HOMEPAGE || 'https://mehamasum.github.io/',
+                projects: getProjects(),
                 year: new Date().getFullYear()
             },
             template: 'public/index.ejs'
