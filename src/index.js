@@ -278,9 +278,6 @@ projectsToDisplay.forEach(project => {
                             ${project.description}
                         </p>
                         <footer class="my-3">
-                            <div class="preference-label mb-1">
-                                <span>Built with</span>
-                            </div>
                             ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
                         </footer>
                     </article>

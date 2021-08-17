@@ -101,17 +101,17 @@ summary {
     border-radius: 3px;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
-    background-color: #eef6fc;
-    color: #1d72aa;
+    color: #39739d;
+    background-color: #e1ecf4;
 }
 
 .interested-tag {
-    background-color: #effaf3;
+    background-color: #e4f3ea;
     color: #257942;
 }
 
 .disliked-tag {
-    background-color: #f5f5f5;
+    background-color: #e4e6e8;
     color: #6a737c;
 }
 
