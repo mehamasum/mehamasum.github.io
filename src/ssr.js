@@ -279,7 +279,7 @@ const getProjects = () => {
                         ${project.description}
                     </p>
                     <footer class="my-3">
-                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
                     </footer>
                 </article>
             </div>
@@ -409,7 +409,7 @@ const getWorks = () => {
                 </details>
             </div>
             <footer class="my-3">
-              ${work.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+              ${work.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
             </footer>
         </article>
     </div>
