@@ -4,7 +4,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const { getProjects } = require('./src/ssr');
+const { getProjects, getWorks } = require('./src/ssr');
 
 
 module.exports = {
@@ -30,6 +30,7 @@ module.exports = {
             templateParameters: {
                 homepage: process.env.HOMEPAGE || 'https://mehamasum.github.io/',
                 projects: getProjects(),
+                works: getWorks(),
                 year: new Date().getFullYear()
             },
             template: 'public/index.ejs'
