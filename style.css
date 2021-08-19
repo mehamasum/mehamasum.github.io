@@ -1,11 +1,18 @@
+:root {
+    --bg: #f4f9fc;
+    --text: #263238;
+    --subtext: #616161;
+    --header: #0f1b61;
+    --link: #673ab7;
+}
+
 body {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, “Helvetica Neue”, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5;
-    background: #f6f6f6;
-    background: #fff;
-    color: #4a4a4a;
+    background: var(--bg);
+    color: var(--text);
 }
 
 
@@ -29,24 +36,42 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Oswald', sans-serif;
-    color: #3c78d8;
-    color: #003e54;
-    color: #4a4a4a;
+    color: var(--header);
 }
 
+.special-header {
+    font-family: 'Oswald', sans-serif;
+}
+
+.h2, h2 {
+    font-size: 1.5rem;
+}
+
+.h3, h3 {
+    font-size: 1.2rem;
+}
+
+
 a {
-    color: #3c78d8;
+    color: var(--link);
+}
+
+a:hover {
+    color: var(--link);
 }
 
 summary {
-    color: #3c78d8;
+    color: var(--link);
+}
+
+.subtext {
+    color: var(--subtext);
 }
 
 .avatar {
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+    border-radius: 8px;
 }
 
 .fa {
@@ -101,7 +126,7 @@ summary {
     border-radius: 3px;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
-    color: #39739d;
+    color: #1565c0;
     background-color: #e1ecf4;
 }
 
@@ -112,10 +137,10 @@ summary {
 
 .disliked-tag {
     background-color: #e4e6e8;
-    color: #6a737c;
+    color: #616161;
 }
 
-article>header h5 {
+article>header h3 {
     font-family: 'Lato', -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, “Helvetica Neue”, Arial, sans-serif, “Apple Color Emoji”, “Segoe UI Emoji”, “Segoe UI Symbol”;
     font-size: 1.2em;
     font-weight: 700;
@@ -171,10 +196,10 @@ address+time:before {
 
 address,
 time {
-    color: #a8a8a8;
+    color: var(--subtext);
 }
 
-.resume-section>h4 {
+.resume-section > h2 {
     text-transform: uppercase;
 }
 
@@ -214,7 +239,7 @@ time {
 }
 
 .quote blockquote p {
-    color: #75808a;
+    color: var(--subtext);;
     line-height: 1.4 !important;
 }
 
