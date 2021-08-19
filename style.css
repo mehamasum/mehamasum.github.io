@@ -125,7 +125,14 @@ article>header h5 {
 .placeholder {
     width: 48px;
     height: 48px;
-    /* background: #e9ecef !important; */
+    background: #e9ecef !important;
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+}
+
+.placeholder:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
 }
 
 .placeholder > svg {
