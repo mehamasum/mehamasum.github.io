@@ -72,7 +72,7 @@ const projects = [{
   }],
   "description": "A Reddit like mobile utility for sharing road safety issues to draw local authority’s attention",
   "color": "#4B515B",
-  "thumbnail": `<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><path d="M266.21 1033.4c-92.05 0-166.67 74.62-166.67 166.67 0 29.6 7.95 57.29 21.48 81.38 2.25 4 4.6 7.94 7.16 11.73l138.02 240.23 138.02-240.23c2.13-3.15 3.96-6.48 5.85-9.77l1.31-1.96c13.52-24.08 21.48-51.77 21.48-81.38.02-92.05-74.61-166.67-166.65-166.67zm0 83.33c46.02 0 83.33 37.31 83.33 83.33 0 46.02-37.31 83.33-83.33 83.33-46.02 0-83.33-37.31-83.33-83.33 0-46.02 37.31-83.33 83.33-83.33z" style="fill:#4a505b" transform="translate(0 -1028.4)"/><path style="fill:#2d343d" d="M266.21 1095.9c-57.53 0-104.17 46.64-104.17 104.17 0 57.52 46.64 104.17 104.17 104.17 57.52 0 104.17-46.65 104.17-104.17 0-57.53-46.65-104.17-104.17-104.17zm0 41.67c34.52 0 62.5 27.98 62.5 62.5 0 34.52-27.98 62.5-62.5 62.5s-62.5-27.98-62.5-62.5c0-34.52 27.98-62.5 62.5-62.5z" transform="translate(0 -1028.4)"/><circle style="fill:#2d343d" cx="269.43" cy="172.98" r="107.38"/><circle cx="314.25" cy="268.5" r="22.53" style="fill:#96d300"/><path d="M302.81 201.15c-1.52-29.02 13.46-58.84 14.11-88.88-12.3-.43-24.68-.22-36.7 2.61-50.16-19.11-84.25 47.48-74.62 88.95 5.86 28.52 48.71 28.59 60.29 4.13 7.74 6.8 13.75 20.05 26.13 17.66 23.74 2.39 38.94-23.81 42.85-43.86-16.06-1.09-16.71 36.4-32.06 19.39zm-22.87-63.69c-4.56 19.69-6.37 40.97-16.43 58.77-5.94 11.73-27.58 8.83-25.04-6.15.8-22.8 6.88-50.09 26.64-64.13 10.85-2.9 15.77.94 14.83 11.51z" style="fill:#fff"/></svg>`,
+  "thumbnail": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"><path style="fill:#4a505b" d="M259.7 5C144.7 5 51.4 98.2 51.4 213.2c0 37 9.9 71.6 26.8 101.7 2.8 5 5.7 9.9 8.9 14.7l172.4 180.2 172.4-180.2c2.7-3.9 4.9-8.1 7.3-12.2l1.6-2.4c16.9-30.1 26.8-64.7 26.8-101.7C467.9 98.2 374.6 5 259.7 5zm0 104.1c57.5 0 104.1 46.6 104.1 104.1 0 57.5-46.6 104.1-104.1 104.1s-104.1-46.6-104.1-104.1c0-57.5 46.6-104.1 104.1-104.1z"/><path style="fill:#2d343d" d="M259.7 83.1c-71.9 0-130.1 58.3-130.1 130.1 0 71.9 58.3 130.1 130.1 130.1 71.9 0 130.1-58.3 130.1-130.1S331.5 83.1 259.7 83.1zm0 52c43.1 0 78.1 35 78.1 78.1s-35 78.1-78.1 78.1-78.1-35-78.1-78.1 34.9-78.1 78.1-78.1z"/><circle style="fill:#2d343d" cx="263.7" cy="214.9" r="134.2"/><circle style="fill:#96d300" cx="320.9" cy="334" r="35.4"/><path style="fill:#fff" d="M305.4 250.1c-1.9-36.3 16.8-73.5 17.6-111-15.4-.5-30.8-.3-45.9 3.3-62.7-23.9-105.3 59.3-93.2 111.1 7.3 35.6 60.9 35.7 75.3 5.2 9.7 8.5 17.2 25 32.6 22.1 29.7 3 48.6-29.7 53.5-54.8-19.9-1.5-20.7 45.3-39.9 24.1zm-28.6-79.6c-5.7 24.6-8 51.2-20.5 73.4-7.4 14.7-34.5 11-31.3-7.7 1-28.5 8.6-62.6 33.3-80.1 13.5-3.6 19.7 1.2 18.5 14.4z"/></svg>`,
   "winner": [{
     "title": "Second Prize",
     "platform": "Ford Hack and Role Indore",
@@ -278,7 +278,7 @@ const getProjects = () => {
   let sectionInnerHTML = '';
   const projectsToDisplay = projects.filter(project => project.type === 'personal' && project.winner);
   projectsToDisplay.forEach(project => {
-    const rgb = hexToRgb(project.color);
+    const rgb = hexToRgb(project.color || '#ffffff');
     sectionInnerHTML += `
             <div id="${project.hash}" class="col-lg-6 col-xs-12">
                 <article>
@@ -350,7 +350,9 @@ const works = [
       `Maintained and developed new features for NewsCred’s publishing integrations including OAuth integrations (i.e., Facebook, LinkedIn, YouTube, Instagram), RPC and Plugin-based integrations (i.e., WordPress, AEM, Sitecore), WOPI-based integrations (i.e., Microsoft Office for web) etc.`,
       `Rebuilt Newscred’s content publishing and social scheduling experience (AngularJS to ReactJS). Identified and resolved performance issues, added monitoring and proactive publishing failure prevention steps. Reduced client-reported bugs by more than 15% in two quarters`,
       `Built a trial version of the existing software, allowing public signup and metered resource utilizations. Designed the architecture and implemented social login capabilities into existing SSO architecture`,
-    ]
+    ],
+    "color": "#702bd5",
+    "thumbnail": `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><path d="M91.35 0h9.21c20.76 1.08 41.16 8.89 57.06 22.33C177.66 38.81 190.1 63.77 192 89.58v12.05c-1.2 17.52-7.01 34.77-17.14 49.16-13.69 19.82-35.12 34.11-58.7 39.03-18.68 4.15-38.55 2.26-56.25-4.94-20.01-8.1-37.09-23.2-47.6-42.07C1.39 123.32-2.58 99.92 1.81 77.97c4.08-21.8 16.08-42.01 33.25-56.06C50.81 8.78 70.91 1.16 91.35 0m42.64 38.14c6.09 12.37 5.17 26.53 4.42 39.89-1.67 17.6-4.18 35.37-10.78 51.87-1.8 4.18-3.67 8.56-7.13 11.65-1.73 1.85-5.34 1.76-6.53-.66-1.96-3.51-2.13-7.68-2.41-11.6-.62-23.12.67-46.23.87-69.33.31-3-2.41-5.03-5.13-5.26-3.5-.37-8.22-1.46-10.5 2.06-2.84 4.81-4.53 10.18-6.86 15.24-8.52 18.39-15.67 37.37-24.17 55.77-2.98 6.06-6.16 12.2-10.9 17.09-.63-4.96-.24-9.96.36-14.91 2.19-22.81 9.03-44.79 14.12-67.05.64-2.5.47-5.18-1.06-7.32-2.86-.18-5.73-.2-8.58.04-.29 3.9-1.77 7.54-2.7 11.31-6.25 23.38-11.97 47-14.91 71.06-.53 5.23-.83 11.58 3.35 15.5 5.5 4.77 14.17 2.56 19.04-2.05 6.65-7.36 10.51-16.64 14.31-25.66 8.01-17.4 14.28-35.52 21.97-53.06.46-1.1 1.1-2.12 1.89-3.02-.46 22.08-3.52 44.12-2.16 66.23.54 5.62 2.58 11.75 7.58 14.93 4.62 2.56 10.38 3.31 15.38 1.38 6.33-2.38 11.06-7.9 13.64-14.03 4.2-10.38 7.18-21.23 9.03-32.27 3.42-19.42 5.58-39.35 3.18-59.02-.62-4.18-1.62-9.49-6.12-11.16-3.05.23-6.94.06-9.2 2.38z" fill="#702bd5"/><path d="M133.99 38.14c2.26-2.32 6.15-2.15 9.2-2.38 4.5 1.67 5.5 6.98 6.12 11.16 2.4 19.67.24 39.6-3.18 59.02-1.85 11.04-4.83 21.89-9.03 32.27-2.58 6.13-7.31 11.65-13.64 14.03-5 1.93-10.76 1.18-15.38-1.38-5-3.18-7.04-9.31-7.58-14.93-1.36-22.11 1.7-44.15 2.16-66.23-.79.9-1.43 1.92-1.89 3.02-7.69 17.54-13.96 35.66-21.97 53.06-3.8 9.02-7.66 18.3-14.31 25.66-4.87 4.61-13.54 6.82-19.04 2.05-4.18-3.92-3.88-10.27-3.35-15.5 2.94-24.06 8.66-47.68 14.91-71.06.93-3.77 2.41-7.41 2.7-11.31 2.85-.24 5.72-.22 8.58-.04 1.53 2.14 1.7 4.82 1.06 7.32-5.09 22.26-11.93 44.24-14.12 67.05-.6 4.95-.99 9.95-.36 14.91 4.74-4.89 7.92-11.03 10.9-17.09 8.5-18.4 15.65-37.38 24.17-55.77 2.33-5.06 4.02-10.43 6.86-15.24 2.28-3.52 7-2.43 10.5-2.06 2.72.23 5.44 2.26 5.13 5.26-.2 23.1-1.49 46.21-.87 69.33.28 3.92.45 8.09 2.41 11.6 1.19 2.42 4.8 2.51 6.53.66 3.46-3.09 5.33-7.47 7.13-11.65 6.6-16.5 9.11-34.27 10.78-51.87.75-13.36 1.67-27.52-4.42-39.89z" fill="#fff"/></svg>`,
   },
   {
     title: 'Software Engineer',
@@ -377,17 +379,20 @@ const works = [
       `Developed a gaming environment with ReactJS, Redux and PixiJS, implemented real-time messaging backend from scratch with Django Channels`,
       `Led the CORE team in building a REST backend module using DRF in form of reusable Django apps, to share across different products. Built CI pipeline to run tests and publish as a private Python module`,
       `Created and maintained a shared ReactJS component library, showcased by a style guide app. Added tests & documentation, built CI pipeline to run tests, lint, build with Webpack and publish as private Node package`
-    ]
+    ],
+    "color": "#87ceb4",
+    "thumbnail": `<svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg"><path fill="#1e3b6e" d="M93.32 23.31c3.04-1.83 6.59.49 8.01 3.29 4.2 7.19 8.53 14.32 12.64 21.57 1.61 2.4.1 6.13-2.98 6.07-10 .16-20.01.06-30.01.04-1.96.12-3.83-1.27-4.18-3.21.04-1.95 1.06-3.66 2.01-5.29 3.74-6.24 7.39-12.52 11.07-18.79.87-1.44 1.85-2.95 3.44-3.68z"/><path d="M63.49 78.66c7.78-3.8 18.02 1.09 20.1 9.45 2.59 8.04-3.4 17.23-11.68 18.42-7.19 1.37-14.82-3.53-16.6-10.61-2.05-6.76 1.75-14.49 8.18-17.26zm52.83-.12c8.07-3.73 18.49 1.74 20.03 10.47 1.97 8.03-4.19 16.75-12.4 17.58-7.07 1.11-14.35-3.74-16.1-10.66-2.02-6.86 1.82-14.76 8.47-17.39zm-78.04 46.72c8.29-3.23 18.41 2.79 19.4 11.64 1.51 8.2-5.31 16.61-13.63 16.81-7.42.65-14.6-5.29-15.4-12.68-1.03-6.69 3.26-13.6 9.63-15.77zm52.05.12c8.04-3.34 18.08 2.13 19.59 10.7 1.92 7.9-4.05 16.42-12.06 17.5-7.16 1.29-14.72-3.63-16.46-10.68-2.13-7 2.1-15.05 8.93-17.52zm52.11.25c6.64-3.01 15.23-.17 18.64 6.31 4.04 6.87 1.17 16.67-6.04 20.16-7.11 3.97-16.96.52-20.13-6.95-3.51-7.16.21-16.51 7.53-19.52z" fill="#88CFB5"/></svg>`,
   },
   {
     title: 'Research Intern',
-    companyName: 'Robolab, Dept. of CSE, Univ. of Dhaka',
+    companyName: 'Robotics Lab, CSE, DU',
     companyWebsite: 'http://cse.du.ac.bd/robolab',
     location: 'Dhaka, Bangladesh',
     startDate: '2016-06-01',
     endDate: '2018-02-01',
-    excerptHTML: `Front- and back-end engineering and Machine Learning R&amp;D for <a href="https://github.com/RoboPi-CSEDU">Rupai</a>, a graphically programmable robotics kit, funded by Ministry of Education, Govt. of Bangladesh.`,
+    excerptHTML: `Worked as an Intern for the "Robolab" in Dept. of CSE, Univ. of Dhaka.`,
     responsibilityHTMLs: [
+      `Did Front- and back-end engineering and Machine Learning R&amp;D for <a href="https://github.com/RoboPi-CSEDU">Rupai</a>, a graphically programmable robotics kit, funded by Ministry of Education, Govt. of Bangladesh.`,
       `Led a team of six in building a visual programming interface for robotics kits. Designed the system, was responsible for budget & resource management, documentation and reporting`,
       `Worked on both front- and back-end, developed the programming editor, code transfer module and code transpilation into the kit-specific language`
     ],
@@ -398,7 +403,9 @@ const works = [
       'keras',
       'blockly',
       'php',
-    ]
+    ],
+    "color": "#000000",
+    "thumbnail": `<svg width="200pt" height="200pt" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><g fill="#fff"><path d="M45.36 67.26c.12-2.26 2.68-3.11 4.61-2.95 13.01.02 26.03-.04 39.04.03 1.69-.1 3.84.69 4.1 2.6.43 5.03.08 10.1.16 15.15l-1.16 2.16c-2.02.46-4.09.63-6.16.58-12.31-.1-24.63.06-36.95-.07-1.74.07-3.65-1.17-3.67-3.04-.18-4.81-.22-9.65.03-14.46zM106.13 67.24c.12-2.41 2.86-3.07 4.84-2.94 12.71.01 25.42.01 38.13.01 1.59-.1 3.05.54 4.48 1.12.77 6.04.72 12.19.04 18.24-1.45.6-2.93 1.23-4.54 1.14-13.04-.04-26.08.05-39.12-.05-1.82.11-3.8-1.07-3.86-3.04-.18-4.82-.23-9.67.03-14.48z"/></g><path d="M31.8 31.8c45.23 0 90.46-.01 135.69.01v135.68H31.8V31.8m13.56 35.46c-.25 4.81-.21 9.65-.03 14.46.02 1.87 1.93 3.11 3.67 3.04 12.32.13 24.64-.03 36.95.07 2.07.05 4.14-.12 6.16-.58l1.16-2.16c-.08-5.05.27-10.12-.16-15.15-.26-1.91-2.41-2.7-4.1-2.6-13.01-.07-26.03-.01-39.04-.03-1.93-.16-4.49.69-4.61 2.95m60.77-.02c-.26 4.81-.21 9.66-.03 14.48.06 1.97 2.04 3.15 3.86 3.04 13.04.1 26.08.01 39.12.05 1.61.09 3.09-.54 4.54-1.14.68-6.05.73-12.2-.04-18.24-1.43-.58-2.89-1.22-4.48-1.12-12.71 0-25.42 0-38.13-.01-1.98-.13-4.72.53-4.84 2.94z"/></svg>`,
   }
 ];
 
@@ -417,15 +424,20 @@ const getWorks = () => {
     const diffInYears = Math.floor(moment(endDate).diff(startDate, 'years', true));
     const durationStr = diffInYears > 0 ? `${diffInYears} year${diffInYears === 1 ? '' : 's'}, ${(diffInMonths % 12)} month${diffInMonths % 12 === 1 ? '' : 's'}` : `${diffInMonths} month${diffInMonths === 1 ? '' : 's'}`
 
+    const rgb = hexToRgb(work.color || '#ffffff');
+
     innerHtml += `
       <div class="col-12">
         <article>
-            <header class="my-2">
-                <h5>
-                    ${work.title} at <a href="${work.companyWebsite}" target="_blank" rel="noopener noreferrer">${work.companyName}</a>
-                </h5>
-                <div class="my-1">
-                    <address>${work.location}</address><time>${tanureStr} (${durationStr})</time>
+            <header class="my-2 d-flex">
+                <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
+                  ${work.thumbnail}
+                </div>
+                <div>
+                  <h5>
+                      ${work.title} at <a href="${work.companyWebsite}" target="_blank" rel="noopener noreferrer">${work.companyName}</a>
+                  </h5>
+                  <address>${work.location}</address><time>${tanureStr} (${durationStr})</time>
                 </div>
             </header>
             <div class="my-2">
