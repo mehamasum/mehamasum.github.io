@@ -281,18 +281,18 @@ const getProjects = () => {
     const rgb = hexToRgb(project.color || '#ffffff');
     sectionInnerHTML += `
             <div id="${project.hash}" class="col-lg-6 col-xs-12">
-                <article>
+                <article class="my-3">
                     <header class="my-2 d-flex">
                         <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
                           ${project.thumbnail}
                         </div>
                         
                         <div>
-                          <h5>
+                          <h3>
                               <a href="${project.url[0].url}" target="_blank" rel="noopener" title="${project.url[0].title}">
                                   ${project.name}
                               </a>
-                          </h5>
+                          </h3>
                           <time>${project.year}</time>
                         </div>
                     </header>
@@ -428,15 +428,15 @@ const getWorks = () => {
 
     innerHtml += `
       <div class="col-12">
-        <article>
+        <article class="my-3">
             <header class="my-2 d-flex">
                 <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
                   ${work.thumbnail}
                 </div>
                 <div>
-                  <h5>
+                  <h3>
                       ${work.title} at <a href="${work.companyWebsite}" target="_blank" rel="noopener noreferrer">${work.companyName}</a>
-                  </h5>
+                  </h3>
                   <address>${work.location}</address><time>${tanureStr} (${durationStr})</time>
                 </div>
             </header>
