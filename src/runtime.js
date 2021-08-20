@@ -46,5 +46,5 @@ TxtType.prototype.tick = function (firstRun = false) {
 
 window.onload = function () {
   const element = document.querySelector("#first-name");
-  new TxtType(element, ["Mehedi Hasan", "Meha"], 2000, 3);
+  // new TxtType(element, ["Mehedi Hasan", "Meha"], 2000, 3);
 };
