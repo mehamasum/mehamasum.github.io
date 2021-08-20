@@ -74,7 +74,7 @@ summary {
     border-radius: 8px;
 }
 
-.fa {
+.fa, .fab {
     margin-right: 0.25rem;
 }
 
