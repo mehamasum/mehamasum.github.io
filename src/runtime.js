@@ -1,3 +1,5 @@
+import "./style.css";
+
 var TxtType = function (el, toRotate, period, cutOffIndex) {
   this.toRotate = toRotate;
   this.el = el;
