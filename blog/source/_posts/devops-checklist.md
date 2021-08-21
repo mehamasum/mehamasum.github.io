@@ -40,9 +40,9 @@ This may also be a good starting point if you just started learning DevOps.
 
 ## Application Performance Management (APM)
 - [ ]  Log aggregation: e.g. Logstash + ElasticSearch + Kibana
-- [ ]  Metrics: e.g. Prometheus + Grafana
+- [ ]  Metrics: e.g. Prometheus
 - [ ]  Error tracking: e.g. Sentry
-- [ ]  Monitoring: e.g. Take the metrics and logs and convert them into health metrics
+- [ ]  Monitoring: Take the metrics and logs and convert them into health metrics e.g. Grafana 
 - [ ]  Uptime status: e.g. Pingdom
 - [ ]  Alerting: e.g. PagerDuty
 
