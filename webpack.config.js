@@ -11,6 +11,14 @@ const { getProjects, getWorks } = require('./src/ssr');
 module.exports = {
     mode: 'production',
     entry: './src/runtime.js',
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'public'),
+        },
+        port: 8000,
+        allowedHosts: 'auto',
+        watchFiles: ['src/**/*',],
+    },
     output: {
         filename: "[name].[contenthash].js",
         chunkFilename: "[id].[contenthash].js",
