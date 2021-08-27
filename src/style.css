@@ -118,12 +118,26 @@ summary {
     border-radius: 8px;
 }
 
+.contact-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--border);
+    padding: 32px;
+    border-radius: 8px;
+}
 
 /* Increase all font sizes on mobile */
 
 @media (max-width: 767px) {
     body {
         font-size: 16px;
+    }
+
+    .contact-section {
+        align-items: start;
+        text-align: start;
     }
 }
 
@@ -139,6 +153,10 @@ summary {
     .resume-section {
         padding: 16px;
     }
+
+    .contact-section {
+        padding: 16px;
+    }
 }
 
 .avatar {
@@ -147,7 +165,7 @@ summary {
     border-radius: 8px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 992px) {
     .avatar {
         width: 100px;
         height: 100px;
