@@ -1,9 +1,21 @@
 :root {
-    --bg: #f4f9fc;
+    --bg: #f3f6fd;
+    --section-bg: #ffffff;
     --text: #263238;
     --subtext: #616161;
     --header: #0f1b61;
     --link: #673ab7;
+    --border: #e1e4e8;
+
+
+    --tag-color: #1565c0;
+    --tag-bg-color: #e1ecf4;
+    --tag-interest-color: #257942;
+    --tag-interest-bg-color: #e4f3ea;
+    --tag-dislike-color: #616161;
+    --tag-dislike-bg-color: #e4e6e8;
+
+    --image-placeholder: #e9ecef;
 }
 
 body {
@@ -13,6 +25,42 @@ body {
     line-height: 1.5;
     background: var(--bg);
     color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+
+html * {
+    -webkit-transition: background-color 0.5s, border-color 0.5s;
+    transition: background-color 0.5s, border-color 0.5s;
+}
+
+html.dark {
+    --bg: #111827;
+    --section-bg: #1f2937;
+    --text: #adbac7;
+    --subtext: #768390;
+    --header: #adbac7;
+    --link: #539bf5;
+    --border: #444c56;
+
+
+    --tag-color: #c2e8ff;
+    --tag-bg-color: #143b5a;
+    --tag-interest-color: #aeffca;
+    --tag-interest-bg-color: #264030;
+    --tag-dislike-color: #eaeaea;
+    --tag-dislike-bg-color: #545454;
+
+    --image-placeholder: #263238;
+}
+
+.mode-switch {
+    background-color: transparent;
+    border: none;
+}
+
+.mode-switch > .mode-switch-icon {
+    color: var(--link);
 }
 
 
@@ -52,11 +100,11 @@ h6 {
 }
 
 
-a {
+a, .btn-link {
     color: var(--link);
 }
 
-a:hover {
+a:hover, .btn-link:hover {
     color: var(--link);
 }
 
@@ -121,7 +169,7 @@ summary {
 
 .preference-label {
     font-size: 90%;
-    color: #646464;
+    color: var(--subtext);
 }
 
 .tag {
@@ -132,20 +180,18 @@ summary {
     display: inline-block;
     padding: .2em .6em;
     border-radius: 3px;
-    -webkit-transition: all .15s ease-in-out;
-    transition: all .15s ease-in-out;
-    color: #1565c0;
-    background-color: #e1ecf4;
+    color: var(--tag-color);
+    background-color: var(--tag-bg-color);
 }
 
 .interested-tag {
-    background-color: #e4f3ea;
-    color: #257942;
+    background-color: var(--tag-interest-bg-color);
+    color: var(--tag-interest-color);
 }
 
 .disliked-tag {
-    background-color: #e4e6e8;
-    color: #616161;
+    background-color: var(--tag-dislike-bg-color);
+    color: var(--tag-dislike-color);
 }
 
 article>header h3 {
@@ -158,7 +204,7 @@ article>header h3 {
 .placeholder {
     width: 48px;
     height: 48px;
-    background: #e9ecef !important;
+    background: var(--image-placeholder) !important;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
 }
@@ -207,21 +253,24 @@ time {
     color: var(--subtext);
 }
 
+.about-me-section {
+    border: 1px solid var(--border);
+    padding: 32px;
+    border-radius: 8px;
+}
+
+.resume-section {
+    background: var(--section-bg);
+    padding: 32px;
+    border-radius: 8px;
+}
+
 .resume-section > h2 {
     text-transform: uppercase;
 }
 
 .copyright {
     font-size: 0.8em;
-}
-
-.nav-link {
-    padding: .5rem 0;
-    margin: 0 .5rem;
-}
-
-.nav-link.active {
-    border-bottom: 2px solid #e1ecf4;
 }
 
 .quote {
@@ -233,12 +282,11 @@ time {
     margin: 0;
     padding: 0;
     background: none;
-    color: gray;
+    color: var(--subtext);
     font-style: italic;
     line-height: 1.4 !important;
     margin: 0;
     position: relative;
-    text-shadow: 0 1px white;
     z-index: 600;
 }
 
@@ -247,7 +295,7 @@ time {
 }
 
 .quote blockquote p {
-    color: var(--subtext);;
+    color: var(--subtext);
     line-height: 1.4 !important;
 }
 
@@ -264,26 +312,8 @@ time {
     z-index: -300;
 }
 
-.quote cite {
-    color: gray;
-    display: block;
-    font-size: .8em;
-}
-
-.quote cite span {
-    color: #5e5e5e;
-    font-size: 1em;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-shadow: 0 1px white;
-}
 
 .quote {
     position: relative;
 }
 
-.quote.right cite {
-    text-align: right;
-}
