@@ -107,15 +107,19 @@ summary {
 }
 
 .about-me-section {
-    border: 1px solid var(--border);
     padding: 32px;
     border-radius: 8px;
+    -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    background-color: var(--section-bg);
 }
 
 .resume-section {
     background: var(--section-bg);
     padding: 32px;
     border-radius: 8px;
+    -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
 }
 
 .contact-section {
@@ -123,9 +127,11 @@ summary {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    border: 1px solid var(--border);
     padding: 32px;
     border-radius: 8px;
+    background-color: var(--section-bg);
+    -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
 }
 
 /* Increase all font sizes on mobile */
@@ -145,31 +151,18 @@ summary {
     .container {
         padding: 0 24px;
     }
-
-    .about-me-section {
-        padding: 32px;
-    }
-
-    .resume-section {
-        padding: 16px;
-    }
-
-    .contact-section {
-        padding: 16px;
-    }
 }
 
 .avatar {
     width: 160px;
     height: 160px;
-    border-radius: 8px;
+    border-radius: 50%;
 }
 
 @media (max-width: 992px) {
     .avatar {
         width: 100px;
         height: 100px;
-        border-radius: 8px;
     }
 }
 
