@@ -5,7 +5,7 @@
     --subtext: #616161;
     --header: #0f1b61;
     --link: #673ab7;
-    --border: #e1e4e8;
+    --border: #ced0d4;
 
 
     --tag-color: #1565c0;
@@ -107,7 +107,6 @@ summary {
 }
 
 .about-me-section {
-    padding: 32px;
     border-radius: 8px;
     -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
     box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
@@ -116,7 +115,6 @@ summary {
 
 .resume-section {
     background: var(--section-bg);
-    padding: 32px;
     border-radius: 8px;
     -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
     box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
@@ -127,7 +125,6 @@ summary {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 32px;
     border-radius: 8px;
     background-color: var(--section-bg);
     -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
@@ -149,7 +146,7 @@ summary {
 
 @media (max-width: 576px) {
     .container {
-        padding: 0 24px;
+        padding: 0 8px;
     }
 }
 
@@ -229,6 +226,11 @@ summary {
 .disliked-tag {
     background-color: var(--tag-dislike-bg-color);
     color: var(--tag-dislike-color);
+}
+
+.winner-tag {
+    color: #192325;
+    background-color: #F3BF1E;
 }
 
 article>header h3 {
@@ -339,4 +341,8 @@ time {
 
 .quote {
     position: relative;
+}
+
+.divider {
+    border-top: 1px solid var(--border);
 }

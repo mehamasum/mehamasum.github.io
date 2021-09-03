@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-const { getProjects, getWorks } = require('./src/ssr');
+const { getProjects, getWorks, getAnalyticsService } = require('./src/ssr');
 
 
 module.exports = {
@@ -49,6 +49,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             templateParameters: {
+                analytics: getAnalyticsService(),
                 homepage: process.env.HOMEPAGE || 'https://mehamasum.github.io/',
                 projects: getProjects(),
                 works: getWorks(),
