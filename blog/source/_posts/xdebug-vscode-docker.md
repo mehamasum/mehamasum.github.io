@@ -1,4 +1,4 @@
-title: 'Debug a PHP application running in Docker with VSCode and XDebug'
+title: 'Debug a PHP application running in Docker with VS Code and Xdebug'
 date: 2021-09-11
 disqusId: xdebug-vscode-docker
 categories:
