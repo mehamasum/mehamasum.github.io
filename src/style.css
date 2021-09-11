@@ -324,6 +324,7 @@ time {
 .quote blockquote p {
     color: var(--subtext);
     line-height: 1.4 !important;
+    text-shadow: 1px 1px var(--section-bg);
 }
 
 .quote blockquote p:first-child:before {
