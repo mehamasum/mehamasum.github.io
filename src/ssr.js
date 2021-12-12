@@ -371,6 +371,28 @@ const works = [
       `Rebuilt Newscred’s content publishing and social scheduling experience (AngularJS to ReactJS). Identified and resolved performance issues, added monitoring and proactive publishing failure prevention steps. Reduced client-reported bugs by more than 15% in two quarters`,
       `Built a trial version of the existing software, allowing public signup and metered resource utilizations. Designed the architecture and implemented social login capabilities into existing SSO architecture`,
     ],
+    "quotes": [
+      {
+        by: "Anonymous",
+        occasion: "Q3 2021 All In Award",
+        quoteHTML: "Masum has done an incredible job managing the interns. He is always there to help whenever needed, and the interns learn so much from him. He reviews them so well. He is a great leader."
+      },
+      {
+        by: "Jordan Stecker",
+        occasion: "Company-wide email, March 27, 2020",
+        quoteHTML: "This was a huge win and a result of a lot of hard work by all the superheroes’ who touched the project from it’s conception at Hackathon to it’s deployment less than a year later. Props to all on the team for molding the features into our platform and a special shout out to Masum for his work done early on with the deployment and now ongoing with the SMCMS team."
+      },
+      {
+        by: "Dave Trindall",
+        occasion: "Code Review, March 27, 2020",
+        quoteHTML: "It might seem minor, but the high test-to-code ratio was great and useful as a reference to other engineers about what good PRs can look like. I applied the Cool PRs label to it for easy reference later."
+      },
+      {
+        by: "Anonymous",
+        occasion: "Q1 2020 All In Award",
+        quoteHTML: "Masum demonstrates all the NewsCred values in his work. His obsession to improve the product regarding Social+ CMS publications and Asset Proofing are really exemplary and adds lots of positive momentum to the team. He is not afraid to take the ownership of any work, and helps all the team members in his best way."
+      }
+    ]
     "color": "#702bd5",
     "thumbnail": `<svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M242.191 31.262h21.337c48.094 2.502 95.354 20.595 132.189 51.731 46.426 38.179 75.246 96.003 79.647 155.797v27.916c-2.78 40.588-16.24 80.55-39.707 113.887-31.716 45.917-81.362 79.022-135.989 90.42-43.276 9.614-89.308 5.236-130.313-11.444-46.357-18.765-85.925-53.747-110.274-97.463-25.298-45.152-34.495-99.362-24.325-150.213 9.452-50.503 37.252-97.323 77.03-129.873 36.487-30.418 83.052-48.071 130.405-50.758m98.783 88.358c14.109 28.657 11.977 61.461 10.24 92.412-3.869 40.773-9.684 81.941-24.974 120.166-4.17 9.684-8.502 19.831-16.518 26.989-4.008 4.286-12.371 4.077-15.128-1.529-4.54-8.131-4.934-17.792-5.583-26.873-1.436-53.562 1.552-107.1 2.016-160.615.718-6.95-5.584-11.653-11.885-12.186-8.108-.857-19.043-3.382-24.325 4.772-6.579 11.144-10.494 23.584-15.892 35.306-19.738 42.604-36.303 86.575-55.994 129.201-6.904 14.039-14.271 28.264-25.252 39.592-1.46-11.49-.556-23.074.834-34.541 5.073-52.844 20.92-103.764 32.711-155.333 1.483-5.792 1.089-12.001-2.455-16.958-6.626-.417-13.275-.464-19.877.092-.672 9.035-4.101 17.468-6.255 26.202-14.48 54.164-27.731 108.884-34.542 164.623-1.228 12.116-1.923 26.827 7.761 35.908 12.742 11.051 32.827 5.931 44.109-4.749 15.406-17.051 24.349-38.549 33.152-59.446 18.556-40.31 33.082-82.288 50.897-122.923a25.588 25.588 0 0 1 4.379-6.996c-1.066 51.152-8.155 102.212-5.004 153.433 1.251 13.02 5.977 27.221 17.56 34.588 10.703 5.931 24.047 7.669 35.631 3.197 14.664-5.513 25.622-18.301 31.599-32.503 9.73-24.047 16.634-49.183 20.92-74.759 7.923-44.989 12.927-91.161 7.367-136.73-1.437-9.683-3.753-21.985-14.178-25.854-7.066.533-16.078.139-21.314 5.514z" fill="#702bd5"/><path d="M340.974 119.62c5.236-5.375 14.248-4.981 21.314-5.514 10.425 3.869 12.741 16.171 14.178 25.854 5.56 45.569.556 91.741-7.367 136.73-4.286 25.576-11.19 50.712-20.92 74.759-5.977 14.202-16.935 26.99-31.599 32.503-11.584 4.472-24.928 2.734-35.631-3.197-11.583-7.367-16.309-21.568-17.56-34.588-3.151-51.221 3.938-102.281 5.004-153.433a25.588 25.588 0 0 0-4.379 6.996c-17.815 40.635-32.341 82.613-50.897 122.923-8.803 20.897-17.746 42.395-33.152 59.446-11.282 10.68-31.367 15.8-44.109 4.749-9.684-9.081-8.989-23.792-7.761-35.908 6.811-55.739 20.062-110.459 34.542-164.623 2.154-8.734 5.583-17.167 6.255-26.202 6.602-.556 13.251-.509 19.877-.092 3.544 4.957 3.938 11.166 2.455 16.958-11.791 51.569-27.638 102.489-32.711 155.333-1.39 11.467-2.294 23.051-.834 34.541 10.981-11.328 18.348-25.553 25.252-39.592 19.691-42.626 36.256-86.597 55.994-129.201 5.398-11.722 9.313-24.162 15.892-35.306 5.282-8.154 16.217-5.629 24.325-4.772 6.301.533 12.603 5.236 11.885 12.186-.464 53.515-3.452 107.053-2.016 160.615.649 9.081 1.043 18.742 5.583 26.873 2.757 5.606 11.12 5.815 15.128 1.529 8.016-7.158 12.348-17.305 16.518-26.989 15.29-38.225 21.105-79.393 24.974-120.166 1.737-30.951 3.869-63.755-10.24-92.412z" fill="#fff"/></svg>`,
   },
