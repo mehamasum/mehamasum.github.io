@@ -337,6 +337,34 @@ const getProjects = () => {
 
 const works = [
   {
+    title: 'Senior Software Engineer',
+    companyName: 'Automattic Inc.',
+    companyWebsite: 'https://automattic.com/',
+    tags: [
+      'php',
+      'react',
+      'memcached',
+      'mysql',
+      'docker',
+      'ELK',
+      'newrelic',
+      'grafana',
+    ],
+    location: 'Remote',
+    startDate: '2021-12-13',
+    endDate: null,
+    excerptHTML: `Recently joined Automattic to work on WooCommerce Marketplace.`,
+    responsibilityHTMLs: [
+      `Building WooCommerce Marketplace.`,
+    ],
+    "quotes": [],
+    "color": "#702bd5",
+    "thumbnail": `<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 405.081 244.936 C 405.081 169.024 350.136 101.067 249.642 101.067 C 149.937 101.067 94.92 169.024 94.92 244.936 L 94.92 254.26 C 94.92 330.173 149.866 398.848 249.642 398.848 C 350.065 398.848 405.081 330.165 405.081 254.26 Z M 249.642 461.102 C 110.83 461.102 20.464 360.608 20.464 256.505 L 20.464 243.494 C 20.464 137.218 110.83 38.898 249.642 38.898 C 389.17 38.898 479.537 137.218 479.537 243.494 L 479.537 256.505 C 479.537 360.608 389.17 461.102 249.642 461.102 Z" fill="#2f99ce" style=""></path>
+    <path d="M 298.075 175.544 C 311.81 184.152 315.432 202.3 306.681 215.304 L 239.528 319.406 C 230.921 332.418 213.504 336.765 199.769 328.013 C 186.756 319.406 183.141 301.259 191.877 288.253 L 259.038 184.223 C 267.647 171.211 285.063 166.864 298.081 175.616 Z" fill="#050604" style=""></path>
+  </svg>`,
+  },
+  {
     title: 'Software Engineer',
     companyName: 'Newscred Inc.',
     companyWebsite: 'https://newscred.com/',
