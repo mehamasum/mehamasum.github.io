@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 import "./style.css";
 
 var TxtType = function (el, toRotate, period, cutOffIndex) {
@@ -57,5 +59,24 @@ window.onload = function () {
   modeSwitch.addEventListener('click', function () {
     document.documentElement.classList.toggle('dark');
     document.querySelector('.mode-switch-icon').classList.toggle('fa-sun');
+  });
+
+  document.querySelectorAll('.tenure').forEach(function (el) {
+    const work = {
+      startDate: el.dataset.start,
+      endDate: el.dataset.end,
+    }
+
+    const startDate = dayjs(work.startDate, 'YYYY-MM-DD');
+    const endDate = work.endDate ? dayjs(work.endDate, 'YYYY-MM-DD') : dayjs();
+    const formattedStartDate = startDate.format('MMM YYYY');
+    const formattedEndDate = endDate.format('MMM YYYY');
+    const tenureStr = work.endDate ? `${formattedStartDate} to ${formattedEndDate}` : `Since ${formattedStartDate}`;
+
+    const diffInMonths = Math.ceil(endDate.diff(startDate, 'month', true));
+    const diffInYears = Math.floor(endDate.diff(startDate, 'year', true));
+    const durationStr = diffInYears > 0 ? `${diffInYears} year${diffInYears === 1 ? '' : 's'}, ${(diffInMonths % 12)} month${diffInMonths % 12 === 1 ? '' : 's'}` : `${diffInMonths} month${diffInMonths === 1 ? '' : 's'}`
+
+    el.innerHTML = `${tenureStr} (${durationStr})`;
   });
 };
