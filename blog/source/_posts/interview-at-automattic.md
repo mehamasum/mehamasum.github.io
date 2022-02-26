@@ -14,28 +14,28 @@ excerpt: 'Many friends and ex-colleagues ask me about my interview experience wi
 The interview process at [Automattic](https://automattic.com/about/) is little bit different than traditional SE interview process you find all over the world.
 The whole process is async, and it is long (a couple of months) and can be tedious.
 
-The official process can be [found here](https://automattic.com/work-with-us/how-we-hire-developers/). This is my story.
+This is my story- the official process can be [found here](https://automattic.com/work-with-us/how-we-hire-developers/). 
 
 ### Background
-I became interested to look for full-remote roles after reading [this blog post](https://modasserbillah.ml/2020/09/07/going-remote/) from a fellow countryman.
+I became interested to look for full-remote roles after reading [this blog post](https://modasserbillah.ml/2020/09/07/going-remote/) from a fellow countryman.  
+Please do read it if you want to learn more about remote jobs.
 
 ### Application
 I applied [online](https://automattic.com/work-with-us/) for a Senior Software Engineer role. A couple of days later, a recruiter reached out over email.
-They asked me to pick a time slot for a 90-minute text-only interview. Once I picked a slot, a meeting was scheduled and I was added to the Slack workspace. I was added to a dedicated slack channel for my interview. My interviewer and a few HR folks were added to the channel at the same time. They dropped a few links in there for me to read at my leisure. 
+They asked me to pick a time slot for a 90-minute text-only interview. Once I picked a slot, a meeting was scheduled and I was added to a Slack workspace. A dedicated slack channel was created for my interview (these things were all automated, cool eh?). My interviewer and a few HR folks were added to the channel at the same time. They dropped a few links in there for me to read at my leisure - mostly about what to expect in the interview process. 
 
 ### Technical interview
 On the scheduled day I sat for a 90-minute text-only interview.
 This was a slack conversation with another engineer.
 It's based on various topics you typically talk about on the screening interview like my background, my interests, philosophies, etc.
-For example, we talked about a complex bug I had encountered and how I ran troubleshooting, and how I fixed it.
-The conversation was pretty much based on the typical day-to-day job of a SE like unit testing and CI/CD etc.
-I had sat on the other side of the table many times for NewsCred, and I could tell I was doing well.
+For example, we talked about my experience with typical day-to-day job of a SE like unit testing and CI/CD etc, a complex bug I had encountered and how I ran troubleshooting, and how I fixed it. You get the idea.
 
+I sat on the other side of the table many times for NewsCred, and I could tell I was doing well.
 After a few days, my recruiter got back to me (on Slack) and confirmed the next steps.
 
 ### Code test
-For the next step, I was invited to a Github org for a code test.
-I had to fulfill some objectives in a repo (an unknown toy codebase).
+For the next step, I was invited to a Github org for a code test. I had to fulfill some objectives in a repo (an unknown toy codebase).
+Again, the invitaion and repository creation etc were all done via an automation - which I thought was very impressive. 
 I was given an online editor so that I don't have to set up anything locally (tho I coded locally in the end and pushed frequently to see the changes live).
 
 I hadn't written PHP in a while, but I was told not to worry about the programming language.
@@ -50,8 +50,8 @@ This is not paid project and took about a week to finish.
 The codebase was not super clean but I think it is an example of how all code tests should be.
 People should not ask candidates to build something from scratch, rather provide them with the base and ask them to add/fix/improve on that.
 
-### The Trial
-The trial is the most important part of this process.
+### The trial
+The trial is the most important part of this process and a test to see whether the candiate is a right fit for a full-time remote role.
 Again I had to fulfill objectives in yet another unknown toy codebase, this time a much larger repo.
 I was assigned a trial buddy (who would act as a Product Manager), I was given full freedom on how I wanted to implement the objective.
 
@@ -60,11 +60,10 @@ An engineer (the trial buddy) would review the pull request and leave questions 
 Same as the code test, my coding styles, unit testing, git commit messages, etc were under the microscope.
 
 Another important part of the trial is to evaluate how I was communicating.
-I was asked to leave a cumulative update every week (in an internal blogging tool named P2), on how I am approaching the problem each day so my reviewer would know my thought process.
-It was also important for my recruiter to see how I was communicating with my trial buddy (over Slack, Github, and P2) to determine if I would be a good fit.
+I was asked to leave a cumulative updates every week (in an internal blogging tool named P2), on what I am doing and how I am approaching the problem each day (so my reviewer would know my thought process). It was also important for my recruiter to see how I was communicating with my trial buddy (over Slack, Github, and P2) to determine if I would be a good fit.
 
 The trial involved reading a lot of legacy code.
-I also had to make some architectural decisions and had to document them in the P2 blog.
+I also had to make some architectural decisions and had to document why I choose one path over another in the P2 blog.
 
 This part was paid. It took around four weeks to finish (people usually do it in about six weeks).
 With this passed, you are sure to receive an offer.
@@ -78,9 +77,9 @@ This was another slack chat. We negotiated terms.
 
 
 ---
-### Work With Us
+### Work with us
 
-Remote Jobs — Work From Anywhere.  
+Remote jobs — work from anywhere.  
 Want to make the web a better place for more than a billion people each month? [We’re hiring](https://automattic.com/work-with-us/).
 
-Read [job application tips](https://automattic.com/application-tips) from Automattic’s Talent team.
+Here are some [job application tips](https://automattic.com/application-tips) from Automattic’s Talent team.
