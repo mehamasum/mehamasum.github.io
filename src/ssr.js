@@ -298,9 +298,9 @@ const getProjects = () => {
   projectsToDisplay.forEach(project => {
     const rgb = hexToRgb(project.color || '#ffffff');
     sectionInnerHTML += `
-            <div id="${project.hash}" class="col-lg-6 col-xs-12">
-                <article class="my-3">
-                    <header class="my-2 d-flex">
+            <div id="${project.hash}" class="col-lg-6 col-xs-12 d-flex">
+                <article class="mb-4 p-4 flex-fill section-card">
+                    <header class="mb-3 d-flex">
                         <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
                           ${project.thumbnail}
                         </div>
@@ -325,7 +325,7 @@ const getProjects = () => {
                     <p class="my-2">
                         ${project.description}
                     </p>
-                    <footer class="my-3">
+                    <footer class="mt-3">
                         ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
                     </footer>
                 </article>
@@ -353,9 +353,9 @@ const works = [
     location: 'Remote',
     startDate: '2021-12-13',
     endDate: null,
-    excerptHTML: `Recently joined Automattic to work on WooCommerce Marketplace.`,
+    excerptHTML: `Recently joined Automattic in the WooCommerce division.`,
     responsibilityHTMLs: [
-      `Building WooCommerce Marketplace.`,
+      `Working on WooCommerce Marketplace.`,
     ],
     "quotes": [],
     "color": "#702bd5",
@@ -424,7 +424,7 @@ const works = [
     location: 'Dhaka, Bangladesh',
     startDate: '2018-02-04',
     endDate: '2019-07-31',
-    excerptHTML: `Worked as a full-stack engineer on different CodeMarshal projects`,
+    excerptHTML: `Worked as a full-stack engineer on numerous client projects`,
     responsibilityHTMLs: [
       `Developed a gaming environment with ReactJS, Redux and PixiJS, implemented real-time messaging backend from scratch with Django Channels`,
       `Led the CORE team in building a REST backend module using DRF in form of reusable Django apps, to share across different products. Built CI pipeline to run tests and publish as a private Python module`,
@@ -434,7 +434,7 @@ const works = [
     "thumbnail": `<svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#1e3b6e" d="M243.558 46.545c9.777-5.886 21.195 1.576 25.762 10.581 13.509 23.125 27.435 46.057 40.654 69.376 5.179 7.719.322 19.715-9.584 19.522-32.163.515-64.358.193-96.521.129-6.304.386-12.319-4.085-13.444-10.324.128-6.272 3.409-11.772 6.464-17.014 12.029-20.07 23.769-40.268 35.605-60.435 2.798-4.631 5.95-9.488 11.064-11.835z"/><path d="M147.616 224.566c25.023-12.222 57.957 3.506 64.647 30.394 8.331 25.859-10.935 55.417-37.566 59.244-23.125 4.407-47.665-11.353-53.39-34.125-6.594-21.742 5.628-46.604 26.309-55.513zm169.917-.386c25.955-11.996 59.469 5.597 64.422 33.675 6.336 25.827-13.476 53.873-39.882 56.542-22.739 3.57-46.154-12.029-51.782-34.285-6.497-22.064 5.853-47.473 27.242-55.932zm-251 150.265c26.663-10.388 59.212 8.974 62.396 37.438 4.857 26.374-17.078 53.423-43.838 54.066-23.865 2.091-46.958-17.014-49.531-40.783-3.312-21.517 10.485-43.741 30.973-50.721zm167.408.386c25.859-10.742 58.151 6.851 63.007 34.415 6.176 25.408-13.026 52.811-38.788 56.285-23.029 4.149-47.344-11.675-52.94-34.35-6.851-22.514 6.754-48.405 28.721-56.35zm167.601.804c21.356-9.681 48.984-.546 59.952 20.295 12.994 22.096 3.763 53.616-19.427 64.841-22.867 12.768-54.548 1.672-64.744-22.353-11.289-23.029.676-53.101 24.219-62.783z" fill="#88CFB5"/></svg>`,
   },
   {
-    title: 'Research And Development Intern',
+    title: 'Research & Development Intern',
     companyName: 'Robotics Lab, CSE, DU',
     companyWebsite: 'http://cse.du.ac.bd/robolab',
     location: 'Dhaka, Bangladesh',
@@ -472,9 +472,9 @@ const getWorks = () => {
     const rgb = hexToRgb(work.color || '#ffffff');
 
     innerHtml += `
-      <div class="col-12">
-        <article class="my-3">
-            <header class="my-2 d-flex">
+      <div class="col-12 d-flex">
+        <article class="mb-4 p-4 flex-fill section-card">
+            <header class="mb-3 d-flex">
                 <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
                   ${work.thumbnail}
                 </div>
@@ -495,7 +495,7 @@ const getWorks = () => {
                     </ul>
                 </details>
             </div>
-            <footer class="my-3">
+            <footer class="mt-3">
               ${work.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
             </footer>
         </article>
