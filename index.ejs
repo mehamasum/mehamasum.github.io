@@ -42,14 +42,20 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="<%= homepage %>">
     <meta property="twitter:title" content="Hi, I'm Meha Masum. I'm a software engineer based in Dhaka.">
-    <meta property="twitter:description" content="Check out Mehedi Hasan Masum's projects, work experience and more.">
+    <meta property="twitter:description"
+        content="Check out Mehedi Hasan Masum's projects, work experience and more.">
     <meta property="twitter:image" content="<%= homepage %>meta-img.jpg">
+
+    <script>
+        try {
+            window.matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.classList.toggle('dark');
+        } catch (e) { }
+    </script>
 
     <!-- Vendor assets -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Oswald:wght@300;400;500&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
@@ -63,150 +69,305 @@
     <![endif]-->
 </head>
 
-<body>
+<body class="transition duration-500">
     <div class="container">
-        <div class="my-3">
-            <nav class="nav justify-content-end">
+        <nav class="nav my-5 d-flex justify-content-center justify-content-md-between">
+            <a class="navbar-brand font-weight-bold" href="#">
+                Mehedi Hasan Masum
+            </a>
+            <div class="d-flex justify-content-center align-items-center">
                 <a class="nav-link btn btn-link" href="/blog">
                     <i aria-hidden="true" class="fa fa-rss"></i> Blog
                 </a>
-                <button class="nav-link btn mode-switch" title="Switch Theme">
-                    <i class="mode-switch-icon fas fa-moon"></i>
-                </button>
-            </nav>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 mb-3">
-                <div class="contact-section p-3 p-md-4">
-                    <img src="./avatar.jpg" alt="Profile Picture" class="avatar">
-                    <h1 class="mt-4 special-header">
-                        <div id="first-name">Mehedi Hasan</div>
-                        <div>Masum</div>
-                    </h1>
-                    <div class="my-3">
-                        <div>Sr Software Engineer at <a href="https://automattic.com/">Automattic</a></div>
-
-                        <div class="my-1">
-                            <i aria-hidden="true" class="fa fa-home subtext"></i>
-                            <a href="https://www.google.com/travel/things-to-do?dest_mid=%2Fm%2F0fnb4" class="subtext"
-                                title="Dhaka is the capital city of Bangladesh, in southern Asia.">Dhaka, Bangladesh</a>
-                        </div>
-                    </div>
-                    <div class="my-4">
-                        <div class="my-1">
-                            <i aria-hidden="true" class="fa fa-phone fa-rotate-90 subtext"></i>
-                            <span class="subtext cryptedtel"></span>
-                        </div>
-                        <div class="my-1">
-                            <i aria-hidden="true" class="fa fa-envelope subtext"></i>
-                            <span class="subtext cryptedmail"></span>
-                        </div>
-                        <div class="my-1">
-                            <i aria-hidden="true" class="fab fa-skype subtext"></i>
-                            <a class="subtext" href="skype:live:mehamasum/chat" title="Skype Chat">
-                                live:mehamasum
-                            </a>
-                        </div>
-                    </div>
-                    <ul class="my-2 fa-2x social-info">
-                        <li>
-                            <a href="https://stackoverflow.com/users/4135289/mehamasum" title="StackOverflow profile">
-                                <i aria-hidden="true" class="fab fa-stack-overflow"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://github.com/mehamasum" title="Github profile">
-                                <i aria-hidden="true" class="fab fa-github"></i>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://linkedin.com/in/mehamasum" title="LinkedIn profile">
-                                <i aria-hidden="true" class="fab fa-linkedin"></i>
-                            </a>
-                        </li>
-                    </ul>
+            </div>
+        </nav>
+        <div class="row my-5 py-5">
+            <div class="col-12 col-lg-6 order-lg-2">
+                <div class="pb-5 px-2 px-lg-5 d-flex justify-content-center">
+                    <img src="./images/main-img.png" alt="Profile Picture" class="hero-img img-fluid" height="355"
+                        width="540">
                 </div>
             </div>
-            <div class="col-lg-8 mb-5">
-                <section class="about-me-section p-4 p-lg-5">
-                    <div class="quote">
-                        <div class="quote-container">
-                            <blockquote>
-                                <p>
-                                    Hi, I'm Meha Masum, I'm a seasoned software engineer.<br />
-                                    I try to make the world a better place by writing open source software for nonprofits.<br />
-                                    Love DevOps, AI and open source. ‘Roll up your sleeves and get the job done’ - is my
-                                    motto.<br />
-                                </p>
-                            </blockquote>
-                        </div>
+            <div class="col-12 col-lg-6 order-lg-1 py-5">
+                <h1 class="leading-text">
+                    Hi, I'm Meha Masum, I'm a seasoned software engineer.
+                </h1>
+                <p class="leading-subtext text-muted mt-3 text-tight">
+                    I do my part in making the world a better place by making the web open, fun and more useful.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2 class="font-weight-bold">More about me</h2>
+                <div class="row py-5" id="about">
+                    <div class="col-12 col-md-6">
+                        <section class="about-me-section">
+                            <div class="quote">
+                                <div class="quote-container">
+                                    <blockquote>
+                                        <p>
+                                            I'm a programmer and lifelong learner.<br />
+                                            I love writing software and I am grateful that I get to make a living doing
+                                            so.<br />
+                                        </p>
+                                        <p>
+                                            I led my team to win 5 international software competitions during
+                                            college.<br />
+                                            I find it extremity enjoyable to solve a real-world problem by writing
+                                            software.<br />
+                                            So I still take some time out, every year, to participate in top software
+                                            competitions around the world.
+                                            Like everyone else I too have to keep up, and I believe this helps me a lot
+                                            with
+                                            that.<br />
+                                        </p>
+                                        <p>
+                                            Recently I have been writing open source software to help nonprofit
+                                            organizations.
+                                            My collaborative mapping software written for the Jane Goodall Institute <a
+                                                href="https://www.docusign.com/blog/developers/good-code-hackathon-2021-congratulations-to-the-winners">
+                                                won the DocuSign Good Code award</a>.
+                                        </p>
+                                        <p>
+                                            I feel like I'm a jack of all trades and master of a few.<br />
+                                            ‘Roll up your sleeves and get the job done’ - is my motto.<br />
+                                        </p>
+                                    </blockquote>
+                                </div>
+                            </div>
+
+                        </section>
                     </div>
-                    <div class="bio-section">
-                        <div>
-                            <div class="preference-label mb-1 mt-2">
-                                Things I like
+                    <div class="col-12 col-md-6">
+                        <div class="bio-section mb-3">
+                            <div>
+                                <div class="preference-label mb-1 mt-2">
+                                    Things I like
+                                </div>
+                                <div>
+                                    <span class="tag interested-tag">travelling</span>
+                                    <span class="tag interested-tag">running</span>
+                                    <span class="tag interested-tag">fish 'n' chips</span>
+                                    <span class="tag interested-tag">pop music</span>
+                                    <span class="tag interested-tag">crime thrillers</span>
+                                    <span class="tag interested-tag">fifa</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bio-section mb-3">
+                            <div>
+                                <div class="preference-label mb-1 mt-2">
+                                    My interests
+                                </div>
+                                <div>
+                                    <span class="tag gear-tag">devops</span>
+                                    <span class="tag gear-tag">artificial intelligence</span>
+                                    <span class="tag gear-tag">open source</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bio-section mb-3">
+                            <div>
+                                <div class="preference-label mb-1 mt-2">
+                                    I want to work with
+                                </div>
+                                <div>
+                                    <span class="tag">web services</span>
+                                    <span class="tag">test-driven development</span>
+                                    <span class="tag">software architecture</span>
+                                    <span class="tag">site reliability</span>
+                                </div>
                             </div>
                             <div>
-                                <span class="tag interested-tag">travel</span>
-                                <span class="tag interested-tag">running</span>
-                                <span class="tag interested-tag">fish 'n' chips</span>
-                                <span class="tag interested-tag">pop music</span>
-                                <span class="tag interested-tag">crime thrillers</span>
-                                <span class="tag interested-tag">fifa</span>
+                                <div class="preference-label mb-1 mt-2">
+                                    I prefer not to work with
+                                </div>
+                                <div>
+                                    <span class="tag disliked-tag">mobile apps</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="bio-section">
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row my-5 py-5">
+            <div class="col-12 col-md-6">
+                <h2 class="font-weight-bold">Values I hold dear</h2>
+                <div class="row py-5">
+                    <div class="col">
+                        <ul class="list-unstyled">
+                            <li class="mb-4">
+                                <strong>Being kind</strong>
+                                <p class="py-2 subtext">
+                                    To each other and to ourselves. <br/>
+                                    We should not pass out an opportunity to help
+                                    someone in need.
+                                </p>
+                            </li>
+                            <li class="mb-4">
+                                <strong>Showing humility</strong>
+                                <p class="py-2 subtext">
+                                    To know, accept, and be who we are while demonstrating modesty about our
+                                    accomplishments and gifts, admitting mistakes, and valuing others.
+                                </p>
+                            </li>
+                            <li class="mb-4">
+                                <strong>Showing grit</strong>
+                                <p class="py-2 subtext">
+                                    To advance despite adversity.<br />
+                                    No whining. No complaining. No excuses.
+                                </p>
+                            </li>
+                            <li class="mb-4">
+                                <strong>Passing on the knowledge</strong>
+                                <p class="py-2 subtext">
+                                    To share what we learned with everyone else, free of cost.
+                                    Because it costs a candle nothing to light another candle.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <h2 class="font-weight-bold">Technical skills</h2>
+                <div class="py-4">
+                    <div class="mb-3">
                         <div>
                             <div class="preference-label mb-1 mt-2">
-                                I want to work with
+                                Language
                             </div>
                             <div>
                                 <span class="tag">python</span>
+                                <span class="tag">javascript</span>
+                                <span class="tag">php</span>
                                 <span class="tag">java</span>
-                                <span class="tag">node.js</span>
-                                <span class="tag">rest</span>
-                                <span class="tag">graphql</span>
-                                <span class="tag">react</span>
-                                <span class="tag">devops</span>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="preference-label mb-1 mt-2">
-                                I prefer not to work with
-                            </div>
-                            <div>
-                                <span class="tag disliked-tag">android</span>
-                                <span class="tag disliked-tag">jquery</span>
+                                <span class="tag">c</span>
                             </div>
                         </div>
                     </div>
-                </section>
+                    <div class="mb-3">
+                        <div>
+                            <div class="preference-label mb-1 mt-2">
+                                Web
+                            </div>
+                            <div>
+                                <span class="tag">react</span>
+                                <span class="tag">angular</span>
+                                <span class="tag">django</span>
+                                <span class="tag">express.js</span>
+                                <span class="tag">scss</span>
+                                <span class="tag">babel</span>
+                                <span class="tag">webpack</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div>
+                            <div class="preference-label mb-1 mt-2">
+                                Database
+                            </div>
+                            <div>
+                                <span class="tag">mysql</span>
+                                <span class="tag">postgresql</span>
+                                <span class="tag">mongodb</span>
+                                <span class="tag">redis</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div>
+                            <div class="preference-label mb-1 mt-2">
+                                Test
+                            </div>
+                            <div>
+                                <span class="tag">mocha.js</span>
+                                <span class="tag">phpunit</span>
+                                <span class="tag">jest</span>
+                                <span class="tag">cypress</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div>
+                            <div class="preference-label mb-1 mt-2">
+                                Mobile
+                            </div>
+                            <div>
+                                <span class="tag">android-sdk</span>
+                                <span class="tag">react-native</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div>
+                            <div class="preference-label mb-1 mt-2">
+                                DevOps
+                            </div>
+                            <div>
+                                <span class="tag">aws</span>
+                                <span class="tag">docker</span>
+                                <span class="tag">ansible</span>
+                                <span class="tag">jenkins</span>
+                                <span class="tag">elk</span>
+                                <span class="tag">grafana</span>
+                                <span class="tag">sentry</span>
+                                <span class="tag">newrelic</span>
+                                <span class="tag">kubernetes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                <section class="resume-section mt-4">
-                    <h2 class="special-header p-3 m-0">Projects</h2>
-                    <div class="divider"></div>
-                    <div class="row p-0 p-md-3 m-0" id="projects">
+        <div class="row my-5 py-5" id="projects">
+            <div class="col-12 col-md-4 mb-3 pr-md-5">
+                <h2 class="font-weight-bold">Projects</h2>
+                <p class="subtext">
+                    Here are some of the pet projects that I worked on over the years.
+                </p>
+            </div>
+            <div class="col-12 col-md-8">
+                <section class="resume-section">
+                    <div class="row">
                         <%= projects %>
                     </div>
                 </section>
-
-                <section class="resume-section mt-4">
-                    <h2 class="special-header p-3 m-0">Work</h2>
-                    <div class="divider"></div>
-                    <div class="row p-0 p-md-3 m-0" id="work">
+            </div>
+        </div>
+        <div class="row my-5 py-5" id="work">
+            <div class="col-12 col-md-4 mb-3 pr-md-5">
+                <h2 class="font-weight-bold">Work experience</h2>
+                <p class="subtext">
+                    Here are some of the companies I worked for.
+                </p>
+            </div>
+            <div class="col-12 col-md-8">
+                <section class="resume-section">
+                    <div class="row">
                         <%= works %>
                     </div>
                 </section>
-
-                <section class="resume-section mt-4">
-                    <h2 class="special-header p-3 m-0">Education</h2>
-                    <div class="divider"></div>
-                    <div class="row p-0 p-md-3 m-0" id="education">
+            </div>
+        </div>
+        <div class="row my-5 py-5" id="education">
+            <div class="col-12 col-md-4 mb-3 pr-md-5">
+                <h2 class="font-weight-bold">Education</h2>
+                <p class="subtext">
+                    My educational background.
+                </p>
+            </div>
+            <div class="col-12 col-md-8">
+                <section class="resume-section">
+                    <div class="row">
                         <div class="col-12">
-                            <article>
+                            <article class="mb-4 p-4 flex-fill section-card">
                                 <header class="my-2">
                                     <h3>
                                         BSc in Computer Science
@@ -231,7 +392,7 @@
                                 <ul>
                                     <li>Represented University of Dhaka in <a
                                             href="https://icpc.baylor.edu/regionals/finder/dhaka-2015">2015
-                                            ACM-ICPC Asia Dhaka</a> On Site Regional Contest (Team: DU_Introspection).
+                                            ACM-ICPC Asia Dhaka</a> On Site Regional Contest (<i>DU_Introspection</i>).
                                     </li>
                                     <li>University scholarship for academic excellence in 2014</li>
                                     <li>National Education Board scholarship for 2013 Higher Secondary School
@@ -243,15 +404,63 @@
                         </div>
                     </div>
                 </section>
-
             </div>
         </div>
-        <div class="my-5 text-center copyright">
-            ©
-            <%= year %> · Meha Masum · All rights reserved
-        </div>
     </div>
-    <div class="background"></div>
+    <footer class="my-5 border-top">
+        <div class="container my-5 py-5">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="text text-xl font-weight-bold">
+                        Mehedi Hasan Masum
+                    </div>
+                    <div class="subtext text-xl my-3">
+                        Seasoned software engineer based in <br />Dhaka, Bangladesh
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="mt-5 mt-md-0 mb-5 text-md-right">
+                        <div class="text font-weight-bold mb-3">
+                            Contact
+                        </div>
+                        <span class="cryptedmail"></span>
+                    </div>
+                    <div class="mb-5 d-flex flex-md-row-reverse">
+                        <ul class="fa-2x social-info">
+                            <li>
+                                <a href="https://linkedin.com/in/mehamasum" title="LinkedIn profile">
+                                    <i aria-hidden="true" class="fab fa-linkedin"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://github.com/mehamasum" title="Github profile">
+                                    <i aria-hidden="true" class="fab fa-github"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="https://stackoverflow.com/users/4135289/mehamasum"
+                                    title="StackOverflow profile">
+                                    <i aria-hidden="true" class="fab fa-stack-overflow"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12">
+                    <div class="text-xs">
+                        ©
+                        <%= year %> · Meha Masum · All rights reserved
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
