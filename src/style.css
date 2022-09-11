@@ -219,6 +219,11 @@ summary {
     background-color: var(--tag-bg-color);
 }
 
+.tag>i:before {
+    margin-left: 4px;
+    color: var(--link);
+}
+
 .interested-tag {
     background-color: var(--tag-interest-bg-color);
     color: var(--tag-interest-color);
