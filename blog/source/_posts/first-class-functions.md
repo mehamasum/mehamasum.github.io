@@ -259,5 +259,6 @@ Output:
 
 - [Python closures](https://www.geeksforgeeks.org/python-closures/)
 - [Higher Order Functions and Currying](https://www.geeksforgeeks.org/higher-order-functions-currying/)
+- [Python Decorators](https://www.scaler.com/topics/python/python-decorators/)
 
 আজ এ পর্যন্তই। সামনের পর্বে অন্য কিছু নিয়ে কথা হবে, সে পর্যন্ত ভালো থাকো।
