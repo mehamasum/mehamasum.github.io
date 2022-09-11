@@ -82,8 +82,10 @@
     let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
     var map = L.map('map', {}).setView([40, 10], isMobile ? 1 : 3);
 
+    var cartodbAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://carto.com/attribution">CARTO</a>';
+
     var positron = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors</a>',
+      attribution: cartodbAttribution,
       noWrap: true
     }).addTo(map);
 
