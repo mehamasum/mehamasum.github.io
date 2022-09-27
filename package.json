@@ -17,7 +17,7 @@
     "author": "",
     "private": true,
     "devDependencies": {
-        "@babel/core": "^7.15.0",
+        "@babel/core": "^7.19.3",
         "@babel/preset-env": "^7.15.0",
         "babel-loader": "^8.2.2",
         "copy-webpack-plugin": "^9.0.1",
