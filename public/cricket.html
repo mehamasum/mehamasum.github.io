@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      background-color: #D4DADC;
+    }
+
+    #play, #result {
+      padding: 8px;
+      margin: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="play" onclick="onClick()">Play</button>
+  <h1 id="result"></h1>
+  <script>
+    function getRandomArrElement(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+    var positions = [
+      "Wicket keeper",
+      "1st slip",
+      "2nd slip",
+      "3rd slip",
+      "Gully",
+      "Third man",
+      "Point",
+      "Cover point",
+      "Cover",
+      "Extra cover",
+      "Mid off",
+      "Deep extra cover",
+      "Long off",
+      "Bowler",
+      "Long on",
+      "Mid on",
+      "Mid wicket",
+      "Short mid on",
+      "Forward short leg",
+      "Backward short leg",
+      "Square leg",
+      "Mid wicket",
+      "Fine leg",
+      "Long leg",
+      "Deep square leg",
+      "Deep mid wicket",
+    ];
+    var options_f = ['0', '1', '2', '3', 'caught'];
+    var options_nf = ['1', '2', '3', '4'];
+    var options_wo_f = ['6', 'bowled', 'lbw', 'run-out'];
+    function bowl() {
+      var f = getRandomArrElement(options_f);
+      var nf = getRandomArrElement(options_nf);
+      return {
+        position: getRandomArrElement(positions),
+        f: f,
+        nf: f === nf ? getRandomArrElement(options_nf) : nf,
+        wof: getRandomArrElement(options_wo_f)
+      }
+    }
+
+    function displayResult(result) {
+      document.getElementById('result').innerHTML = result;
+    }
+
+    function onClick() {
+      const hit = bowl();
+      if (getRandomArrElement([1,2,3,4,5,6]) <= 1) {
+        return displayResult(`${hit.wof}`);
+      }
+      displayResult(`${hit.position} <br/> F: ${hit.f}, NF: ${hit.nf}`);
+    }
+  </script>
+</body>
+
+</html>
