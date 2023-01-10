@@ -61,13 +61,21 @@
     var options_f = ['0', '1', '2', '3', 'caught'];
     var options_nf = ['1', '2', '3', '4'];
     var options_wo_f = ['6', 'bowled', 'lbw', 'run-out'];
+    function getRandomEvent() {
+      return [
+        getRandomArrElement(options_f),
+        getRandomArrElement(options_nf)
+      ];
+    }
     function bowl() {
-      var f = getRandomArrElement(options_f);
-      var nf = getRandomArrElement(options_nf);
+      var [f, nf] = getRandomEvent();
+      if ( ! isNaN(f) && ! isNaN(nf) && f >= nf) {
+        [f, nf] = getRandomEvent();
+      }
       return {
         position: getRandomArrElement(positions),
-        f: f,
-        nf: f === nf ? getRandomArrElement(options_nf) : nf,
+        f,
+        nf,
         wof: getRandomArrElement(options_wo_f)
       }
     }
