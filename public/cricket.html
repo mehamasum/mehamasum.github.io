@@ -18,7 +18,7 @@
       background-color: #D4DADC;
     }
 
-    #play, #result {
+    #play, #result, #history-container {
       padding: 8px;
       margin: 16px;
     }
@@ -28,6 +28,9 @@
 <body>
   <button id="play" onclick="onClick()">Play</button>
   <h1 id="result"></h1>
+  <div id="history-container">
+    <small id="history"></small>
+  </div>
   <script>
     function getRandomArrElement(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
     var positions = [
@@ -82,6 +85,7 @@
 
     function displayResult(result) {
       document.getElementById('result').innerHTML = result;
+      document.getElementById('history').innerHTML +=  '<hr/>' + result;
     }
 
     function onClick() {
