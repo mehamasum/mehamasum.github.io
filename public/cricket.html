@@ -43,6 +43,7 @@
   <div id="score-container">
     <h1 id="score">
       <span id="run">0</span>/<span id="wicket">0</span>
+      <small id="over">0</small>.<small id="delivery">0</small>
     </h1>
     <hr />
   </div>
@@ -92,6 +93,19 @@
     var options_f = ['0', '1', '2', '3', 'caught'];
     var options_nf = ['1', '2', '3', '4'];
     var options_wo_f = ['6', 'bowled', 'lbw', 'run-out'];
+
+    var run = 0;
+    var runContainer = document.getElementById('run');
+    var wicket = 0;
+    var wicketContainer = document.getElementById('wicket');
+
+    var over = 0;
+    var overContainer = document.getElementById('over');
+    var delivery = 0;
+    var deliveryContainer = document.getElementById('delivery');
+
+    var scoreAllowed = false;
+
     function getRandomEvent() {
       return [
         getRandomArrElement(options_f),
@@ -114,19 +128,16 @@
     function displayResult(result) {
       document.getElementById('result').innerHTML = result;
       document.getElementById('history').innerHTML += '<hr/>' + result;
-    }
 
-    var run = 0;
-    var runContainer = document.getElementById('run');
-    var wicket = 0;
-    var wicketContainer = document.getElementById('wicket');
-    var scoreAllowed = false;
+      delivery++;
+      if (delivery === 6) { over++; delivery = 0;}
+      overContainer.innerHTML = over;
+      deliveryContainer.innerHTML = delivery;
+    }
 
     function score(event) {
       if (!scoreAllowed) return;
 
-
-      console.log(event);
       if (isNaN(event)) {
         wicket += 1;
       } else {
@@ -135,7 +146,7 @@
 
       runContainer.innerHTML = run;
       wicketContainer.innerHTML = wicket;
-      document.getElementById('history').innerHTML += '<br/>' + `${run}/${wicket}`;
+      document.getElementById('history').innerHTML += '<br/>' + `${over}.${delivery}: ${run}/${wicket}`;
       scoreAllowed = false;
     }
 
