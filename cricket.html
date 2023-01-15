@@ -130,13 +130,16 @@
       document.getElementById('history').innerHTML += '<hr/>' + result;
 
       delivery++;
-      if (delivery === 6) { over++; delivery = 0;}
+      if (delivery === 6) { over++; delivery = 0; }
       overContainer.innerHTML = over;
       deliveryContainer.innerHTML = delivery;
     }
 
     function score(event) {
       if (!scoreAllowed) return;
+
+      runContainer.style.opacity = 0;
+      wicketContainer.style.opacity = 0;
 
       if (isNaN(event)) {
         wicket += 1;
@@ -147,6 +150,13 @@
       runContainer.innerHTML = run;
       wicketContainer.innerHTML = wicket;
       document.getElementById('history').innerHTML += '<br/>' + `${over}.${delivery}: ${run}/${wicket}`;
+
+
+      setTimeout(function () {
+        runContainer.style.opacity = 1;
+        wicketContainer.style.opacity = 1;
+      }, 300);
+
       scoreAllowed = false;
     }
 
