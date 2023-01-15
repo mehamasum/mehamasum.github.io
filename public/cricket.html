@@ -18,9 +18,19 @@
       background-color: #D4DADC;
     }
 
-    #play, #result, #toss, #history-container {
+    #play,
+    #result,
+    #toss,
+    #history-container,
+    #score-container,
+    .hit {
       padding: 8px;
       margin: 16px;
+    }
+
+    #history-container {
+      pointer-events: none;
+      opacity: 0.5;
     }
   </style>
 </head>
@@ -28,7 +38,13 @@
 <body>
   <div id="toss-container">
     <button id="toss" onclick="onToss()">Toss</button>
-    <hr/>
+    <hr />
+  </div>
+  <div id="score-container">
+    <h1 id="score">
+      <span id="run">0</span>/<span id="wicket">0</span>
+    </h1>
+    <hr />
   </div>
   <button id="play" onclick="onClick()">Play</button>
   <h1 id="result"></h1>
@@ -84,7 +100,7 @@
     }
     function bowl() {
       var [f, nf] = getRandomEvent();
-      if ( ! isNaN(f) && ! isNaN(nf) && f >= nf) {
+      if (!isNaN(f) && !isNaN(nf) && f >= nf) {
         [f, nf] = getRandomEvent();
       }
       return {
@@ -97,16 +113,44 @@
 
     function displayResult(result) {
       document.getElementById('result').innerHTML = result;
-      document.getElementById('history').innerHTML +=  '<hr/>' + result;
+      document.getElementById('history').innerHTML += '<hr/>' + result;
+    }
+
+    var run = 0;
+    var runContainer = document.getElementById('run');
+    var wicket = 0;
+    var wicketContainer = document.getElementById('wicket');
+    var scoreAllowed = false;
+
+    function score(event) {
+      if (!scoreAllowed) return;
+
+
+      console.log(event);
+      if (isNaN(event)) {
+        wicket += 1;
+      } else {
+        run += Number(event);
+      }
+
+      runContainer.innerHTML = run;
+      wicketContainer.innerHTML = wicket;
+      document.getElementById('history').innerHTML += '<br/>' + `${run}/${wicket}`;
+      scoreAllowed = false;
     }
 
     function onClick() {
       document.getElementById('toss-container')?.remove();
       const hit = bowl();
-      if (getRandomArrElement([1,2,3,4,5,6]) <= 1) {
-        return displayResult(`${hit.wof}`);
+      if (getRandomArrElement([1, 2, 3, 4, 5, 6]) <= 1) {
+        return displayResult(`<button class='hit' onclick="score('${hit.wof}')"> ${hit.wof} </button>`);
       }
-      displayResult(`${hit.position} <br/> F: ${hit.f}, NF: ${hit.nf}`);
+      displayResult(`
+      ${hit.position} <br/> 
+      <button class='hit' onclick="score('${hit.f}')">F: ${hit.f}</button> 
+      <button class='hit' onclick="score('${hit.nf}')">NF: ${hit.nf}</button>
+      `);
+      scoreAllowed = true;
     }
   </script>
 </body>
