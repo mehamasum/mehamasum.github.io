@@ -33,6 +33,11 @@
   </div>
   <script>
     function getRandomArrElement(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+    if (confirm("Head or tail?") == true) {
+      alert(getRandomArrElement(['Head', 'Tail']));
+    }
+
     var positions = [
       "Wicket keeper",
       "1st slip",
