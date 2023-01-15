@@ -150,7 +150,12 @@
       scoreAllowed = false;
     }
 
-    function onClick() {
+    function onClick(e) {
+      if (scoreAllowed) {
+        alert('Last ball not scored yet!');
+        e.stopPropagation();
+      }
+
       document.getElementById('toss-container')?.remove();
       const hit = bowl();
       if (getRandomArrElement([1, 2, 3, 4, 5, 6]) <= 1) {
