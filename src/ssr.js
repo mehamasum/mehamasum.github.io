@@ -425,7 +425,7 @@ const works = [
     location: 'Dhaka, Bangladesh',
     startDate: '2018-02-04',
     endDate: '2019-07-31',
-    excerptHTML: `Worked as a full-stack engineer on numerous client projects`,
+    excerptHTML: `Worked as a full-stack engineer on numerous client SaaS projects`,
     responsibilityHTMLs: [
       `Developed a web-based gaming environment with ReactJS, Redux and PixiJS, implemented real-time messaging backend from scratch with Django Channels.`,
       `Led the CORE team in building a REST backend module using DRF in form of reusable Django apps to share across different products which allowed us to bootstrap new projects in a matter of minutes. Built CI pipeline to run tests and publish as a private Python package.`,
@@ -441,7 +441,7 @@ const works = [
     location: 'Dhaka, Bangladesh',
     startDate: '2016-06-01',
     endDate: '2018-02-01',
-    excerptHTML: `Worked as an Intern for the "Robolab" in Dept. of CSE, Univ. of Dhaka.`,
+    excerptHTML: `Worked as an Intern for the "Robolab" in Dept. of CSE, Univ. of Dhaka during my undergrad years.`,
     responsibilityHTMLs: [
       `Did Machine Learning based R&amp;D for <a href="https://github.com/RoboPi-CSEDU">Rupai</a>, a graphically programmable robotics kit (funded by Ministry of Education, Govt. of Bangladesh).`,
       `Led a team of six people in the same project for building a visual programming interface for robotics kits. Designed the system and was responsible for budget & resource management, documentation and reporting.`,
