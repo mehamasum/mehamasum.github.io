@@ -19,6 +19,7 @@
     --image-placeholder: #e9ecef;
 
     --section--featured-in: #faf6f0;
+    --footer-bg: #ededed;
 }
 
 body {
@@ -51,7 +52,8 @@ html.dark {
 
     --image-placeholder: #263238;
 
-    --section--featured-in: #262626;
+    --section--featured-in: #212121;
+    --footer-bg: #002232;
 }
 
 h1,
@@ -391,4 +393,9 @@ time {
 
 html.dark .featured-in-platform > svg {
     filter: grayscale(0.5) invert(0.25);
+}
+
+.footer {
+    padding: 5rem 1rem;
+    background-color: var(--footer-bg);
 }
