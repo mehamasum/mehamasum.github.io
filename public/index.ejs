@@ -48,7 +48,7 @@
 
     <script>
         try {
-            window.matchMedia("(prefers-color-scheme: dark)").matches && document.documentElement.classList.toggle('dark');
+            (localStorage.getItem("theme") === 'dark' || window.matchMedia("(prefers-color-scheme: dark)").matches) && document.documentElement.classList.toggle('dark');
         } catch (e) { }
     </script>
 

@@ -66,6 +66,12 @@ function setupTheme() {
     document.documentElement.classList.toggle('dark');
     icon.classList.toggle(`fa-moon`);
     icon.classList.toggle(`fa-sun`);
+
+    if (document.documentElement.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.removeItem("theme");
+    }
   };
 
   document.querySelector('.mode-switch').addEventListener("click", toggle);
