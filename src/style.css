@@ -17,6 +17,8 @@
     --tag-gear-bg-color: #feebc8;
 
     --image-placeholder: #e9ecef;
+
+    --section--featured-in: #faf6f0;
 }
 
 body {
@@ -48,6 +50,8 @@ html.dark {
     --tag-gear-bg-color: #bda373;
 
     --image-placeholder: #263238;
+
+    --section--featured-in: #262626;
 }
 
 h1,
@@ -360,4 +364,31 @@ time {
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 500ms;
+}
+
+.projects {
+    background-color: var(--section--featured-in);
+    --section-bg: var(--bg);
+}
+
+.featured-in {
+    padding: 5rem;
+}
+
+.featured-in-heading {
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    font-size: 0.8rem;
+}
+
+.featured-in-platform > svg {
+    filter: grayscale(0.5);
+    height: 100px;
+    width: 200px;
+    object-fit: contain;
+    padding: 24px;
+}
+
+html.dark .featured-in-platform > svg {
+    filter: grayscale(0.5) invert(0.25);
 }
