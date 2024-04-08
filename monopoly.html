@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      background-color: #D4DADC;
+      margin: 18px;
+    }
+
+    button {
+      font-size: large;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <button id="onPlayerAdd">Add Player</button>
+
+    <hr />
+
+    <div id="players"></div>
+
+    <hr />
+
+    Current transaction: <span id="currentTransaction"></span> <button id="clearCurrent">Clear</button>
+    <br>
+
+    <h3>All transactions</h3>
+    <div id="transactions"></div>
+  </div>
+  <script>
+    var players = [
+      { // player zero is bank
+        name: 'Bank',
+        balance: 10000
+      }
+    ];
+
+    const NO_INDEX = -1;
+    var currentSenderIndex = NO_INDEX;
+    var currentReceiverIndex = NO_INDEX;
+
+    function onPlayerAdd() {
+      let name = prompt("What's your name?");
+      players.push({
+        name: name,
+        balance: 1500
+      });
+      renderPlayers();
+    }
+    document.getElementById('onPlayerAdd').addEventListener("click", onPlayerAdd);
+
+    document.getElementById('clearCurrent').addEventListener("click", clearTransaction);
+
+
+    function onClickPlayer(index) {
+      if ( currentSenderIndex == NO_INDEX ) {
+        currentSenderIndex = index;
+        renderCurrntTransaction();
+      } else {
+        currentReceiverIndex = index;
+        renderCurrntTransaction();
+
+
+        const sender = players[currentSenderIndex];
+        const receiver = players[currentReceiverIndex];
+
+        let amount = prompt(`Amount? from ${sender.name} to ${receiver.name}?`);
+        if (! amount) {
+          clearTransaction();
+          return;
+        }
+        transact(currentSenderIndex, currentReceiverIndex, Number(amount));
+      }
+    }
+
+    function clearTransaction() {
+      currentSenderIndex = NO_INDEX;
+      currentReceiverIndex = NO_INDEX;
+      renderCurrntTransaction();
+    }
+
+    function renderCurrntTransaction() {
+      const currentTransaction = document.getElementById('currentTransaction');
+      const sender = players[currentSenderIndex];
+      const receiver = players[currentReceiverIndex];
+      if (! sender ) {
+        currentTransaction.innerHTML = '';
+        return;
+      };
+      currentTransaction.innerHTML = `${sender.name} -> ${receiver ? receiver.name : 'Pending'}`;
+    }
+
+
+    function renderPlayers() {
+      const playersDiv = document.getElementById('players');
+      var playerHTML = '';
+      players.forEach((player, index) => {
+        playerHTML += `<button data-index=${index} id="player" onclick="onClickPlayer(${index})">${player.name} </button><span>${player.balance}</span></br>`
+      });
+      playersDiv.innerHTML = playerHTML;
+    }
+
+
+    function transact(indexPlayer1, indexPlayer2, amount) {
+      const sender = players[indexPlayer1];
+      const receiver = players[indexPlayer2];
+
+      sender.balance -= amount;
+      receiver.balance += amount;
+
+      const ledger = document.getElementById('transactions');
+      ledger.innerHTML += `${sender.name} -> ${receiver.name} - BDT ${amount} </br>`;
+
+      renderPlayers();
+      clearTransaction();
+    }
+
+
+    renderPlayers();
+  </script>
+</body>
+
+</html>
