@@ -93,7 +93,8 @@
     </details>
   </div>
   <script>
-    var cities = [{
+    var cities = [
+				{
       "name": "Home",
       "coordinates": ["23.810331", "90.412521"],
       "country": "BD"
@@ -212,7 +213,12 @@
       "name": "Munich",
       "coordinates": ["48.137154", "11.576124"],
       "country": "DE"
-    }
+    },
+				{
+      "name": "Athens",
+      "coordinates": ["37.9838", "23.7275"],
+      "country": "GR"
+    },
     ];
     let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
     var map = L.map('map', {}).setView([40, 10], isMobile ? 1 : 3);
