@@ -343,20 +343,26 @@ const works = [
     tags: [
       'php',
       'react',
+      'wordpress',
       'memcached',
       'mysql',
       'docker',
       'ELK',
       'newrelic',
       'grafana',
+      'aws',
+      'circleci',
     ],
     location: 'Remote',
     startDate: '2021-12-13',
     endDate: null,
-    excerptHTML: `Recently joined Automattic in a fulltime remote role and working on developing the WooCommerce Marketplace`,
+    excerptHTML: `Working as a full-stack engineer and a tech lead and manager of seven in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a> that take care of backend stuff (auth, orders, subscriptions, payments, taxes, invoicing, external integrations and APIs).`,
     responsibilityHTMLs: [
+      `Rewrote the backend to support flexible subscription cycles for marketplace products. This refactor transitioned the business from a hard-coded one-year subscription model to supporting diverse plans, including monthly and bi-yearly options, driving scalability and adaptability in revenue streams.`,
+      `Developed data validation rules for Hadoop, enabling the detection of anomalies in critical business data that ensures early problem identification and allows for preemptive measures to maintain system reliability.`,
+      `Integrated diverse payment methods including Card, Google/Apple Pay, WooPay, Buy Now Pay Later (via Klarna), alongside adding multi-currency support. Lead the marketplace side of things in making our payment service processor agnostic, enabling improved negotiation leverage with the primary payment processor, and establishing backup payment gateways to ensure business continuity in case of service disruptions.`,
       `Developed a Salesforce integration that allows our sales team to collect payment according to the agreed Quote, prepare a new account, set up order and paid subscriptions for the customer.`,
-      `Developed a set of data validation rules for Hadoop to detect anomaly in business data (i.e. orders, subscriptions, payments, taxes etc). This helps us to detect a problem early and take preemptive measures.`
+      `Oversaw sprint planning, project planning and delivery; mentored team members, conducted 1:1s, helped with learning and growth plans, fostering a high-performing and collaborative team culture.`
     ],
     "quotes": [],
     "color": "#702bd5",
