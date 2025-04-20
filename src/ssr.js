@@ -337,7 +337,7 @@ const getProjects = () => {
 
 const works = [
   {
-    title: 'Senior Software Engineer',
+    title: 'Lead Engineer & Manager',
     companyName: 'Automattic Inc.',
     companyWebsite: 'https://automattic.com/',
     tags: [
@@ -354,16 +354,49 @@ const works = [
       'circleci',
     ],
     location: 'Remote',
-    startDate: '2021-12-13',
+    startDate: '2023-06-12',
     endDate: null,
-    excerptHTML: `Working as a full-stack engineer and a tech lead and manager of seven in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a> that take care of backend stuff (auth, orders, subscriptions, payments, taxes, invoicing, external integrations and APIs).`,
+    excerptHTML: `Worked as a tech lead and manager of seven software engineers that takes care of backend stuff (auth, orders, subscriptions, payments, taxes, invoicing, external integrations, and APIs) in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a>.`,
     responsibilityHTMLs: [
-      `Rewrote the backend to support flexible subscription cycles for marketplace products. This refactor transitioned the business from a hard-coded one-year subscription model to supporting diverse plans, including monthly and bi-yearly options, driving scalability and adaptability in revenue streams.`,
-      `Developed data validation rules for Hadoop, enabling the detection of anomalies in critical business data that ensures early problem identification and allows for preemptive measures to maintain system reliability.`,
-      `Integrated diverse payment methods including Card, Google/Apple Pay, WooPay, Buy Now Pay Later (via Klarna), alongside adding multi-currency support. Lead the marketplace side of things in making our payment service processor agnostic, enabling improved negotiation leverage with the primary payment processor, and establishing backup payment gateways to ensure business continuity in case of service disruptions.`,
-      `Built several key features for the Woo Support team, including integrating an AI chatbot, automating the creation of WordPress.com SSO accounts for guest customers, implementing user tagging for Zendesk etc.`,
-      `Developed a Salesforce integration that allows our sales team to collect payment according to the agreed Quote, prepare a new account, set up order and paid subscriptions for the customer.`,
-      `Oversaw sprint planning, project planning and delivery; mentored team members, conducted 1:1s, helped with learning and growth plans, fostering a high-performing and collaborative team culture.`
+      `Took key architectural decisions in terms of system design; facilitated agile methodologies; oversaw team development through coaching, performance evaluations, career guidance.`,
+      `Rewrote the backend to support flexible subscription cycles for marketplace products, transitioning the business from a hard-coded annual subscription model to diverse plans, including monthly and bi-yearly options, driving scalability and adaptability in revenue streams.`,
+      `Integrated diverse payment methods including Card, Google/Apple Pay, PayPal, WooPay, Buy Now Pay Later (via Klarna). Lead the marketplace side of things in making our payment service processor-agnostic, enabling expansion into new geo-locations where our primary payment process is not supported, and establishing backup gateways to ensure business continuity in case of service disruptions.`,
+      `Built several key tools for Woo Support team, including integrating an AI chatbot, automating WordPress.com SSO account creation for guest customers, Zendesk interaction tagging etc, streamlining support processes and improving customer service efficiency.`,
+    ],
+    "quotes": [],
+    "color": "#702bd5",
+    "thumbnail": `<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 405.081 244.936 C 405.081 169.024 350.136 101.067 249.642 101.067 C 149.937 101.067 94.92 169.024 94.92 244.936 L 94.92 254.26 C 94.92 330.173 149.866 398.848 249.642 398.848 C 350.065 398.848 405.081 330.165 405.081 254.26 Z M 249.642 461.102 C 110.83 461.102 20.464 360.608 20.464 256.505 L 20.464 243.494 C 20.464 137.218 110.83 38.898 249.642 38.898 C 389.17 38.898 479.537 137.218 479.537 243.494 L 479.537 256.505 C 479.537 360.608 389.17 461.102 249.642 461.102 Z" fill="#2f99ce" style=""></path>
+        <path d="M 298.075 175.544 C 311.81 184.152 315.432 202.3 306.681 215.304 L 239.528 319.406 C 230.921 332.418 213.504 336.765 199.769 328.013 C 186.756 319.406 183.141 301.259 191.877 288.253 L 259.038 184.223 C 267.647 171.211 285.063 166.864 298.081 175.616 Z" fill="#050604" style=""></path>
+      </svg>
+    `,
+  },
+  {
+    title: 'Senior Software Engineer',
+    companyName: 'Automattic Inc.',
+    companyWebsite: 'https://automattic.com/',
+    tags: [
+      'php',
+      'react',
+      'wordpress',
+      'typescript',
+      'memcached',
+      'mysql',
+      'docker',
+      'ELK',
+      'newrelic',
+      'grafana',
+      'aws',
+      'circleci',
+    ],
+    location: 'Remote',
+    startDate: '2021-12-13',
+    endDate: '2023-06-12',
+    excerptHTML: `Worked as a full-stack engineer in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a>.`,
+    responsibilityHTMLs: [
+      `Implemented multi-currency support with comprehensive price freezing strategies to stabilize product pricing against FX fluctuations.`,
+      `Developed a Salesforce integration streamlining account setup, payment collection, and subscription activation, enabling our Sales team to focus on closing deals while eliminating manual processes.`,
+      `Designed and implemented data validation rules for Hadoop, detecting anomalies in critical business data to enable early problem identification and proactive system reliability measures.`,
     ],
     "quotes": [],
     "color": "#702bd5",
@@ -380,6 +413,8 @@ const works = [
       'node.js',
       'react',
       'express.js',
+      'python',
+      'typescript',
       'socket.io',
       'oauth2',
       'xml-rpc',
