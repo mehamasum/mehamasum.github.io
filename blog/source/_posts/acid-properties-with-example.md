@@ -12,8 +12,8 @@ cover: 'https://images.unsplash.com/photo-1644952354935-0bc0d25a9996?q=80&w=1932
 excerpt: 'This note explains ACID properties in databases through practical examples'
 ---
 
+ACID is a set of database properties that guarantee reliable transactions, ensuring data remains accurate and consistent even during failures. It’s critical for systems where precision is non-negotiable (e.g., banking, healthcare).
 
-This note explains ACID properties in databases through practical examples.
 
 #### **1\. Atomicity (All or Nothing)**
 
