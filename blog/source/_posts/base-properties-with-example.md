@@ -2,9 +2,9 @@ title: 'BASE Properties Explained with Real-World Examples'
 date: 2025-04-20
 disqusId: base-properties-with-example
 categories:
-- Notes
+- System Design
 tags:
-- system design
+- notes
 - ai edited
 language: en
 toc: true
