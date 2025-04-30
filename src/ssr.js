@@ -298,7 +298,7 @@ const getProjects = () => {
   projectsToDisplay.forEach(project => {
     const rgb = hexToRgb(project.color || '#ffffff');
     sectionInnerHTML += `
-            <div id="${project.hash}" class="col-lg-6 col-xs-12 d-flex">
+            <div id="${project.hash}" class="col-lg-4 col-md-6 col-xs-12 d-flex">
                 <article class="mb-4 p-4 flex-fill section-card">
                     <header class="mb-3 d-flex">
                         <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
