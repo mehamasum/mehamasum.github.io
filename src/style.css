@@ -96,16 +96,25 @@ a:hover,
 }
 
 .quick-nav {
-    background-color: rgb(var(--bg));
-    backdrop-filter: blur(10px);
     padding: 0;
     visibility: hidden;
     height: 0;
     position: sticky;
     top: 0;
     z-index: 9999;
+}
+
+.quick-nav-items {
+    background-color: rgb(var(--bg));
+    backdrop-filter: blur(10px) brightness(1.05);
     box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 #0000000d;
-    border-bottom: 1px solid var(--border);
+
+    padding: 0.6rem 0;
+
+    border: 1px solid var(--border);
+    border-top: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
 
 .quick-nav ul li {
@@ -115,7 +124,6 @@ a:hover,
 .sticky {
     height: auto;
     visibility: visible;
-    padding: 1rem 0;
 }
 
 summary {
@@ -156,6 +164,24 @@ summary {
         background-position: 0% 50%;
     }
 }
+
+.hero-background {
+    background: linear-gradient(247deg,deepskyblue,darkviolet,blue,white,white,white,#e90000,#d85353);
+    background-size: 480% 480%;
+    animation: gradient-animation 10s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
 .mode-switch {
     background-color: transparent;
