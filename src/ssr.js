@@ -457,7 +457,7 @@ const works = [
         title: 'Software Engineer',
         startDate: '2018-02-04',
         endDate: '2019-07-31',
-        excerptHTML: `Worked as a full-stack engineer on numerous client SaaS projects`,
+        excerptHTML: `Worked as a full-stack engineer on numerous client projects.`,
         responsibilityHTMLs: [
           `Developed a web-based gaming environment with ReactJS, Redux and PixiJS, implemented real-time messaging backend from scratch with Django Channels.`,
           `Led the CORE team in building a REST backend module using DRF in form of reusable Django apps to share across different products which allowed us to bootstrap new projects in a matter of minutes. Built CI pipeline to run tests and publish as a private Python package.`,
@@ -511,25 +511,19 @@ const getWorks = () => {
       return work.endDate ? `${formattedStartDate} to ${formattedEndDate}` : `Since ${formattedStartDate}`;
     };
     const getCompanyTenure = (work) => {
-      const endDate = work.roles[0].endDate;
-      const startDate = work.roles[work.roles.length - 1].startDate;
-      const companyTenureStr = tenureStr({
-        startDate: startDate,
-        endDate: endDate
-      });
-
-      return {
-        startDate: startDate,
-        endDate: endDate,
-        tenureStr: companyTenureStr
-      }
+      const endDate = work.roles[0].endDate ? dayjs(work.roles[0].endDate, 'YYYY-MM-DD') : null;
+      const startDate = dayjs(work.roles[work.roles.length - 1].startDate, 'YYYY-MM-DD');
+      return `${startDate.format('MMM YYYY')} - ${endDate ? endDate.format('MMM YYYY') : 'Present'}`;
     }
     const companyTenure = getCompanyTenure(work);
 
     const rgb = hexToRgb(work.color || '#ffffff');
 
     innerHtml += `
-      <div class="col-12 d-flex">
+      <div class="col-12 col-md-3 col-2 my-2 d-flex">
+        <time>${companyTenure}</time>
+      </div>
+      <div class="col-12 col-md-9 col-10 d-flex">
         <article class="mb-4 p-4 flex-fill section-card">
             <header class="mb-3 d-flex">
                 <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
@@ -540,7 +534,6 @@ const getWorks = () => {
                       <a href="${work.companyWebsite}" target="_blank" rel="noopener noreferrer">${work.companyName}</a>
                   </h3>
                   <address>${work.location}</address>
-                  <time>${companyTenure.tenureStr}</time>
                 </div>
             </header>
             <ul class="roles list-unstyled">
@@ -559,7 +552,7 @@ const getWorks = () => {
                   </div>
                 </li>
               `).join('')
-      }
+            }
             </ul>
             <footer class="mt-3">
               ${work.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
