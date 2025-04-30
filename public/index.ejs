@@ -47,9 +47,12 @@
     <meta property="twitter:image" content="<%= homepage %>meta-img.jpg">
 
     <script>
-        try {
-            (localStorage.getItem("theme") === 'dark' || window.matchMedia("(prefers-color-scheme: dark)").matches) && document.documentElement.classList.toggle('dark');
-        } catch (e) { }
+        (function () {
+                try {
+                    if (localStorage.getItem("theme") !== 'dark') return;
+                    (localStorage.getItem("theme") === 'dark' || window.matchMedia("(prefers-color-scheme: dark)").matches) && document.documentElement.classList.toggle('dark');
+                } catch (e) { }
+            })();
     </script>
 
     <!-- Vendor assets -->

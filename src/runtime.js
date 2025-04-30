@@ -54,7 +54,17 @@ function addEaseAnimation() {
   element.style.opacity = 1;
 }
 
+function saveThemePreference() {
+  if (document.documentElement.classList.contains("dark")) {
+    localStorage.setItem("theme", "dark");
+  } else {
+    localStorage.setItem("theme", "light");
+  }
+}
+
 function setupTheme() {
+  saveThemePreference();
+
   const navLinks = document.querySelector('body > div > nav > div');
   const defaultDark = document.documentElement.classList.contains("dark");
 
@@ -67,11 +77,7 @@ function setupTheme() {
     icon.classList.toggle(`fa-moon`);
     icon.classList.toggle(`fa-sun`);
 
-    if (document.documentElement.classList.contains("dark")) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.removeItem("theme");
-    }
+    saveThemePreference();
   };
 
   document.querySelector('.mode-switch').addEventListener("click", toggle);
