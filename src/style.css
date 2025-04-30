@@ -3,7 +3,7 @@
     --section-bg: #f7f7f7;
     --text: #263238;
     --subtext: #616161;
-    --link: #673ab7;
+    --link: #1565c0;
     --border: #ced0d4;
 
 
@@ -121,9 +121,17 @@ summary {
 }
 
 @keyframes aura-gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .mode-switch {
@@ -262,6 +270,22 @@ article>header h3 {
     font-size: 1.2em;
     font-weight: 700;
     margin-bottom: 0;
+}
+
+.role-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.role {
+    border-bottom: 1px dotted var(--border);
+    padding-bottom: 16px;
+}
+
+.role:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
 }
 
 .placeholder {
