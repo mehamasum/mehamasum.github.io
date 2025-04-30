@@ -83,6 +83,16 @@ function setupTheme() {
   document.querySelector('.mode-switch').addEventListener("click", toggle);
 }
 
+function toggleStickyNavVisibility() {
+  const header = document.querySelector('body > header');
+  const isSticky = header.classList.contains('sticky');
+  if (window.scrollY > window.innerHeight * 0.8 && !isSticky) {
+    header.classList.add('sticky');
+  } else if (window.scrollY < window.innerHeight * 0.8 && isSticky) {
+    header.classList.remove('sticky');
+  }
+}
+
 window.onload = function () {
   document.getElementsByClassName('cryptedmail')[0].outerHTML = '<a href="mailto:mehamasum@gmail.com" title="Send Email">mehamasum@gmail.com</a>';
 
@@ -90,4 +100,6 @@ window.onload = function () {
   try { setupTheme(); } catch(e) {};
 
   addTenures();
+
+  window.addEventListener('scroll', toggleStickyNavVisibility)
 };

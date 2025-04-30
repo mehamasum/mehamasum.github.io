@@ -95,6 +95,29 @@ a:hover,
     color: var(--link);
 }
 
+.quick-nav {
+    background-color: rgb(var(--bg));
+    backdrop-filter: blur(10px);
+    padding: 0;
+    visibility: hidden;
+    height: 0;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 1px 2px 0 #0000000d;
+    border-bottom: 1px solid var(--border);
+}
+
+.quick-nav ul li {
+    margin: 0 1rem;
+}
+
+.sticky {
+    height: auto;
+    visibility: visible;
+    padding: 1rem 0;
+}
+
 summary {
     color: var(--link);
 }
