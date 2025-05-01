@@ -121,18 +121,20 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 order-lg-1 py-5">
-                <h1 class="leading-text" style="opacity:0">
+                <h1 class="leading-text section-ease-in" style="opacity:0">
                     Hi, I'm <span class="aura-text">Meha Masum</span>, I'm a <span>seasoned software engineer</span>.
                 </h1>
-                <p class="leading-subtext text-muted mt-4 text-tight" style="opacity:0">
+                <p class="leading-subtext text-muted mt-4 text-tight section-ease-in" style="opacity:0">
                     I do my part in making the world a better place by making the web open, fun and more useful.
                 </p>
             </div>
         </div>
-        <div class="row" style="opacity:0">
+    </div>
+    <div class="container section-ease-in" id="about" style="opacity:0">
+        <div class="row">
             <div class="col">
                 <h2 class="font-weight-bold">More about me</h2>
-                <div class="row py-5" id="about">
+                <div class="row py-5">
                     <div class="col-12 col-md-6">
                         <section class="about-me-section">
                             <div class="quote">
@@ -223,9 +225,10 @@
                 </div>
             </div>
         </div>
-
-        <div class="row my-5 py-5" style="opacity:0">
-            <div class="col-12 col-md-6" id="values">
+    </div>
+    <div class="container section-ease-in" style="opacity:0">
+        <div class="row my-5 py-5">
+            <div class="resume-section col-12 col-md-6" id="values">
                 <h2 class="font-weight-bold">Values I hold dear</h2>
                 <div class="row py-5">
                     <div class="col">
@@ -270,7 +273,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-6" id="skills">
+            <div class="resume-section col-12 col-md-6" id="skills">
                 <h2 class="font-weight-bold">Technical skills</h2>
                 <div class="py-4">
                     <div class="mb-3">
@@ -398,11 +401,10 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <div class="projects">
+    <div class="resume-section projects" id="projects">
         <div class="container">
-            <div class="row mt-5 pt-5" id="projects">
+            <div class="row mt-5 pt-5">
                 <div class="col-12 mb-3">
                     <h2 class="font-weight-bold">Projects</h2>
                     <p class="subtext">
@@ -410,7 +412,7 @@
                     </p>
                 </div>
                 <div class="col-12">
-                    <section class="resume-section">
+                    <section>
                         <div class="row">
                             <%= projects %>
                         </div>
@@ -457,8 +459,8 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row my-5 py-5" id="work">
+    <div class="container resume-section" id="work">
+        <div class="row my-5 py-5">
             <div class="col-12 mb-4">
                 <h2 class="font-weight-bold">Work experience</h2>
                 <p class="subtext">
@@ -466,14 +468,16 @@
                 </p>
             </div>
             <div class="col-12">
-                <section class="resume-section">
+                <section>
                     <div class="row">
                         <%= works %>
                     </div>
                 </section>
             </div>
         </div>
-        <div class="row my-5 py-5" id="education">
+    </div>
+    <div class="container resume-section" id="education">
+        <div class="row my-5 py-5">
             <div class="col-12 mb-4">
                 <h2 class="font-weight-bold">Education</h2>
                 <p class="subtext">
@@ -527,15 +531,13 @@
             </div>
         </div>
     </div>
-    <div class="contact">
-        <div class="container">
-            <div class="row mt-5 pt-5" id="contact">
-                <div class="col-12 mb-3">
-                    <h2 class="font-weight-bold">Contact</h2>
-                    <p class="subtext">
-                        Here are some of the pet projects that I worked on over the years.
-                    </p>
-                </div>
+    <div class="container resume-section contact" id="contact">
+        <div class="row mt-5 pt-5">
+            <div class="col-12 mb-3">
+                <h2 class="font-weight-bold">Contact</h2>
+                <p class="subtext">
+                    Here are some of the pet projects that I worked on over the years.
+                </p>
             </div>
         </div>
     </div>

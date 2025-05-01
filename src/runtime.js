@@ -24,10 +24,9 @@ function addTenures() {
 }
 
 function addEaseAnimation() {
-  const timeline = ['.leading-text', '.leading-subtext', 'body > .container > div:nth-child(3)', 'body > .container > div:nth-child(4)'];
+  const timeline = document.querySelectorAll('.section-ease-in');
   const duration = 500;
-  timeline.forEach((selector, index) => {
-    const element = document.querySelector(selector);
+  timeline.forEach((element, index) => {
     element.style.opacity = 0;
     window.setTimeout(() => {
       element.animate([
@@ -68,10 +67,10 @@ function setupTheme() {
   const navLinks = document.querySelector('body > div > nav > div');
   const defaultDark = document.documentElement.classList.contains("dark");
 
-  const makeButton=  () => `<button class="nav-link btn mode-switch" title="Switch Theme"><i class="mode-switch-icon fa-lg fas fa-${defaultDark ? 'moon': 'sun'}"></i></button>`;
+  const makeButton = () => `<button class="nav-link btn mode-switch" title="Switch Theme"><i class="mode-switch-icon fa-lg fas fa-${defaultDark ? 'moon' : 'sun'}"></i></button>`;
   navLinks.innerHTML = makeButton() + navLinks.innerHTML;
   const icon = document.querySelector('.mode-switch-icon');
-  
+
   const toggle = function () {
     document.documentElement.classList.toggle('dark');
     icon.classList.toggle(`fa-moon`);
@@ -91,15 +90,56 @@ function toggleStickyNavVisibility() {
   } else if (window.scrollY < window.innerHeight * 0.8 && isSticky) {
     header.classList.remove('sticky');
   }
+
+  highlightNavLink();
+}
+
+// highlight corresonding nav link on scroll
+function highlightNavLink() {
+  const navLinks = document.querySelectorAll('.quick-nav-items li');
+
+  navLinks.forEach((navLink) => {
+    const sectionId = navLink.querySelector('a').getAttribute('href');
+    if (!sectionId) return;
+
+    const section = document.querySelector(sectionId);
+    if (!section) return;
+
+
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.offsetHeight;
+
+    const allowedPadding = 60;
+
+    if (window.scrollY >= sectionTop - allowedPadding && window.scrollY < sectionTop + sectionHeight) {
+      navLinks.forEach(link => link.classList.remove('active'));
+      navLink.classList.add('active');
+      return;
+    }
+  });
+}
+
+// Debounce function to limit the rate at which a function can fire
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 }
 
 window.onload = function () {
   document.getElementsByClassName('cryptedmail')[0].outerHTML = '<a href="mailto:mehamasum@gmail.com" title="Send Email">mehamasum@gmail.com</a>';
 
-  try { addEaseAnimation(); } catch(e) {};
-  try { setupTheme(); } catch(e) {};
+  try { addEaseAnimation(); } catch (e) { };
+  try { setupTheme(); } catch (e) { };
 
   addTenures();
 
-  window.addEventListener('scroll', toggleStickyNavVisibility)
+  window.addEventListener('scroll', debounce(toggleStickyNavVisibility, 100));
+  toggleStickyNavVisibility();
 };
