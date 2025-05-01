@@ -90,8 +90,6 @@ function toggleStickyNavVisibility() {
   } else if (window.scrollY < window.innerHeight * 0.8 && isSticky) {
     header.classList.remove('sticky');
   }
-
-  highlightNavLink();
 }
 
 // highlight corresonding nav link on scroll
@@ -140,6 +138,7 @@ window.onload = function () {
 
   addTenures();
 
-  window.addEventListener('scroll', debounce(toggleStickyNavVisibility, 100));
+  window.addEventListener('scroll', toggleStickyNavVisibility);
+  window.addEventListener('scroll', debounce(highlightNavLink, 100));
   toggleStickyNavVisibility();
 };
