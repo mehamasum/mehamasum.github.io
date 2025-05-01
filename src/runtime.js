@@ -107,7 +107,8 @@ function highlightNavLink() {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
 
-    const allowedPadding = 60;
+    // allow larger padding on mobile, default is 60px
+    const allowedPadding = window.innerWidth < 768 ? 120 : 60;
 
     if (window.scrollY >= sectionTop - allowedPadding && window.scrollY < sectionTop + sectionHeight) {
       navLinks.forEach(link => link.classList.remove('active'));
