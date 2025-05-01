@@ -1,4 +1,5 @@
 :root {
+    --primary: #1565c0;
     --bg: #fff;
     --section-bg: #f7f7f7;
     --text: #263238;
@@ -19,6 +20,10 @@
     --image-placeholder: #e9ecef;
 
     --section--featured-in: #faf6f0;
+
+    --feature-gradient-from: #ffe9c8;
+    --feature-gradient-to: #cfe8ff;
+
     --footer-bg: #ededed;
 
     --accent-color: #f4f4f5;
@@ -35,6 +40,7 @@ body {
 }
 
 html.dark {
+    --primary: #539bf5;
     --bg: #111827;
     --section-bg: #1f2937;
     --text: #cbcbcb;
@@ -55,6 +61,10 @@ html.dark {
     --image-placeholder: #263238;
 
     --section--featured-in: #212121;
+
+    --feature-gradient-from: #00354e;
+    --feature-gradient-to: #001732;
+
     --footer-bg: #002232;
 
     --accent-color: #1f2937;
@@ -62,7 +72,6 @@ html.dark {
 
 * {
     scrollbar-width: thin;
-    scrollbar-color: #e5e5e5 transparent;
 }
 
 h1,
@@ -488,7 +497,21 @@ html.dark .featured-in-platform>svg {
 
 .contact {
     padding: 5rem 1rem;
-    background-color: var(--section--featured-in);
+    background-image: linear-gradient(45deg, var(--feature-gradient-from) 0%, var(--feature-gradient-to) 100%);
+	background-size: 200% 200%;
+	animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .footer {
