@@ -124,6 +124,7 @@ a:hover,
 .quick-nav-items {
     background-color: rgb(var(--bg));
     backdrop-filter: blur(10px) brightness(1.05);
+    -webkit-backdrop-filter: blur(10px) brightness(1.05);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     border: 1px solid var(--border);
     border-top: none;
@@ -307,22 +308,6 @@ summary {
 .fab {
     margin-right: 0.25rem;
 }
-
-.social-info {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.social-info>li:not(:last-child) {
-    margin-right: 1rem;
-}
-
-.social-info>li>a>i {
-    margin: 0;
-}
-
 
 .cryptedmail:after {
     content: "mehamasum@gmail.com";
@@ -548,6 +533,12 @@ html.dark .featured-in-platform>svg {
     animation: gradient 8s ease infinite;
 }
 
+.contact-graphic {
+    font-size: 200px;
+    color: var(--accent-color);
+    animation: 2s cubic-bezier(.4, 0, .6, 1) infinite pulse;
+}
+
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -561,6 +552,12 @@ html.dark .featured-in-platform>svg {
         background-position: 0% 50%;
     }
 }
+
+@keyframes pulse {
+    50% {
+      opacity: .5;
+    }
+  }
 
 .footer {
     padding: 5rem 1rem;
