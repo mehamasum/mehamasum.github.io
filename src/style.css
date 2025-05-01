@@ -124,6 +124,7 @@ a:hover,
 .quick-nav-items {
     background-color: rgb(var(--bg));
     backdrop-filter: blur(10px) brightness(1.05);
+    -webkit-backdrop-filter: blur(10px) brightness(1.05);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     border: 1px solid var(--border);
     border-top: none;
