@@ -130,8 +130,19 @@ function debounce(func, wait) {
   };
 }
 
+function expandEmailLinks() {
+  document.querySelectorAll('.cryptedmail').forEach(function (el) {
+    el.outerHTML = '<a href="mailto:mehamasum@gmail.com" title="Send Email">mehamasum@gmail.com</a>';
+  });
+
+  document.querySelectorAll('.criptedmail-btn').forEach(function (el) {
+    el.parentElement.href = "mailto:mehamasum@gmail.com";
+    el.innerText = 'Email me';
+  });
+}
+
 window.onload = function () {
-  document.getElementsByClassName('cryptedmail')[0].outerHTML = '<a href="mailto:mehamasum@gmail.com" title="Send Email">mehamasum@gmail.com</a>';
+  expandEmailLinks();
 
   try { addEaseAnimation(); } catch (e) { };
   try { setupTheme(); } catch (e) { };

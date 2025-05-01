@@ -486,6 +486,11 @@ html.dark .featured-in-platform>svg {
     font-size: 1.2rem;
 }
 
+.contact {
+    padding: 5rem 1rem;
+    background-color: var(--section--featured-in);
+}
+
 .footer {
     padding: 5rem 1rem;
     background-color: var(--footer-bg);
