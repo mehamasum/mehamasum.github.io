@@ -159,7 +159,6 @@ function setQuote(elements, quote) {
 function setQuoteCounter(counter, position, quotes) {
   const totalQuotes = quotes.length;
   counter.innerText = `${position + 1} of ${totalQuotes}`;
-  console.log(counter.innerText);
 }
 
 function setupQuotesCarousel() {
@@ -228,6 +227,11 @@ function setupQuotesCarousel() {
 
   rightBtn.addEventListener("click", moveRight);
   leftBtn.addEventListener("click", moveLeft);
+
+  // change quote every 10 seconds
+  setInterval(() => {
+    moveRight();
+  }, 10000);
 }
 
 window.onload = function () {
