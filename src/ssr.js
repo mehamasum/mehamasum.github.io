@@ -772,6 +772,16 @@ const getQuotes = () => {
       window.dataLayer = window.dataLayer || {};
       window.dataLayer['quotes'] = ${JSON.stringify(quotes)};
     </script>
+    <div class="quotes-data" style="display: none" aria-hidden="true">
+      ${quotes.map(quote => `
+        <blockquote>
+          <p>${quote.quote}</p>
+          <cite>${quote.quotee} via ${quote.source}</cite>
+          <time>${quote.date}</time>
+        </blockquote>
+      `).join(' ')
+      }))}
+    </div>
   `;
 }
 
