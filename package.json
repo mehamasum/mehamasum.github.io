@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "description": "",
     "scripts": {
-        "start": "webpack serve",
+        "start": "nodemon --watch src/ssr.js --exec \"webpack serve\"",
+        "dev": "webpack serve",
         "test": "echo \"Error: no test specified\" && exit 1",
         "web-install": "npm install",
         "blog-install": "cd blog && npm install && cd ..",
@@ -27,6 +28,7 @@
         "html-webpack-plugin": "^5.3.2",
         "mini-css-extract-plugin": "^2.2.0",
         "moment": "^2.29.1",
+        "nodemon": "^3.1.10",
         "webpack": "^5.51.1",
         "webpack-cli": "^4.8.0",
         "webpack-dev-server": "^4.0.0"
