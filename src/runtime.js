@@ -190,8 +190,6 @@ function setupQuotesCarousel() {
   const leftBtn = document.querySelector('.quotes-container .btn-left');
   const counter = document.querySelector('.quotes-container .quote-counter');
 
-  console.log(rightBtn, leftBtn, counter);
-
   if (quotes.length > 1) {
     rightBtn.style.display = 'block';
     leftBtn.style.display = 'block';
