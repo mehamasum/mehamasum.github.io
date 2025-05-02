@@ -580,8 +580,174 @@ const getAnalyticsService = () => {
   `
 }
 
+
+const quotes = [
+  {
+    quote: `...I wanted to send a quick message to say thanks for this PR [URL].<br/>
+    It might seem minor, but the high test-to-code ratio was great and useful as a reference to other engineers about what good PRs can look like.<br/>
+    I applied the Cool PRs label to it for easy reference later.`,
+    quotee: "David Trindall, Staff Software Engineer at NewsCred",
+    source: "Slack",
+    date: "2021",
+  },
+  {
+    quote: `[Kudos] for all your work developing and implementing the new chatbot on WooCommerce.com.<br/>A preliminary view data is showing excellent results, you helped lay a strong foundation for success in this!`,
+    quotee: "Brian Taylor, Happiness Engineer at Automattic",
+    source: "Matticspace",
+    date: "2025",
+  },
+  {
+    quote: `Thanks for the initial research and handling the majority of the development in 2-year subscription project.<br/>`,
+    quotee: "Thilina Pituwala, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2025",
+  },
+  {
+    quote: `Appreciate all the work your're doing to help us get accross the finish line with [Processor-agnostic Payment Service] launching on WooCommerce.com.<br/>`,
+    quotee: "Jackie D. Tran, Senior Project Manager at Automattic",
+    source: "Matticspace",
+    date: "2025",
+  },
+  {
+    quote: `[Kudos] for the quick proof of concept you came up with for the 2-year subscription.<br/>`,
+    quotee: "Adrian Labos, Marketplace Ops at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for answering all the questions I need for the in-app marketplace installation and confirming for us what steps can be reduced and improved. This helps a ton!<br/>`,
+    quotee: "Annchiahui Tai, Product Designer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for taking charge of fixing our E2E tests after 2FA was enabled for our vendor accounts.<br/>Thanks to your quick work our alerts channel will have less noise!`,
+    quotee: "Michael Iwanow, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `Thank you so much for taking the time to help me set up [Repository].<br/>Your explainations answered many questions I had about the setup!`,
+    quotee: "Kader Ibrahim S, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for identifying, investigating and fixing autorenewal issue when adding a card.<br/>Also, for the support for [Team].`,
+    quotee: "Akeda Bagus, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `Thanks for your thorough code review on payments-related code.<br/>
+    Your suggestions clarified some unknowns and made the code more performant...`,
+    quotee: "Michal Iwanow, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for the really quick fix to Woo iOS universal links for old domain - great to have it sorted within a few hours...`,
+    quotee: "Josh Heald, Mobile Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `Thank you for the work in the query that helps investigating the vaulting issue on PayPal.<br/>Also the CLI that you created will help us on our day to days issue resolution.<br/>`,
+    quotee: "Prahesa Kusuma Setia, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `Thank you for handling the Flare team well and covering the [Internal] project while I was taking a long vacation.<br/>`,
+    quotee: "Prahesa Kusuma Setia, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for all your support, coordination, implementation and testing related to the [Internal] API upgrade...<br/>`,
+    quotee: "Anurag Bhandari, Payments Lead at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for noticing the unusual failed [payment] actions and priorizing the investigation.<br/>`,
+    quotee: "Akeda Bagus, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for your outstanding effort in planning and organizing the squad meetup in Langkawi.<br/>`,
+    quotee: "Denis Dvali, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for taking the time to review and provide helpful feedback on my PRs.<br/>`,
+    quotee: "Manzur Ahammed, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for quickly debugging and fixing the helper connection issue.<br/>`,
+    quotee: "Florin Dragota, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for jumping in and helping me to resolve the SQL query performance issue in the multi-currency cron scheduler.<br/>`,
+    quotee: "Manzur Ahammed, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for leading the multi-currency project work and overcoming all obstacles on the way.<br/>`,
+    quotee: "Denis Dvali, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `[Kudos] for your diligent work with enabling fulfillment of the branded readers via [Vendor], especially the Card reader fulfillment Setup and Testing documentation...`,
+    quotee: "Doug Aitken, Payment Ops at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  },
+  {
+    quote: `Thank you for investigating and finding the cause of a tricky edge case with an incorrect tax rate being provided in the request to [Tax Provider].<br/>`,
+    quotee: "Denis Dvali, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  },
+  {
+    quote: `Thanks for your work on the implementation of the Taxes validation Hadoop Data Validator, the thoughts given and the solution proposed.<br/>`,
+    quotee: "Rommel Castro, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  },
+  {
+    quote: `Thanks for your work upgrading PHPUnit - it's a nice and useful improvement!<br/>`,
+    quotee: "Gareth Noon, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  },
+  {
+    quote: "Thank you for jumping in and assisting Woo Sales with sales orders which went astray on WooCommerce.com.<br/>I appreciate your detailed and thorough responses, which put us all at ease that the orders are flowing as they should.",
+    quotee: "Matty Cohen, Engineering Manager at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  }
+];
+const getQuotes = () => {
+  return `
+    <script>
+      window.dataLayer = window.dataLayer || {};
+      window.dataLayer['quotes'] = ${JSON.stringify(quotes)};
+    </script>
+  `;
+}
+
 module.exports = {
   getAnalyticsService,
   getProjects,
-  getWorks
+  getWorks,
+  getQuotes
 }

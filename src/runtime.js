@@ -142,6 +142,92 @@ function expandEmailLinks() {
   });
 }
 
+function setQuote(elements, quote) {
+  const { container, quoteElement, quoteeElement, quoteSrcElement, dateElement } = elements;
+  container.classList.add('fade');
+
+  setTimeout(function () {
+    container.classList.remove('fade');
+    quoteeElement.innerText = quote.quotee;
+    quoteSrcElement.innerText = quote.source;
+    dateElement.innerText = quote.date;
+
+    quoteElement.innerHTML = quote.quote;
+  }, 500);
+}
+
+function setQuoteCounter(counter, position, quotes) {
+  const totalQuotes = quotes.length;
+  counter.innerText = `${position + 1} of ${totalQuotes}`;
+  console.log(counter.innerText);
+}
+
+function setupQuotesCarousel() {
+  const quotes = window.dataLayer.quotes || [];
+  if (!quotes) {
+    return;
+  }
+
+  const container = document.querySelector('.quotes-container .quote');
+  const quoteElement = document.querySelector('.quotes-container .quote blockquote p');
+  const quoteeElement = document.querySelector('.quotes-container .quote cite');
+  const quoteSrcElement = document.querySelector('.quotes-container .quote .quote-src');
+  const dateElement = document.querySelector('.quotes-container .quote time');
+  const elements = {
+    container,
+    quoteElement,
+    quoteeElement,
+    quoteSrcElement,
+    dateElement
+  };
+
+
+  const rightBtn = document.querySelector('.quotes-container .btn-right');
+  const leftBtn = document.querySelector('.quotes-container .btn-left');
+  const counter = document.querySelector('.quotes-container .quote-counter');
+
+  console.log(rightBtn, leftBtn, counter);
+
+  if (quotes.length > 1) {
+    rightBtn.style.display = 'block';
+    leftBtn.style.display = 'block';
+    counter.style.display = 'block';
+
+    setQuote(elements, quotes[0]);
+    setQuoteCounter(counter, 0, quotes);
+  }
+
+  let position = 0;
+
+  const moveRight = () => {
+    if (position >= quotes.length - 1) {
+      position = 0;
+      setQuoteCounter(counter, position, quotes);
+      setQuote(elements, quotes[position]);
+      return;
+    }
+
+    setQuoteCounter(counter, position + 1, quotes);
+    setQuote(elements, quotes[position + 1]);
+    position++;
+  }
+
+  const moveLeft = () => {
+    if (position < 1) {
+      position = quotes.length - 1;
+      setQuoteCounter(counter, position, quotes);
+      setQuote(elements, quotes[position]);
+      return;
+    }
+    setQuoteCounter(counter, position - 1, quotes);
+    setQuote(elements, quotes[position - 1]);
+    position--;
+  }
+
+  rightBtn.addEventListener("click", moveRight);
+  leftBtn.addEventListener("click", moveLeft);
+}
+
 window.onload = function () {
   expandEmailLinks();
 
@@ -153,4 +239,6 @@ window.onload = function () {
   window.addEventListener('scroll', toggleStickyNavVisibility);
   window.addEventListener('scroll', debounce(highlightNavLink, 100));
   toggleStickyNavVisibility();
+
+  setupQuotesCarousel();
 };
