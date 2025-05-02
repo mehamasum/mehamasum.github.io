@@ -597,6 +597,12 @@ const quotes = [
     date: "2025",
   },
   {
+    quote: `You Sir, are a saint! :)`,
+    quotee: "@silentsurfer",
+    source: `<a href="https://stackoverflow.com/questions/55000809/build-when-case-query-in-for-loop-django/55001322?noredirect=1#comment99497091_55001322">StackOverflow</a>`,
+    date: "2019",
+  },
+  {
     quote: `Thanks for the initial research and handling the majority of the development in 2-year subscription project.<br/>`,
     quotee: "Thilina Pituwala, Software Engineer at Automattic",
     source: "Matticspace",
@@ -734,6 +740,30 @@ const quotes = [
     quotee: "Matty Cohen, Engineering Manager at Automattic",
     source: "Matticspace",
     date: "2022",
+  },
+  {
+    quote: "I know I'm nearly two years after the event, but thanks @mehamasum! You saved me hours...",
+    quotee: "@glowkeeper",
+    source: `<a href="https://stackoverflow.com/questions/54703943/passing-mapped-data-to-a-material-ui-modal/54704182?noredirect=1#comment116207636_54704182">StackOverflow</a>`,
+    date: "2021",
+  },
+  {
+    quote: "Great answers, this saved my day",
+    quotee: "@Iago Leão",
+    source: `<a href="https://stackoverflow.com/questions/54971965/redux-persist-undefined-is-not-an-object-evaluating-store-getstate/54972269?noredirect=1#comment106825013_54972269">StackOverflow</a>`,
+    date: "2020",
+  },
+  {
+    quote: "Very elegant. Thanks a lot!",
+    quotee: "@Null isTrue",
+    source: `<a href="https://stackoverflow.com/questions/54521840/react-set-state-from-countdown-child/54522013?noredirect=1#comment95847233_54522013">StackOverflow</a>`,
+    date: "2019",
+  },
+  {
+    quote: "You save my life!",
+    quotee: "@Moein Alizadeh",
+    source: `<a href="https://stackoverflow.com/questions/54821006/store-not-getting-passed-down-to-connected-cellrendererframework/54821379?noredirect=1#comment100434877_54821379">StackOverflow</a>`,
+    date: "2019",
   }
 ];
 const getQuotes = () => {

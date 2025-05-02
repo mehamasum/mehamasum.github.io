@@ -149,7 +149,7 @@ function setQuote(elements, quote) {
   setTimeout(function () {
     container.classList.remove('fade');
     quoteeElement.innerText = quote.quotee;
-    quoteSrcElement.innerText = quote.source;
+    quoteSrcElement.innerHTML = `via ${quote.source}`;
     dateElement.innerText = quote.date;
 
     quoteElement.innerHTML = quote.quote;
@@ -163,10 +163,14 @@ function setQuoteCounter(counter, position, quotes) {
 }
 
 function setupQuotesCarousel() {
-  const quotes = window.dataLayer.quotes || [];
-  if (!quotes) {
+  const quoteData = window.dataLayer.quotes || [];
+  if (!quoteData) {
     return;
   }
+
+  // keep first three, shuffle the rest
+  const shuffledQuotes = quoteData.slice(3).sort(() => Math.random() - 0.5);
+  const quotes = quoteData.slice(0, 3).concat(shuffledQuotes);
 
   const container = document.querySelector('.quotes-container .quote');
   const quoteElement = document.querySelector('.quotes-container .quote blockquote p');
