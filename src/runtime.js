@@ -142,17 +142,26 @@ function expandEmailLinks() {
   });
 }
 
-function setQuote(elements, quote) {
+function setQuote(elements, quote, animate = true) {
   const { container, quoteElement, quoteeElement, quoteSrcElement, dateElement } = elements;
+
+  const setQuote = () => {
+    quoteeElement.innerText = quote.quotee;
+    quoteSrcElement.innerHTML = quote.source;
+    dateElement.innerText = quote.date;
+    quoteElement.innerHTML = quote.quote;
+  };
+
+  if (!animate) {
+    setQuote();
+    return;
+  }
+
   container.classList.add('fade');
 
   setTimeout(function () {
     container.classList.remove('fade');
-    quoteeElement.innerText = quote.quotee;
-    quoteSrcElement.innerHTML = `via ${quote.source}`;
-    dateElement.innerText = quote.date;
-
-    quoteElement.innerHTML = quote.quote;
+    setQuote();
   }, 500);
 }
 
@@ -162,7 +171,24 @@ function setQuoteCounter(counter, position, quotes) {
 }
 
 function setupQuotesCarousel() {
-  const quoteData = window.dataLayer.quotes || [];
+  const quoteContainer = document.querySelectorAll('.quotes-container .quotes-data blockquote');
+  if (! quoteContainer || quoteContainer.length === 0) {
+    return;
+  }
+
+  const quoteData = [...quoteContainer].map((el) => {
+    const quote = el.querySelector('.quote-data-quote').innerHTML;
+    const quotee = el.querySelector('.quote-data-quotee').innerText;
+    const source = el.querySelector('.quote-data-source').innerHTML;
+    const date = el.querySelector('.quote-data-date').innerText;
+    return {
+      quote,
+      quotee,
+      source,
+      date
+    };
+  });
+
   if (!quoteData) {
     return;
   }
@@ -194,7 +220,7 @@ function setupQuotesCarousel() {
     leftBtn.style.display = 'block';
     counter.style.display = 'block';
 
-    setQuote(elements, quotes[0]);
+    setQuote(elements, quotes[0], false);
     setQuoteCounter(counter, 0, quotes);
   }
 
@@ -227,11 +253,6 @@ function setupQuotesCarousel() {
 
   rightBtn.addEventListener("click", moveRight);
   leftBtn.addEventListener("click", moveLeft);
-
-  // change quote every 10 seconds
-  setInterval(() => {
-    moveRight();
-  }, 10000);
 }
 
 window.onload = function () {

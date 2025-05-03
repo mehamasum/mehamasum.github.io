@@ -768,19 +768,16 @@ const quotes = [
 ];
 const getQuotes = () => {
   return `
-    <script>
-      window.dataLayer = window.dataLayer || {};
-      window.dataLayer['quotes'] = ${JSON.stringify(quotes)};
-    </script>
     <div class="quotes-data" style="display: none" aria-hidden="true">
       ${quotes.map(quote => `
         <blockquote>
-          <p>${quote.quote}</p>
-          <cite>${quote.quotee} via ${quote.source}</cite>
-          <time>${quote.date}</time>
+          <p class="quote-data-quote">${quote.quote}</p>
+          <cite class="quote-data-quotee">${quote.quotee}</cite>
+          <span class="quote-data-source">via ${quote.source}</span>
+          <time class="quote-data-date">${quote.date}</time>
         </blockquote>
       `).join(' ')
-      }))}
+      }
     </div>
   `;
 }
