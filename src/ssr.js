@@ -362,7 +362,7 @@ const works = [
     roles: [
       {
         title: 'Lead Engineer & Manager',
-        startDate: '2023-06-12',
+        startDate: '2023-06-01',
         endDate: null,
         excerptHTML: `Worked as a tech lead and manager of seven software engineers that takes care of backend stuff (auth, orders, subscriptions, payments, taxes, invoicing, external integrations, and APIs) in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a>.`,
         responsibilityHTMLs: [
@@ -375,7 +375,7 @@ const works = [
       }, {
         title: 'Senior Software Engineer',
         startDate: '2021-12-13',
-        endDate: '2023-06-12',
+        endDate: '2023-06-01',
         excerptHTML: `Worked as a full-stack engineer in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a>.`,
         responsibilityHTMLs: [
           `Implemented multi-currency support with comprehensive price freezing strategies to stabilize product pricing against FX fluctuations.`,
@@ -485,7 +485,7 @@ const works = [
     roles: [
       {
         title: 'Research & Development Intern',
-        startDate: '2016-06-01',
+        startDate: '2016-07-01',
         endDate: '2018-02-01',
         excerptHTML: `Worked as an Intern for the "Robolab" in Dept. of CSE, Univ. of Dhaka during my undergrad years.`,
         responsibilityHTMLs: [

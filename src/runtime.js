@@ -15,10 +15,23 @@ function addTenures() {
     const formattedEndDate = endDate.format('MMM YYYY');
     const tenureStr = work.endDate ? `${formattedStartDate} to ${formattedEndDate}` : `Since ${formattedStartDate}`;
 
-    const diffInMonths = Math.ceil(endDate.diff(startDate, 'month', true));
-    const diffInYears = Math.floor(endDate.diff(startDate, 'year', true));
-    const durationStr = diffInYears > 0 ? `${diffInYears} year${diffInYears === 1 ? '' : 's'}, ${(diffInMonths % 12)} month${diffInMonths % 12 === 1 ? '' : 's'}` : `${diffInMonths} month${diffInMonths === 1 ? '' : 's'}`
+    
+    const duration = endDate.diff(startDate, 'month') + 1;
+    const years = Math.floor(duration / 12);
+    const months = duration % 12;
 
+    const yearsStr = years > 0 ? `${years} year${years > 1 ? 's' : ''}` : '';
+    const monthsStr = months > 0 ? `${months} month${months > 1 ? 's' : ''}` : '';
+    let durationStr = '';
+    if (yearsStr && monthsStr) {
+      durationStr = `${yearsStr} ${monthsStr}`;
+    } else if (yearsStr) {
+      durationStr = yearsStr;
+    } else if (monthsStr) {
+      durationStr = monthsStr;
+    } else {
+      durationStr = 'Less than a month';
+    }
     el.innerHTML = `${tenureStr} (${durationStr})`;
   });
 }
