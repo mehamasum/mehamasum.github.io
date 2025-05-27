@@ -81,35 +81,25 @@ CREATE TABLE users (
 ## Common Mistakes and Solutions
 
 ### Mistake: "Mojibake" (Garbled Text)
-**Problem**: Text displays as "Ã¡Ã©Ã­Ã³Ãº" instead of "áéíóú"
-**Cause**: Text encoded as UTF-8 but interpreted as something else
-**Solution**: Ensure consistent UTF-8 usage throughout your application
+**Problem**: Text displays as "Ã¡Ã©Ã­Ã³Ãº" instead of "áéíóú"  
+**Cause**: Text encoded as UTF-8 but interpreted as something else  
+**Solution**: Ensure consistent UTF-8 usage throughout your application  
 
 ### Mistake: Question Marks or Empty Boxes
-**Problem**: Characters display as "?" or "□"
-**Cause**: The font doesn't support those characters, or wrong encoding
-**Solution**: Use web fonts that support international characters
+**Problem**: Characters display as "?" or "□"  
+**Cause**: The font doesn't support those characters, or wrong encoding  
+**Solution**: Use web fonts that support international   
 
 ### Mistake: Truncated Text
-**Problem**: Text gets cut off unexpectedly
-**Cause**: Counting bytes instead of characters
-**Solution**: Use proper string functions that understand Unicode
+**Problem**: Text gets cut off unexpectedly  
+**Cause**: Counting bytes instead of characters  
+**Solution**: Use proper string functions that understand Unicode  
 
 ## Testing Your Application
 
-1. **Test with international characters**: Try names like "José" and "王伟"
-2. **Test with emojis**: Modern applications should handle "👨‍💻" properly
-3. **Test copy-paste**: Users should be able to paste text from other applications
-
-## Quick Reference
-
-| Concept | What You Need to Know |
-|---------|----------------------|
-| **Unicode** | Universal standard assigning numbers to all characters |
-| **UTF-8** | Most common way to encode Unicode (use this!) |
-| **Code Point** | Unicode's number for a character (e.g., U+0041 for "A") |
-| **Encoding** | How Unicode numbers become computer bytes |
-| **Charset** | Tells browsers/systems which encoding you're using |
+1. **Test with international characters**: Try names like "José" and "王伟"  
+2. **Test with emojis**: Modern applications should handle "👨‍💻" properly  
+3. **Test copy-paste**: Users should be able to paste text from other applications  
 
 ## The Bottom Line
 
