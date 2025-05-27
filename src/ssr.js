@@ -298,7 +298,7 @@ const getProjects = () => {
   projectsToDisplay.forEach(project => {
     const rgb = hexToRgb(project.color || '#ffffff');
     sectionInnerHTML += `
-            <div id="${project.hash}" class="col-lg-6 col-xs-12 d-flex">
+            <div id="${project.hash}" class="col-lg-4 col-md-6 col-xs-12 d-flex">
                 <article class="mb-4 p-4 flex-fill section-card">
                     <header class="mb-3 d-flex">
                         <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
@@ -337,7 +337,6 @@ const getProjects = () => {
 
 const works = [
   {
-    title: 'Lead Engineer & Manager',
     companyName: 'Automattic Inc.',
     companyWebsite: 'https://automattic.com/',
     tags: [
@@ -354,59 +353,40 @@ const works = [
       'circleci',
     ],
     location: 'Remote',
-    startDate: '2023-06-12',
-    endDate: null,
-    excerptHTML: `Worked as a tech lead and manager of seven software engineers that takes care of backend stuff (auth, orders, subscriptions, payments, taxes, invoicing, external integrations, and APIs) in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a>.`,
-    responsibilityHTMLs: [
-      `Took key architectural decisions in terms of system design; facilitated agile methodologies; oversaw team development through coaching, performance evaluations, career guidance.`,
-      `Rewrote the backend to support flexible subscription cycles for marketplace products, transitioning the business from a hard-coded annual subscription model to diverse plans, including monthly and bi-yearly options, driving scalability and adaptability in revenue streams.`,
-      `Integrated diverse payment methods including Card, Google/Apple Pay, PayPal, WooPay, Buy Now Pay Later (via Klarna). Lead the marketplace side of things in making our payment service processor-agnostic, enabling expansion into new geo-locations where our primary payment process is not supported, and establishing backup gateways to ensure business continuity in case of service disruptions.`,
-      `Built several key tools for Woo Support team, including integrating an AI chatbot, automating WordPress.com SSO account creation for guest customers, Zendesk interaction tagging etc, streamlining support processes and improving customer service efficiency.`,
-    ],
-    "quotes": [],
     "color": "#702bd5",
     "thumbnail": `<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
         <path d="M 405.081 244.936 C 405.081 169.024 350.136 101.067 249.642 101.067 C 149.937 101.067 94.92 169.024 94.92 244.936 L 94.92 254.26 C 94.92 330.173 149.866 398.848 249.642 398.848 C 350.065 398.848 405.081 330.165 405.081 254.26 Z M 249.642 461.102 C 110.83 461.102 20.464 360.608 20.464 256.505 L 20.464 243.494 C 20.464 137.218 110.83 38.898 249.642 38.898 C 389.17 38.898 479.537 137.218 479.537 243.494 L 479.537 256.505 C 479.537 360.608 389.17 461.102 249.642 461.102 Z" fill="#2f99ce" style=""></path>
         <path d="M 298.075 175.544 C 311.81 184.152 315.432 202.3 306.681 215.304 L 239.528 319.406 C 230.921 332.418 213.504 336.765 199.769 328.013 C 186.756 319.406 183.141 301.259 191.877 288.253 L 259.038 184.223 C 267.647 171.211 285.063 166.864 298.081 175.616 Z" fill="#050604" style=""></path>
       </svg>
     `,
+    roles: [
+      {
+        title: 'Lead Engineer & Manager',
+        startDate: '2023-06-01',
+        endDate: null,
+        excerptHTML: `Worked as a tech lead and manager of seven software engineers that takes care of backend stuff (auth, orders, subscriptions, payments, taxes, invoicing, external integrations, and APIs) in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a>.`,
+        responsibilityHTMLs: [
+          `Took key architectural decisions in terms of system design; facilitated agile methodologies; oversaw team development through coaching, performance evaluations, career guidance.`,
+          `Rewrote the backend to support flexible subscription cycles for marketplace products, transitioning the business from a hard-coded annual subscription model to diverse plans, including monthly and bi-yearly options, driving scalability and adaptability in revenue streams.`,
+          `Integrated diverse payment methods including Card, Google/Apple Pay, PayPal, WooPay, Buy Now Pay Later (via Klarna). Lead the marketplace side of things in making our payment service processor-agnostic, enabling expansion into new geo-locations where our primary payment process is not supported, and establishing backup gateways to ensure business continuity in case of service disruptions.`,
+          `Built several key tools for Woo Support team, including integrating an AI chatbot, automating WordPress.com SSO account creation for guest customers, Zendesk interaction tagging etc, streamlining support processes and improving customer service efficiency.`,
+        ],
+        "quotes": [],
+      }, {
+        title: 'Senior Software Engineer',
+        startDate: '2021-12-13',
+        endDate: '2023-06-01',
+        excerptHTML: `Worked as a full-stack engineer in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a>.`,
+        responsibilityHTMLs: [
+          `Implemented multi-currency support with comprehensive price freezing strategies to stabilize product pricing against FX fluctuations.`,
+          `Developed a Salesforce integration streamlining account setup, payment collection, and subscription activation, enabling our Sales team to focus on closing deals while eliminating manual processes.`,
+          `Designed and implemented data validation rules for Hadoop, detecting anomalies in critical business data to enable early problem identification and proactive system reliability measures.`,
+        ],
+        "quotes": [],
+      }
+    ],
   },
   {
-    title: 'Senior Software Engineer',
-    companyName: 'Automattic Inc.',
-    companyWebsite: 'https://automattic.com/',
-    tags: [
-      'php',
-      'react',
-      'wordpress',
-      'typescript',
-      'memcached',
-      'mysql',
-      'docker',
-      'ELK',
-      'newrelic',
-      'grafana',
-      'aws',
-      'circleci',
-    ],
-    location: 'Remote',
-    startDate: '2021-12-13',
-    endDate: '2023-06-12',
-    excerptHTML: `Worked as a full-stack engineer in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a>.`,
-    responsibilityHTMLs: [
-      `Implemented multi-currency support with comprehensive price freezing strategies to stabilize product pricing against FX fluctuations.`,
-      `Developed a Salesforce integration streamlining account setup, payment collection, and subscription activation, enabling our Sales team to focus on closing deals while eliminating manual processes.`,
-      `Designed and implemented data validation rules for Hadoop, detecting anomalies in critical business data to enable early problem identification and proactive system reliability measures.`,
-    ],
-    "quotes": [],
-    "color": "#702bd5",
-    "thumbnail": `<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-    <path d="M 405.081 244.936 C 405.081 169.024 350.136 101.067 249.642 101.067 C 149.937 101.067 94.92 169.024 94.92 244.936 L 94.92 254.26 C 94.92 330.173 149.866 398.848 249.642 398.848 C 350.065 398.848 405.081 330.165 405.081 254.26 Z M 249.642 461.102 C 110.83 461.102 20.464 360.608 20.464 256.505 L 20.464 243.494 C 20.464 137.218 110.83 38.898 249.642 38.898 C 389.17 38.898 479.537 137.218 479.537 243.494 L 479.537 256.505 C 479.537 360.608 389.17 461.102 249.642 461.102 Z" fill="#2f99ce" style=""></path>
-    <path d="M 298.075 175.544 C 311.81 184.152 315.432 202.3 306.681 215.304 L 239.528 319.406 C 230.921 332.418 213.504 336.765 199.769 328.013 C 186.756 319.406 183.141 301.259 191.877 288.253 L 259.038 184.223 C 267.647 171.211 285.063 166.864 298.081 175.616 Z" fill="#050604" style=""></path>
-  </svg>`,
-  },
-  {
-    title: 'Software Engineer',
     companyName: 'Newscred Inc.',
     companyWebsite: 'https://newscred.com/',
     tags: [
@@ -432,23 +412,28 @@ const works = [
       'sentry',
     ],
     location: 'Dhaka, Bangladesh',
-    startDate: '2019-08-04',
-    endDate: '2021-12-12',
-    excerptHTML: `Worked as a full-stack engineer on NewsCred’s enterprise marketing management SaaS <a href="https://welcomesoftware.com/" rel="nofollow">Welcome</a>.`,
-    responsibilityHTMLs: [
-      `Led the research, development and deployment of format-agnostic file annotation service that allows clients to mark up uploaded files and allows real-time collaboration. Deployed it in AWS ECS with autoscaling`,
-      `Maintained and developed new features for NewsCred’s publishing integrations including OAuth integrations (i.e., Facebook, LinkedIn, YouTube, Instagram), RPC and Plugin-based integrations (i.e., WordPress, AEM, Sitecore), WOPI-based integrations (i.e., Microsoft Office for web) etc.`,
-      `Rebuilt NewsCred’s content publishing and social scheduling experience (AngularJS to ReactJS). Identified and resolved server-side performance issues, added monitoring and proactive publishing failure prevention steps. Reduced client-reported bugs by more than 15% in two quarters`,
-      `Built a trial version of the existing software, allowing public signup and metered resource utilizations. Designed the architecture of onboarding experience, implemented social login capabilities into existing SSO architecture which bumped up the number of weekly signups by more than 10%`,
-      `Lead a team of 4 engineers to develop the "Settings as Code" project. It allows clients to easily sync workspace settings such as Workflows, Templates, Labels, etc between different workspaces (often between Staging and Production) and even <a href="https://github.com/newscred/settings-ex-im-automation-sample">automate this process via CI jobs</a>.`,
-      `Lead a team of 3 engineers in the "Workflow Simplification" project. The project converted the ever-complex Workflow setup experience to a bare minimum thanks to both UX engineering and backend architecture improvements.`,
-      `Alongside technical contributions, I conducted interviews, trained fresh hires, and led other software engineers in different projects.`,
-    ],
-    "color": "#702bd5",
-    "thumbnail": `<svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M242.191 31.262h21.337c48.094 2.502 95.354 20.595 132.189 51.731 46.426 38.179 75.246 96.003 79.647 155.797v27.916c-2.78 40.588-16.24 80.55-39.707 113.887-31.716 45.917-81.362 79.022-135.989 90.42-43.276 9.614-89.308 5.236-130.313-11.444-46.357-18.765-85.925-53.747-110.274-97.463-25.298-45.152-34.495-99.362-24.325-150.213 9.452-50.503 37.252-97.323 77.03-129.873 36.487-30.418 83.052-48.071 130.405-50.758m98.783 88.358c14.109 28.657 11.977 61.461 10.24 92.412-3.869 40.773-9.684 81.941-24.974 120.166-4.17 9.684-8.502 19.831-16.518 26.989-4.008 4.286-12.371 4.077-15.128-1.529-4.54-8.131-4.934-17.792-5.583-26.873-1.436-53.562 1.552-107.1 2.016-160.615.718-6.95-5.584-11.653-11.885-12.186-8.108-.857-19.043-3.382-24.325 4.772-6.579 11.144-10.494 23.584-15.892 35.306-19.738 42.604-36.303 86.575-55.994 129.201-6.904 14.039-14.271 28.264-25.252 39.592-1.46-11.49-.556-23.074.834-34.541 5.073-52.844 20.92-103.764 32.711-155.333 1.483-5.792 1.089-12.001-2.455-16.958-6.626-.417-13.275-.464-19.877.092-.672 9.035-4.101 17.468-6.255 26.202-14.48 54.164-27.731 108.884-34.542 164.623-1.228 12.116-1.923 26.827 7.761 35.908 12.742 11.051 32.827 5.931 44.109-4.749 15.406-17.051 24.349-38.549 33.152-59.446 18.556-40.31 33.082-82.288 50.897-122.923a25.588 25.588 0 0 1 4.379-6.996c-1.066 51.152-8.155 102.212-5.004 153.433 1.251 13.02 5.977 27.221 17.56 34.588 10.703 5.931 24.047 7.669 35.631 3.197 14.664-5.513 25.622-18.301 31.599-32.503 9.73-24.047 16.634-49.183 20.92-74.759 7.923-44.989 12.927-91.161 7.367-136.73-1.437-9.683-3.753-21.985-14.178-25.854-7.066.533-16.078.139-21.314 5.514z" fill="#702bd5"/><path d="M340.974 119.62c5.236-5.375 14.248-4.981 21.314-5.514 10.425 3.869 12.741 16.171 14.178 25.854 5.56 45.569.556 91.741-7.367 136.73-4.286 25.576-11.19 50.712-20.92 74.759-5.977 14.202-16.935 26.99-31.599 32.503-11.584 4.472-24.928 2.734-35.631-3.197-11.583-7.367-16.309-21.568-17.56-34.588-3.151-51.221 3.938-102.281 5.004-153.433a25.588 25.588 0 0 0-4.379 6.996c-17.815 40.635-32.341 82.613-50.897 122.923-8.803 20.897-17.746 42.395-33.152 59.446-11.282 10.68-31.367 15.8-44.109 4.749-9.684-9.081-8.989-23.792-7.761-35.908 6.811-55.739 20.062-110.459 34.542-164.623 2.154-8.734 5.583-17.167 6.255-26.202 6.602-.556 13.251-.509 19.877-.092 3.544 4.957 3.938 11.166 2.455 16.958-11.791 51.569-27.638 102.489-32.711 155.333-1.39 11.467-2.294 23.051-.834 34.541 10.981-11.328 18.348-25.553 25.252-39.592 19.691-42.626 36.256-86.597 55.994-129.201 5.398-11.722 9.313-24.162 15.892-35.306 5.282-8.154 16.217-5.629 24.325-4.772 6.301.533 12.603 5.236 11.885 12.186-.464 53.515-3.452 107.053-2.016 160.615.649 9.081 1.043 18.742 5.583 26.873 2.757 5.606 11.12 5.815 15.128 1.529 8.016-7.158 12.348-17.305 16.518-26.989 15.29-38.225 21.105-79.393 24.974-120.166 1.737-30.951 3.869-63.755-10.24-92.412z" fill="#fff"/></svg>`,
+    color: "#702bd5",
+    thumbnail: `<svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M242.191 31.262h21.337c48.094 2.502 95.354 20.595 132.189 51.731 46.426 38.179 75.246 96.003 79.647 155.797v27.916c-2.78 40.588-16.24 80.55-39.707 113.887-31.716 45.917-81.362 79.022-135.989 90.42-43.276 9.614-89.308 5.236-130.313-11.444-46.357-18.765-85.925-53.747-110.274-97.463-25.298-45.152-34.495-99.362-24.325-150.213 9.452-50.503 37.252-97.323 77.03-129.873 36.487-30.418 83.052-48.071 130.405-50.758m98.783 88.358c14.109 28.657 11.977 61.461 10.24 92.412-3.869 40.773-9.684 81.941-24.974 120.166-4.17 9.684-8.502 19.831-16.518 26.989-4.008 4.286-12.371 4.077-15.128-1.529-4.54-8.131-4.934-17.792-5.583-26.873-1.436-53.562 1.552-107.1 2.016-160.615.718-6.95-5.584-11.653-11.885-12.186-8.108-.857-19.043-3.382-24.325 4.772-6.579 11.144-10.494 23.584-15.892 35.306-19.738 42.604-36.303 86.575-55.994 129.201-6.904 14.039-14.271 28.264-25.252 39.592-1.46-11.49-.556-23.074.834-34.541 5.073-52.844 20.92-103.764 32.711-155.333 1.483-5.792 1.089-12.001-2.455-16.958-6.626-.417-13.275-.464-19.877.092-.672 9.035-4.101 17.468-6.255 26.202-14.48 54.164-27.731 108.884-34.542 164.623-1.228 12.116-1.923 26.827 7.761 35.908 12.742 11.051 32.827 5.931 44.109-4.749 15.406-17.051 24.349-38.549 33.152-59.446 18.556-40.31 33.082-82.288 50.897-122.923a25.588 25.588 0 0 1 4.379-6.996c-1.066 51.152-8.155 102.212-5.004 153.433 1.251 13.02 5.977 27.221 17.56 34.588 10.703 5.931 24.047 7.669 35.631 3.197 14.664-5.513 25.622-18.301 31.599-32.503 9.73-24.047 16.634-49.183 20.92-74.759 7.923-44.989 12.927-91.161 7.367-136.73-1.437-9.683-3.753-21.985-14.178-25.854-7.066.533-16.078.139-21.314 5.514z" fill="#702bd5"/><path d="M340.974 119.62c5.236-5.375 14.248-4.981 21.314-5.514 10.425 3.869 12.741 16.171 14.178 25.854 5.56 45.569.556 91.741-7.367 136.73-4.286 25.576-11.19 50.712-20.92 74.759-5.977 14.202-16.935 26.99-31.599 32.503-11.584 4.472-24.928 2.734-35.631-3.197-11.583-7.367-16.309-21.568-17.56-34.588-3.151-51.221 3.938-102.281 5.004-153.433a25.588 25.588 0 0 0-4.379 6.996c-17.815 40.635-32.341 82.613-50.897 122.923-8.803 20.897-17.746 42.395-33.152 59.446-11.282 10.68-31.367 15.8-44.109 4.749-9.684-9.081-8.989-23.792-7.761-35.908 6.811-55.739 20.062-110.459 34.542-164.623 2.154-8.734 5.583-17.167 6.255-26.202 6.602-.556 13.251-.509 19.877-.092 3.544 4.957 3.938 11.166 2.455 16.958-11.791 51.569-27.638 102.489-32.711 155.333-1.39 11.467-2.294 23.051-.834 34.541 10.981-11.328 18.348-25.553 25.252-39.592 19.691-42.626 36.256-86.597 55.994-129.201 5.398-11.722 9.313-24.162 15.892-35.306 5.282-8.154 16.217-5.629 24.325-4.772 6.301.533 12.603 5.236 11.885 12.186-.464 53.515-3.452 107.053-2.016 160.615.649 9.081 1.043 18.742 5.583 26.873 2.757 5.606 11.12 5.815 15.128 1.529 8.016-7.158 12.348-17.305 16.518-26.989 15.29-38.225 21.105-79.393 24.974-120.166 1.737-30.951 3.869-63.755-10.24-92.412z" fill="#fff"/></svg>`,
+    roles: [
+      {
+        title: 'Software Engineer',
+        startDate: '2019-08-04',
+        endDate: '2021-12-12',
+        excerptHTML: `Worked as a full-stack engineer on NewsCred’s enterprise marketing management SaaS <a href="https://welcomesoftware.com/" rel="nofollow">Welcome</a>.`,
+        responsibilityHTMLs: [
+          `Led the research, development and deployment of format-agnostic file annotation service that allows clients to mark up uploaded files and allows real-time collaboration. Deployed it in AWS ECS with autoscaling`,
+          `Maintained and developed new features for NewsCred’s publishing integrations including OAuth integrations (i.e., Facebook, LinkedIn, YouTube, Instagram), RPC and Plugin-based integrations (i.e., WordPress, AEM, Sitecore), WOPI-based integrations (i.e., Microsoft Office for web) etc.`,
+          `Rebuilt NewsCred’s content publishing and social scheduling experience (AngularJS to ReactJS). Identified and resolved server-side performance issues, added monitoring and proactive publishing failure prevention steps. Reduced client-reported bugs by more than 15% in two quarters`,
+          `Built a trial version of the existing software, allowing public signup and metered resource utilizations. Designed the architecture of onboarding experience, implemented social login capabilities into existing SSO architecture which bumped up the number of weekly signups by more than 10%`,
+          `Lead a team of 4 engineers to develop the "Settings as Code" project. It allows clients to easily sync workspace settings such as Workflows, Templates, Labels, etc between different workspaces (often between Staging and Production) and even <a href="https://github.com/newscred/settings-ex-im-automation-sample">automate this process via CI jobs</a>.`,
+          `Lead a team of 3 engineers in the "Workflow Simplification" project. The project converted the ever-complex Workflow setup experience to a bare minimum thanks to both UX engineering and backend architecture improvements.`,
+          `Alongside technical contributions, I conducted interviews, trained fresh hires, and led other software engineers in different projects.`,
+        ],
+        quotes: [],
+      }
+    ]
   },
   {
-    title: 'Software Engineer',
     companyName: 'Codemarshal',
     companyWebsite: 'https://algo.codemarshal.org/',
     tags: [
@@ -465,30 +450,28 @@ const works = [
       'gitlab-ci',
     ],
     location: 'Dhaka, Bangladesh',
-    startDate: '2018-02-04',
-    endDate: '2019-07-31',
-    excerptHTML: `Worked as a full-stack engineer on numerous client SaaS projects`,
-    responsibilityHTMLs: [
-      `Developed a web-based gaming environment with ReactJS, Redux and PixiJS, implemented real-time messaging backend from scratch with Django Channels.`,
-      `Led the CORE team in building a REST backend module using DRF in form of reusable Django apps to share across different products which allowed us to bootstrap new projects in a matter of minutes. Built CI pipeline to run tests and publish as a private Python package.`,
-      `Created and maintained a shared ReactJS component library with Webpack, showcased by a style guide app. Added tests & documentation, built CI pipeline testing and publishing as private Node module.`
-    ],
-    "color": "#87ceb4",
-    "thumbnail": `<svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#1e3b6e" d="M243.558 46.545c9.777-5.886 21.195 1.576 25.762 10.581 13.509 23.125 27.435 46.057 40.654 69.376 5.179 7.719.322 19.715-9.584 19.522-32.163.515-64.358.193-96.521.129-6.304.386-12.319-4.085-13.444-10.324.128-6.272 3.409-11.772 6.464-17.014 12.029-20.07 23.769-40.268 35.605-60.435 2.798-4.631 5.95-9.488 11.064-11.835z"/><path d="M147.616 224.566c25.023-12.222 57.957 3.506 64.647 30.394 8.331 25.859-10.935 55.417-37.566 59.244-23.125 4.407-47.665-11.353-53.39-34.125-6.594-21.742 5.628-46.604 26.309-55.513zm169.917-.386c25.955-11.996 59.469 5.597 64.422 33.675 6.336 25.827-13.476 53.873-39.882 56.542-22.739 3.57-46.154-12.029-51.782-34.285-6.497-22.064 5.853-47.473 27.242-55.932zm-251 150.265c26.663-10.388 59.212 8.974 62.396 37.438 4.857 26.374-17.078 53.423-43.838 54.066-23.865 2.091-46.958-17.014-49.531-40.783-3.312-21.517 10.485-43.741 30.973-50.721zm167.408.386c25.859-10.742 58.151 6.851 63.007 34.415 6.176 25.408-13.026 52.811-38.788 56.285-23.029 4.149-47.344-11.675-52.94-34.35-6.851-22.514 6.754-48.405 28.721-56.35zm167.601.804c21.356-9.681 48.984-.546 59.952 20.295 12.994 22.096 3.763 53.616-19.427 64.841-22.867 12.768-54.548 1.672-64.744-22.353-11.289-23.029.676-53.101 24.219-62.783z" fill="#88CFB5"/></svg>`,
+    color: "#87ceb4",
+    thumbnail: `<svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#1e3b6e" d="M243.558 46.545c9.777-5.886 21.195 1.576 25.762 10.581 13.509 23.125 27.435 46.057 40.654 69.376 5.179 7.719.322 19.715-9.584 19.522-32.163.515-64.358.193-96.521.129-6.304.386-12.319-4.085-13.444-10.324.128-6.272 3.409-11.772 6.464-17.014 12.029-20.07 23.769-40.268 35.605-60.435 2.798-4.631 5.95-9.488 11.064-11.835z"/><path d="M147.616 224.566c25.023-12.222 57.957 3.506 64.647 30.394 8.331 25.859-10.935 55.417-37.566 59.244-23.125 4.407-47.665-11.353-53.39-34.125-6.594-21.742 5.628-46.604 26.309-55.513zm169.917-.386c25.955-11.996 59.469 5.597 64.422 33.675 6.336 25.827-13.476 53.873-39.882 56.542-22.739 3.57-46.154-12.029-51.782-34.285-6.497-22.064 5.853-47.473 27.242-55.932zm-251 150.265c26.663-10.388 59.212 8.974 62.396 37.438 4.857 26.374-17.078 53.423-43.838 54.066-23.865 2.091-46.958-17.014-49.531-40.783-3.312-21.517 10.485-43.741 30.973-50.721zm167.408.386c25.859-10.742 58.151 6.851 63.007 34.415 6.176 25.408-13.026 52.811-38.788 56.285-23.029 4.149-47.344-11.675-52.94-34.35-6.851-22.514 6.754-48.405 28.721-56.35zm167.601.804c21.356-9.681 48.984-.546 59.952 20.295 12.994 22.096 3.763 53.616-19.427 64.841-22.867 12.768-54.548 1.672-64.744-22.353-11.289-23.029.676-53.101 24.219-62.783z" fill="#88CFB5"/></svg>`,
+    roles: [
+      {
+        title: 'Software Engineer',
+        startDate: '2018-02-04',
+        endDate: '2019-07-31',
+        excerptHTML: `Worked as a full-stack engineer on numerous client projects.`,
+        responsibilityHTMLs: [
+          `Developed a web-based gaming environment with ReactJS, Redux and PixiJS, implemented real-time messaging backend from scratch with Django Channels.`,
+          `Led the CORE team in building a REST backend module using DRF in form of reusable Django apps to share across different products which allowed us to bootstrap new projects in a matter of minutes. Built CI pipeline to run tests and publish as a private Python package.`,
+          `Created and maintained a shared ReactJS component library with Webpack, showcased by a style guide app. Added tests & documentation, built CI pipeline testing and publishing as private Node module.`
+        ],
+        quotes: [
+        ],
+      }
+    ]
   },
   {
-    title: 'Research & Development Intern',
     companyName: 'Robotics Lab, CSE, DU',
-    companyWebsite: 'http://cse.du.ac.bd/robolab',
     location: 'Dhaka, Bangladesh',
-    startDate: '2016-06-01',
-    endDate: '2018-02-01',
-    excerptHTML: `Worked as an Intern for the "Robolab" in Dept. of CSE, Univ. of Dhaka during my undergrad years.`,
-    responsibilityHTMLs: [
-      `Did Machine Learning based R&amp;D for <a href="https://github.com/RoboPi-CSEDU">Rupai</a>, a graphically programmable robotics kit (funded by Ministry of Education, Govt. of Bangladesh).`,
-      `Led a team of six people in the same project for building a visual programming interface for robotics kits. Designed the system and was responsible for budget & resource management, documentation and reporting.`,
-      `Worked on both front- and back-end; developed the programming editor, code transfer and transpilation modules.`
-    ],
+    companyWebsite: 'http://cse.du.ac.bd/robolab',
     tags: [
       'python',
       'opencv',
@@ -499,6 +482,20 @@ const works = [
     ],
     "color": "#000000",
     "thumbnail": `<svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M36.815 45.146c142.356 0 284.712-.031 427.068.031v427.038H36.815V45.146m42.678 111.607c-.787 15.138-.66 30.372-.094 45.511.063 5.886 6.074 9.788 11.551 9.567 38.776.409 77.551-.094 116.296.221 6.514.157 13.03-.378 19.388-1.826l3.65-6.798c-.251-15.894.851-31.852-.503-47.683-.818-6.011-7.585-8.497-12.904-8.182-40.948-.221-81.927-.033-122.874-.096-6.074-.503-14.131 2.172-14.51 9.286m191.267-.063c-.818 15.138-.661 30.404-.094 45.574.188 6.2 6.42 9.914 12.148 9.567 41.042.315 82.084.032 123.126.158 5.067.284 9.725-1.7 14.289-3.588 2.14-19.041 2.297-38.398-.126-57.408-4.501-1.826-9.096-3.839-14.101-3.526-40.003 0-80.005 0-120.009-.031-6.232-.409-14.855 1.669-15.233 9.254z"/></svg>`,
+    roles: [
+      {
+        title: 'Research & Development Intern',
+        startDate: '2016-07-01',
+        endDate: '2018-02-01',
+        excerptHTML: `Worked as an Intern for the "Robolab" in Dept. of CSE, Univ. of Dhaka during my undergrad years.`,
+        responsibilityHTMLs: [
+          `Did Machine Learning based R&amp;D for <a href="https://github.com/RoboPi-CSEDU">Rupai</a>, a graphically programmable robotics kit (funded by Ministry of Education, Govt. of Bangladesh).`,
+          `Led a team of six people in the same project for building a visual programming interface for robotics kits. Designed the system and was responsible for budget & resource management, documentation and reporting.`,
+          `Worked on both front- and back-end; developed the programming editor, code transfer and transpilation modules.`
+        ],
+
+      }
+    ]
   }
 ];
 
@@ -506,16 +503,27 @@ const getWorks = () => {
   let innerHtml = '';
 
   works.forEach(work => {
-    const startDate = dayjs(work.startDate, 'YYYY-MM-DD');
-    const endDate = work.endDate ? dayjs(work.endDate, 'YYYY-MM-DD') : dayjs();
-    const formattedStartDate = startDate.format('MMM YYYY');
-    const formattedEndDate = endDate.format('MMM YYYY');
-    const tenureStr = work.endDate ? `${formattedStartDate} to ${formattedEndDate}` : `Since ${formattedStartDate}`;
+    const tenureStr = (work) => {
+      const startDate = dayjs(work.startDate, 'YYYY-MM-DD');
+      const endDate = work.endDate ? dayjs(work.endDate, 'YYYY-MM-DD') : dayjs();
+      const formattedStartDate = startDate.format('MMM YYYY');
+      const formattedEndDate = endDate.format('MMM YYYY');
+      return work.endDate ? `${formattedStartDate} to ${formattedEndDate}` : `Since ${formattedStartDate}`;
+    };
+    const getCompanyTenure = (work) => {
+      const endDate = work.roles[0].endDate ? dayjs(work.roles[0].endDate, 'YYYY-MM-DD') : null;
+      const startDate = dayjs(work.roles[work.roles.length - 1].startDate, 'YYYY-MM-DD');
+      return `${startDate.format('MMM YYYY')} - ${endDate ? endDate.format('MMM YYYY') : 'Present'}`;
+    }
+    const companyTenure = getCompanyTenure(work);
 
     const rgb = hexToRgb(work.color || '#ffffff');
 
     innerHtml += `
-      <div class="col-12 d-flex">
+      <div class="col-12 col-md-3 col-2 my-2 d-flex">
+        <time>${companyTenure}</time>
+      </div>
+      <div class="col-12 col-md-9 col-10 d-flex">
         <article class="mb-4 p-4 flex-fill section-card">
             <header class="mb-3 d-flex">
                 <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
@@ -523,21 +531,29 @@ const getWorks = () => {
                 </div>
                 <div>
                   <h3>
-                      ${work.title} at <a href="${work.companyWebsite}" target="_blank" rel="noopener noreferrer">${work.companyName}</a>
+                      <a href="${work.companyWebsite}" target="_blank" rel="noopener noreferrer">${work.companyName}</a>
                   </h3>
                   <address>${work.location}</address>
-                  <time class="tenure" data-start="${work.startDate}" ${work.endDate && `data-end="${work.endDate}"`}>${tenureStr}</time>
                 </div>
             </header>
-            <div class="my-2">
-                <p>${work.excerptHTML}</p>
-                <details>
-                    <summary class="mb-3">Learn More</summary>
-                    <ul>
-                      ${work.responsibilityHTMLs.map(responsibility => `<li>${responsibility}</li>`).join('')}
-                    </ul>
-                </details>
-            </div>
+            <ul class="roles list-unstyled">
+              ${work.roles.map(role => `
+                <li class="my-4 role">
+                  <h4 class="role-title">${role.title}</h4>
+                  <time class="tenure" data-start="${role.startDate}" ${role.endDate && `data-end="${role.endDate}"`}>${tenureStr(role)}</time>
+                  <div class="my-2">
+                    <p>${role.excerptHTML}</p>
+                    <details>
+                        <summary>Learn More</summary>
+                        <ul class="my-3">
+                          ${role.responsibilityHTMLs.map(responsibility => `<li>${responsibility}</li>`).join('')}
+                        </ul>
+                    </details>
+                  </div>
+                </li>
+              `).join('')
+            }
+            </ul>
             <footer class="mt-3">
               ${work.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
             </footer>
@@ -564,8 +580,211 @@ const getAnalyticsService = () => {
   `
 }
 
+
+const quotes = [
+  {
+    quote: `...I wanted to send a quick message to say thanks for this PR [URL].<br/>
+    It might seem minor, but the high test-to-code ratio was great and useful as a reference to other engineers about what good PRs can look like.<br/>
+    I applied the Cool PRs label to it for easy reference later.`,
+    quotee: "David Trindall, Staff Software Engineer at NewsCred",
+    source: "Slack",
+    date: "2021",
+  },
+  {
+    quote: `[Kudos] for all your work developing and implementing the new chatbot on WooCommerce.com.<br/>A preliminary view data is showing excellent results, you helped lay a strong foundation for success in this!`,
+    quotee: "Brian Taylor, Happiness Engineer at Automattic",
+    source: "Matticspace",
+    date: "2025",
+  },
+  {
+    quote: `You Sir, are a saint! :)`,
+    quotee: "@silentsurfer",
+    source: `<a href="https://stackoverflow.com/questions/55000809/build-when-case-query-in-for-loop-django/55001322?noredirect=1#comment99497091_55001322">StackOverflow</a>`,
+    date: "2019",
+  },
+  {
+    quote: `Thanks for the initial research and handling the majority of the development in 2-year subscription project.<br/>`,
+    quotee: "Thilina Pituwala, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2025",
+  },
+  {
+    quote: `Appreciate all the work your're doing to help us get accross the finish line with [Processor-agnostic Payment Service] launching on WooCommerce.com.<br/>`,
+    quotee: "Jackie D. Tran, Senior Project Manager at Automattic",
+    source: "Matticspace",
+    date: "2025",
+  },
+  {
+    quote: `[Kudos] for the quick proof of concept you came up with for the 2-year subscription.<br/>`,
+    quotee: "Adrian Labos, Marketplace Ops at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for answering all the questions I need for the in-app marketplace installation and confirming for us what steps can be reduced and improved. This helps a ton!<br/>`,
+    quotee: "Annchiahui Tai, Product Designer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for taking charge of fixing our E2E tests after 2FA was enabled for our vendor accounts.<br/>Thanks to your quick work our alerts channel will have less noise!`,
+    quotee: "Michael Iwanow, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `Thank you so much for taking the time to help me set up [Repository].<br/>Your explainations answered many questions I had about the setup!`,
+    quotee: "Kader Ibrahim S, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for identifying, investigating and fixing autorenewal issue when adding a card.<br/>Also, for the support for [Team].`,
+    quotee: "Akeda Bagus, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `Thanks for your thorough code review on payments-related code.<br/>
+    Your suggestions clarified some unknowns and made the code more performant...`,
+    quotee: "Michal Iwanow, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for the really quick fix to Woo iOS universal links for old domain - great to have it sorted within a few hours...`,
+    quotee: "Josh Heald, Mobile Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `Thank you for the work in the query that helps investigating the vaulting issue on PayPal.<br/>Also the CLI that you created will help us on our day to days issue resolution.<br/>`,
+    quotee: "Prahesa Kusuma Setia, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `Thank you for handling the Flare team well and covering the [Internal] project while I was taking a long vacation.<br/>`,
+    quotee: "Prahesa Kusuma Setia, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for all your support, coordination, implementation and testing related to the [Internal] API upgrade...<br/>`,
+    quotee: "Anurag Bhandari, Payments Lead at Automattic",
+    source: "Matticspace",
+    date: "2024",
+  },
+  {
+    quote: `[Kudos] for noticing the unusual failed [payment] actions and priorizing the investigation.<br/>`,
+    quotee: "Akeda Bagus, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for your outstanding effort in planning and organizing the squad meetup in Langkawi.<br/>`,
+    quotee: "Denis Dvali, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for taking the time to review and provide helpful feedback on my PRs.<br/>`,
+    quotee: "Manzur Ahammed, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for quickly debugging and fixing the helper connection issue.<br/>`,
+    quotee: "Florin Dragota, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for jumping in and helping me to resolve the SQL query performance issue in the multi-currency cron scheduler.<br/>`,
+    quotee: "Manzur Ahammed, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `Thank you for leading the multi-currency project work and overcoming all obstacles on the way.<br/>`,
+    quotee: "Denis Dvali, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2023",
+  },
+  {
+    quote: `[Kudos] for your diligent work with enabling fulfillment of the branded readers via [Vendor], especially the Card reader fulfillment Setup and Testing documentation...`,
+    quotee: "Doug Aitken, Payment Ops at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  },
+  {
+    quote: `Thank you for investigating and finding the cause of a tricky edge case with an incorrect tax rate being provided in the request to [Tax Provider].<br/>`,
+    quotee: "Denis Dvali, Team Lead at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  },
+  {
+    quote: `Thanks for your work on the implementation of the Taxes validation Hadoop Data Validator, the thoughts given and the solution proposed.<br/>`,
+    quotee: "Rommel Castro, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  },
+  {
+    quote: `Thanks for your work upgrading PHPUnit - it's a nice and useful improvement!<br/>`,
+    quotee: "Gareth Noon, Software Engineer at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  },
+  {
+    quote: "Thank you for jumping in and assisting Woo Sales with sales orders which went astray on WooCommerce.com.<br/>I appreciate your detailed and thorough responses, which put us all at ease that the orders are flowing as they should.",
+    quotee: "Matty Cohen, Engineering Manager at Automattic",
+    source: "Matticspace",
+    date: "2022",
+  },
+  {
+    quote: "I know I'm nearly two years after the event, but thanks @mehamasum! You saved me hours...",
+    quotee: "@glowkeeper",
+    source: `<a href="https://stackoverflow.com/questions/54703943/passing-mapped-data-to-a-material-ui-modal/54704182?noredirect=1#comment116207636_54704182">StackOverflow</a>`,
+    date: "2021",
+  },
+  {
+    quote: "Great answers, this saved my day",
+    quotee: "@Iago Leão",
+    source: `<a href="https://stackoverflow.com/questions/54971965/redux-persist-undefined-is-not-an-object-evaluating-store-getstate/54972269?noredirect=1#comment106825013_54972269">StackOverflow</a>`,
+    date: "2020",
+  },
+  {
+    quote: "Very elegant. Thanks a lot!",
+    quotee: "@Null isTrue",
+    source: `<a href="https://stackoverflow.com/questions/54521840/react-set-state-from-countdown-child/54522013?noredirect=1#comment95847233_54522013">StackOverflow</a>`,
+    date: "2019",
+  },
+  {
+    quote: "You save my life!",
+    quotee: "@Moein Alizadeh",
+    source: `<a href="https://stackoverflow.com/questions/54821006/store-not-getting-passed-down-to-connected-cellrendererframework/54821379?noredirect=1#comment100434877_54821379">StackOverflow</a>`,
+    date: "2019",
+  }
+];
+const getQuotes = () => {
+  return `
+    <div class="quotes-data" style="display: none" aria-hidden="true">
+      ${quotes.map(quote => `
+        <blockquote>
+          <p class="quote-data-quote">${quote.quote}</p>
+          <cite class="quote-data-quotee">${quote.quotee}</cite>
+          <span class="quote-data-source">via ${quote.source}</span>
+          <time class="quote-data-date">${quote.date}</time>
+        </blockquote>
+      `).join(' ')
+      }
+    </div>
+  `;
+}
+
 module.exports = {
   getAnalyticsService,
   getProjects,
-  getWorks
+  getWorks,
+  getQuotes
 }
