@@ -21,8 +21,10 @@ All nodes see the same (latest) data at the same time.
 📌 **Example: Online banking system**
 
 *   When you transfer money, your balance should update instantly across all devices and branches.
+
+*   Two customers are trying to get the last ticket to a concert: the ticket is sold to a customer in Germany, it can't be sold again to a customer in USA.
     
-*   If consistency is enforced, you might experience a brief delay during network issues because the system won’t allow outdated or conflicting balances.
+*   If consistency is enforced, you might experience a brief delay during network issues because the system won’t allow outdated or conflicting data.
     
 
 💡 **Trade-off:** If the system prioritizes **Consistency**, transactions may be temporarily blocked until all servers agree on the correct balance.
