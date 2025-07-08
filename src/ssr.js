@@ -392,6 +392,7 @@ const works = [
     tags: [
       'node.js',
       'react',
+      'angular',
       'express.js',
       'python',
       'typescript',
@@ -423,7 +424,7 @@ const works = [
         responsibilityHTMLs: [
           `Led the research, development and deployment of format-agnostic file annotation service that allows clients to mark up uploaded files and allows real-time collaboration. Deployed it in AWS ECS with autoscaling`,
           `Maintained and developed new features for NewsCred’s publishing integrations including OAuth integrations (i.e., Facebook, LinkedIn, YouTube, Instagram), RPC and Plugin-based integrations (i.e., WordPress, AEM, Sitecore), WOPI-based integrations (i.e., Microsoft Office for web) etc.`,
-          `Rebuilt NewsCred’s content publishing and social scheduling experience (AngularJS to ReactJS). Identified and resolved server-side performance issues, added monitoring and proactive publishing failure prevention steps. Reduced client-reported bugs by more than 15% in two quarters`,
+          `Rebuilt NewsCred’s content publishing and social scheduling experience. Identified and resolved server-side performance issues, added monitoring and proactive publishing failure prevention steps. Reduced client-reported bugs by more than 15% in two quarters`,
           `Built a trial version of the existing software, allowing public signup and metered resource utilizations. Designed the architecture of onboarding experience, implemented social login capabilities into existing SSO architecture which bumped up the number of weekly signups by more than 10%`,
           `Lead a team of 4 engineers to develop the "Settings as Code" project. It allows clients to easily sync workspace settings such as Workflows, Templates, Labels, etc between different workspaces (often between Staging and Production) and even <a href="https://github.com/newscred/settings-ex-im-automation-sample">automate this process via CI jobs</a>.`,
           `Lead a team of 3 engineers in the "Workflow Simplification" project. The project converted the ever-complex Workflow setup experience to a bare minimum thanks to both UX engineering and backend architecture improvements.`,
