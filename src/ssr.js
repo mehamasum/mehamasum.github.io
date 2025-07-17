@@ -343,6 +343,8 @@ const works = [
       'php',
       'react',
       'wordpress',
+      'gutenberg',
+      'laravel',
       'memcached',
       'mysql',
       'docker',
@@ -363,7 +365,7 @@ const works = [
       {
         title: 'Lead Engineer & Manager',
         startDate: '2023-06-01',
-        endDate: null,
+        endDate: '2025-04-02',
         excerptHTML: `Worked as a tech lead and manager of seven software engineers that takes care of backend stuff (auth, orders, subscriptions, payments, taxes, invoicing, external integrations, and APIs) in <a href="https://woocommerce.com/" target="_blank">Woo Marketplace</a>.`,
         responsibilityHTMLs: [
           `Took key architectural decisions in terms of system design; facilitated agile methodologies; oversaw team development through coaching, performance evaluations, career guidance.`,
