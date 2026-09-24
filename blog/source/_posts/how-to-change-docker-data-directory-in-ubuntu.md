@@ -55,7 +55,7 @@ pgrep -x dockerd || echo "dockerd is stopped"
 sudo rsync -aHAX --one-file-system --info=progress2 /var/lib/docker/ /new/path/
 ```
   
-**Important: mind the trailing slashes.** `rsync /var/lib/docker/ /new/path/` copies the *contents*. If you drop the trailing slash on the source, or if you use `cp -a /var/lib/docker/ /new/path` after having already created `/new/path`, you end up with `/new/path/docker/` instead- everything one level too deep. Docker will then start against an empty directory and report zero images and zero volumes, which looks exactly like you lost everything. See the troubleshooting section at the bottom if this happens to you.  
+**Important: mind the trailing slashes.** `rsync /var/lib/docker/ /new/path/` copies the *contents*. If you drop the trailing slash on the source, or if you use `cp -a /var/lib/docker/ /new/path` after having already created `/new/path`, you end up with `/new/path/docker/` instead- everything one level too deep. Docker will then start against an empty directory and report zero images and zero volumes, which looks exactly like you lost everything.  
   
 **Why `rsync` and not `cp -a`?** The `overlay2` storage driver uses hardlinks heavily. `rsync -aHAX` preserves hardlinks (`-H`), ACLs (`-A`) and extended attributes (`-X`); plain `cp -a` does not preserve hardlinks and your copy can end up much larger than the original. `--one-file-system` is the safety net for the bind mounts described above- it refuses to cross into them.  
   
@@ -98,7 +98,7 @@ docker system df
 echo "images:  $(docker images -q | wc -l)"
 echo "volumes: $(docker volume ls -q | wc -l)"
 ```
-The image count, the volume count and the total size should all match what you had before. A size difference of a few MB is fine- Docker writes some metadata on startup. **Zero images and zero volumes means the copy landed in the wrong place**, not that your data is gone. Go to troubleshooting.  
+The image count, the volume count and the total size should all match what you had before. A size difference of a few MB is fine- Docker writes some metadata on startup. **Zero images and zero volumes means the copy landed in the wrong place**, not that your data is gone.  
   
 Finally, start something real- a compose project you use every day- and confirm the containers come up and your data is still in them. A matching volume count only tells you the volumes exist, not that their contents are intact.  
   
@@ -109,21 +109,3 @@ sudo rm -rf /var/lib/docker-backup
 ```
 That's it. 🎉  
   
-### Troubleshooting: Docker starts up empty  
-If `docker images` and `docker volume ls` are both empty after the switch, check whether your data ended up nested one level too deep:  
-```bash
-sudo ls /new/path
-sudo du -sh /new/path/docker
-```
-If you see a `docker` directory inside `/new/path` holding all the real data (`overlay2`, `volumes`, `image`), that is the trailing-slash mistake. Nothing is lost- fix it with three renames:  
-```bash
-sudo systemctl stop docker.socket docker.service containerd.service
-sudo mv /new/path /new/path-wrapper
-sudo mv /new/path-wrapper/docker /new/path
-sudo systemctl start docker
-```
-Check `docker images` again, then remove the leftover empty skeleton:  
-```bash
-sudo rm -rf /new/path-wrapper
-```
-Those renames are instant because everything stays on the same filesystem- nothing is copied a second time.  
