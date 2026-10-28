@@ -337,6 +337,44 @@ const getProjects = () => {
 
 const works = [
   {
+    companyName: 'XWP',
+    companyWebsite: 'https://xwp.co/',
+    tags: [
+      'php',
+      'wordpress-vip',
+      'woocommerce',
+      'gutenberg',
+      'react',
+      'typescript',
+      'graphql',
+      'mysql',
+      'mongodb',
+      'elasticsearch',
+      'newrelic',
+      'cloudflare',
+      'dynamics-365',
+      'docker',
+    ],
+    location: 'Remote',
+    "color": "#4B515B",
+    "thumbnail": `<svg viewBox="-2 -2 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path clip-rule="evenodd" fill-rule="evenodd" fill="#1b1b1b" d="m.878678.878678c1.171572-1.171571 3.071062-1.171571 4.242632 0l6.92129 6.921312-4.24261 4.24261-6.921312-6.92129c-1.171571-1.17157-1.171571-3.07106 0-4.242632zm19.721122 15.478222 6.5213 6.5213c1.1716 1.1716 1.1716 3.0711 0 4.2427-1.1715 1.1715-3.071 1.1715-4.2426 0l-6.5213-6.5213zm6.9214-11.23559c1.1716-1.17157 1.1716-3.07106 0-4.242632-1.1716-1.171571-3.0711-1.171571-4.2427 0l-21.99992 21.999922c-1.17157 1.1716-1.17157 3.0711 0 4.2427s3.07106 1.1716 4.24264 0z"></path>
+      </svg>
+    `,
+    roles: [
+      {
+        title: 'Senior Software Engineer',
+        startDate: '2025-07-31',
+        excerptHTML: `Working as a full-stack tech lead on enterprise <a href="https://wpvip.com/" target="_blank">WordPress VIP</a> projects for clients in media publishing and membership commerce.`,
+        responsibilityHTMLs: [
+          `Architected and led the product side of <a href="https://www.ziffdavis.com/" target="_blank">Ziff Davis</a>'s migration of CNET, ZDNET and PCMag from legacy Symfony and Laravel platforms to a WordPress VIP multisite serving 820k+ CNET and ZDNET articles, protecting the affiliate revenue and search traffic the brands run on: designed a shared 28k-product GraphQL catalog, served through structured content APIs, with delta-based sync and per-product invalidation to keep prices fresh without cold-starting caches, and cache-aware rendering so pages stay up when the API fails. Built advanced product blocks, affiliate monetization flows and rich-result schema, and shaped direction with client teams through diagrams, technical briefs, epic planning, and clear AC and Dev Notes.`,
+          `Led the WooCommerce side of <a href="https://www.choice.com.au/" target="_blank">CHOICE Australia</a>'s migration from Sitecore to WordPress VIP without disrupting paying members, for a store of 600k users, 680k orders and 260k subscriptions: migrated customer, order and subscription data and Merchant Warrior payment tokens (230k saved cards) so renewals kept charging with no card re-entry. Kept member and finance records consistent through Dynamics 365 and Business Central sync, recovered 17.6k failed renewals (34% of retries) with custom renewal and retry logic, and safely repaired live data (~1,900 broken orders) with audit-first WP-CLI tooling.`,
+        ],
+        "quotes": [],
+      },
+    ],
+  },
+  {
     companyName: 'Automattic Inc.',
     companyWebsite: 'https://automattic.com/',
     tags: [
@@ -543,7 +581,7 @@ const getWorks = () => {
               ${work.roles.map(role => `
                 <li class="my-4 role">
                   <h4 class="role-title">${role.title}</h4>
-                  <time class="tenure" data-start="${role.startDate}" ${role.endDate && `data-end="${role.endDate}"`}>${tenureStr(role)}</time>
+                  <time class="tenure" data-start="${role.startDate}" ${role.endDate ? `data-end="${role.endDate}"` : ''}>${tenureStr(role)}</time>
                   <div class="my-2">
                     <p>${role.excerptHTML}</p>
                     <details>
