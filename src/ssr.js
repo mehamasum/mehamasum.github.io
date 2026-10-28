@@ -356,9 +356,14 @@ const works = [
       'docker',
     ],
     location: 'Remote',
-    "color": "#4B515B",
-    "thumbnail": `<svg viewBox="-2 -2 32 32" xmlns="http://www.w3.org/2000/svg">
-        <path clip-rule="evenodd" fill-rule="evenodd" fill="#1b1b1b" d="m.878678.878678c1.171572-1.171571 3.071062-1.171571 4.242632 0l6.92129 6.921312-4.24261 4.24261-6.921312-6.92129c-1.171571-1.17157-1.171571-3.07106 0-4.242632zm19.721122 15.478222 6.5213 6.5213c1.1716 1.1716 1.1716 3.0711 0 4.2427-1.1715 1.1715-3.071 1.1715-4.2426 0l-6.5213-6.5213zm6.9214-11.23559c1.1716-1.17157 1.1716-3.07106 0-4.242632-1.1716-1.171571-3.0711-1.171571-4.2427 0l-21.99992 21.999922c-1.17157 1.1716-1.17157 3.0711 0 4.2427s3.07106 1.1716 4.24264 0z"></path>
+    "color": "#1d4ac4",
+    "thumbnail": `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <rect width="400" height="400" fill="#1d4ac4"></rect>
+        <g stroke-linecap="round">
+          <line x1="124" y1="124" x2="276" y2="276" stroke="#ffffff" stroke-width="58"></line>
+          <line x1="126" y1="274" x2="274" y2="126" stroke="#1d4ac4" stroke-width="90"></line>
+          <line x1="126" y1="274" x2="274" y2="126" stroke="#ffffff" stroke-width="58"></line>
+        </g>
       </svg>
     `,
     roles: [
