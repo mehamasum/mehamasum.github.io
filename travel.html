@@ -39,6 +39,10 @@
   <meta property="twitter:title" content="Hi, I'm Meha Masum. I'm a software engineer based in Dhaka.">
   <meta property="twitter:description" content="Check out my travel checklist.">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
+  <link rel="stylesheet" href="travel-passport.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
     integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
     crossorigin="" />
@@ -172,6 +176,66 @@
       line-height: 1.3;
     }
 
+    .popup-card.has-stamp {
+      flex-direction: column;
+      text-align: center;
+      gap: 6px;
+      padding: 14px 16px 12px;
+    }
+
+    .popup-card .stamp {
+      width: 120px;
+    }
+
+    /* ---------- Stamps (built by travel-stamps.js) ---------- */
+
+    .stamp {
+      position: relative;
+      display: block;
+      aspect-ratio: 100 / 148;
+      color: var(--ink);
+    }
+
+    .stamp svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    .stamp-code {
+      font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
+      font-size: 21px;
+      letter-spacing: 0.02em;
+    }
+
+    .stamp-code .stamp-dot {
+      font-size: 11px;
+    }
+
+    .stamp-name {
+      font-family: 'Anton', Impact, 'Arial Narrow', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    .stamp-date {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+    }
+
+    .stamp-icon {
+      position: absolute;
+      background-color: currentColor;
+      -webkit-mask-size: contain;
+      mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-position: center;
+    }
+
     /* ---------- Map markers ---------- */
 
     .city-marker {
@@ -275,7 +339,8 @@
     }
 
     .theme-toggle,
-    .panel-collapse-toggle {
+    .panel-collapse-toggle,
+    .icon-btn {
       width: 32px;
       height: 32px;
       border-radius: 50%;
@@ -291,12 +356,14 @@
     }
 
     .theme-toggle:hover,
-    .panel-collapse-toggle:hover {
+    .panel-collapse-toggle:hover,
+    .icon-btn:hover {
       background: var(--hover-bg);
     }
 
     .theme-toggle svg,
-    .panel-collapse-toggle svg {
+    .panel-collapse-toggle svg,
+    .icon-btn svg {
       width: 16px;
       height: 16px;
       display: block;
@@ -477,6 +544,33 @@
 <body>
   <div id="map"></div>
 
+  <div class="view-switch" id="view-switch" role="group" aria-label="View">
+    <button data-view="map" class="active" aria-pressed="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"></path><path d="M9 4v14M15 6v14"></path></svg>
+      Map
+    </button>
+    <button data-view="passport" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><circle cx="12" cy="10" r="3"></circle><path d="M9 16h6"></path></svg>
+      Passport
+    </button>
+  </div>
+
+  <div class="passport-view" id="passport-view" aria-label="Passport">
+    <div class="book-stage" id="book-stage">
+      <div class="book" id="book"></div>
+    </div>
+    <div class="passport-controls">
+      <button class="icon-btn" id="passport-prev" aria-label="Previous page" title="Previous page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <div class="passport-status" id="passport-status" aria-live="polite"></div>
+      <button class="icon-btn" id="passport-next" aria-label="Next page" title="Next page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+    <div class="passport-hint">Click a page or use the arrow keys to turn it · Click a stamp to see it on the map</div>
+  </div>
+
   <div class="panel" id="panel">
     <div class="panel-header" id="panel-header">
       <div class="panel-title-row">
@@ -504,6 +598,7 @@
     </svg>
   </a>
 
+  <script src="travel-stamps.js"></script>
   <script>
     // "date" is the day of first arrival in that place on a trip,
     // format "YYYY-MM-DD" / "YYYY-MM" / "YYYY", or null if unknown. Repeat visits get their own entry.
@@ -629,8 +724,9 @@
     // ---------- Map setup ----------
 
     var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
-    var map = L.map('map', { zoomControl: !isMobile }).setView([40, 10], isMobile ? 1 : 3);
-    if (isMobile) L.control.zoom({ position: 'bottomright' }).addTo(map);
+    var map = L.map('map', { zoomControl: false }).setView([40, 10], isMobile ? 1 : 3);
+    // Top left is taken by the Map / Passport switch.
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
 
     var osmAttribution = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
 
@@ -639,6 +735,20 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: osmAttribution, noWrap: true, maxZoom: 19
     }).addTo(map);
+
+    // With noWrap there is only one copy of the world, so on screens wider (or taller) than
+    // the world at the current zoom, empty bands show at the sides. Never zoom out past the
+    // level where the world covers the whole viewport, and keep panning inside it.
+    function fillViewport() {
+      var size = map.getSize();
+      var minZoom = Math.ceil(Math.log2(Math.max(size.x, size.y) / 256));
+      map.setMinZoom(minZoom);
+      if (map.getZoom() < minZoom) map.setZoom(minZoom, { animate: false });
+    }
+    map.setMaxBounds([[-85, -180], [85, 180]]);
+    map.options.maxBoundsViscosity = 1;
+    fillViewport();
+    map.on('resize', fillViewport);
 
     var themeToggleBtn = document.getElementById('theme-toggle');
     var currentTheme = localStorage.getItem('travel-theme') === 'light' ? 'light' : 'dark';
@@ -678,14 +788,28 @@
       });
     }
 
+    // Repeat visits share one popup stamp: the one from the first (earliest) visit.
+    function firstVisitOf(city) {
+      return cities.filter(function (c) { return c.name === city.name; })
+        .sort(function (a, b) {
+          if (!a.date) return 1;
+          if (!b.date) return -1;
+          return String(a.date) < String(b.date) ? -1 : 1;
+        })[0];
+    }
+
     function popupHtml(city) {
       var meta = getCountryMeta(city.country);
       var sub = meta.name + (city.date ? ' · ' + formatMonthYear(city.date) : '');
-      return '' +
-        '<div class="popup-card">' +
-        '<div class="popup-thumb"><img src="' + flagUrl(city.country) + '" alt="' + meta.name + '"></div>' +
-        '<div><div class="popup-name">' + city.name + '</div><div class="popup-sub">' + sub + '</div></div>' +
-        '</div>';
+      var text = '<div><div class="popup-name">' + city.name + '</div><div class="popup-sub">' + sub + '</div></div>';
+      if (city.name === 'Home') {
+        return '' +
+          '<div class="popup-card">' +
+          '<div class="popup-thumb"><img src="' + flagUrl(city.country) + '" alt="' + meta.name + '"></div>' +
+          text +
+          '</div>';
+      }
+      return '<div class="popup-card has-stamp">' + TravelStamps.render(firstVisitOf(city), meta.name) + text + '</div>';
     }
 
     cities.forEach(function (city) {
@@ -872,6 +996,7 @@
 
     renderPanel();
   </script>
+  <script src="travel-passport.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,322 @@
+/* Passport view for travel.html (built by travel-passport.js). */
+
+/* ---------- Map / Passport switch ---------- */
+
+.view-switch {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1600;
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--panel-bg);
+  box-shadow: var(--shadow);
+}
+
+.view-switch button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font: 600 13px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.view-switch button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.view-switch button.active {
+  background: var(--active-bg);
+  color: var(--text-primary);
+}
+
+/* ---------- Passport view ---------- */
+
+.passport-view {
+  position: fixed;
+  inset: 0;
+  z-index: 1500;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 72px 16px 20px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 40%, var(--panel-bg-elevated), var(--map-bg) 70%);
+  color: var(--text-primary);
+}
+
+body.is-passport .passport-view {
+  display: flex;
+}
+
+body.is-passport .panel {
+  display: none;
+}
+
+body.is-passport .home-btn {
+  z-index: 1700;
+}
+
+/* The book is two passport pages (125 x 88 each) stacked, opening top-to-bottom. */
+.book-stage {
+  position: relative;
+  height: min(calc(100vh - 170px), calc((100vw - 32px) * 176 / 125));
+  aspect-ratio: 125 / 176;
+  perspective: 2600px;
+}
+
+/* Soft shadow under whatever part of the book is visible. */
+.book-stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  transition: top 0.8s ease, bottom 0.8s ease;
+}
+
+.book-stage.at-cover::before,
+.book-stage.at-back::before {
+  top: 25%;
+  bottom: 25%;
+}
+
+.book {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.3, 0.7, 0.3, 1);
+}
+
+/* Closed book: only one half shows, so slide it to the middle of the stage. */
+.book-stage.at-cover .book {
+  transform: translateY(-25%);
+}
+
+.book-stage.at-back .book {
+  transform: translateY(25%);
+}
+
+.leaf {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 50%;
+  transform-origin: center top;
+  transform-style: preserve-3d;
+  transition: transform 0.9s cubic-bezier(0.45, 0.05, 0.25, 1);
+  cursor: pointer;
+}
+
+.leaf.is-flipped {
+  transform: rotateX(180deg);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  container-type: inline-size;
+}
+
+.face-front {
+  border-radius: 0 0 12px 12px;
+}
+
+.face-back {
+  transform: rotateX(180deg);
+  border-radius: 12px 12px 0 0;
+}
+
+/* ---------- Paper ---------- */
+
+.paper {
+  color: #2d6b52;
+  background-color: #f6f1e3;
+  background-image:
+    radial-gradient(circle at 50% 55%, rgba(47, 122, 90, 0.09) 0, rgba(47, 122, 90, 0) 42%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='26'%3E%3Cpath d='M0 13 Q20 3 40 13 T80 13 T120 13 T160 13' fill='none' stroke='%232f7a5a' stroke-opacity='.12' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: auto, 22cqw auto;
+}
+
+/* Flat fold line where the two pages meet. */
+.face-front.paper {
+  box-shadow: inset 0 1px 0 rgba(47, 122, 90, 0.25);
+}
+
+.page-head {
+  position: absolute;
+  top: 4.2cqw;
+  left: 5cqw;
+  right: 5cqw;
+  display: flex;
+  justify-content: space-between;
+  font: 700 2.2cqw/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.page-num {
+  position: absolute;
+  bottom: 3.6cqw;
+  right: 5cqw;
+  font: 700 2.2cqw/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  opacity: 0.6;
+}
+
+.face-back .page-num {
+  right: auto;
+  left: 5cqw;
+}
+
+/* ---------- Stamp slots (4 per page) ---------- */
+
+.slot {
+  position: absolute;
+  width: 18cqw;
+  transform: translate(-50%, -50%) rotate(var(--rot, 0deg));
+}
+
+.slot-empty {
+  width: 17cqw;
+  aspect-ratio: 1;
+  border: 0.35cqw dashed rgba(47, 122, 90, 0.28);
+  border-radius: 50%;
+}
+
+.slot .stamp {
+  cursor: pointer;
+  mix-blend-mode: multiply;
+  transition: transform 0.2s ease;
+}
+
+.slot .stamp:hover,
+.slot .stamp:focus-visible {
+  transform: scale(1.08);
+}
+
+.slot .stamp:focus-visible {
+  outline: 0.4cqw dashed currentColor;
+  outline-offset: 1cqw;
+  border-radius: 2cqw;
+}
+
+/* ---------- Covers ---------- */
+
+.cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4cqw;
+  color: #d9b764;
+  background-color: #114a37;
+  background-image:
+    radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0) 60%),
+    radial-gradient(ellipse at 70% 90%, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) 60%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+.cover-title {
+  font-size: 7cqw;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  margin-right: -0.3em;
+}
+
+.cover-sub {
+  font-size: 2.6cqw;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  opacity: 0.85;
+}
+
+.cover-flag {
+  display: block;
+  width: 22cqw;
+  height: auto;
+  border-radius: 0.6cqw;
+  box-shadow: 0 0.8cqw 1.6cqw rgba(0, 0, 0, 0.3);
+}
+
+.cover-hint {
+  font-size: 2.4cqw;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+}
+
+.end-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 600 2.6cqw/1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ---------- Controls ---------- */
+
+.passport-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.passport-status {
+  min-width: 140px;
+  text-align: center;
+  font: 600 13px/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-secondary);
+}
+
+.passport-controls .icon-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.passport-hint {
+  font: 12px/1.4 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book,
+  .leaf,
+  .book-stage::before {
+    transition: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .view-switch {
+    top: 12px;
+    left: 12px;
+  }
+
+  .passport-view {
+    padding: 60px 12px 64px;
+  }
+
+  .passport-hint {
+    display: none;
+  }
+}
