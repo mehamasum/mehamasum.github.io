@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M6 48h52"/>
+  <path d="M6 48V30h2.5v-5h2v-5h4v5h2v5H19M19 48V30q3 0 3-4v-8h2v-4h3v4h2v8q0 4 3 4M32 48V28l6.5-12L45 28M45 48V32q2 0 2-4q0-6 4.5-8q4.5 2 4.5 8q0 4 2 4v16"/>
+  <g fill="#000" stroke="none"><rect x="9" y="33" width="2.5" height="4"/><rect x="13.5" y="33" width="2.5" height="4"/><rect x="9" y="40" width="2.5" height="4"/><rect x="13.5" y="40" width="2.5" height="4"/><rect x="22" y="33" width="2.5" height="4"/><rect x="26.5" y="33" width="2.5" height="4"/><rect x="22" y="40" width="2.5" height="4"/><rect x="26.5" y="40" width="2.5" height="4"/><rect x="35" y="31" width="2.5" height="4"/><rect x="39.5" y="31" width="2.5" height="4"/><rect x="35" y="40" width="2.5" height="4"/><rect x="39.5" y="40" width="2.5" height="4"/><rect x="48" y="33" width="2.5" height="4"/><rect x="52.5" y="33" width="2.5" height="4"/><rect x="48" y="40" width="2.5" height="4"/><rect x="52.5" y="40" width="2.5" height="4"/></g>
+  <path d="M6 55q3.25-2.5 6.5 0t6.5 0t6.5 0t6.5 0t6.5 0t6.5 0t6.5 0t6.5 0"/>
+</svg>
