@@ -88,11 +88,11 @@
                     <li class="list-inline-item">
                         <a class="text-sm" href="#skills">Skills</a>
                     </li>
-                    <li class="list-inline-item d-none d-sm-block">
-                        <a class="text-sm" href="#projects">Projects</a>
-                    </li>
                     <li class="list-inline-item">
                         <a class="text-sm" href="#work">Work</a>
+                    </li>
+                    <li class="list-inline-item d-none d-sm-block">
+                        <a class="text-sm" href="#projects">Pet Projects</a>
                     </li>
                     <li class="list-inline-item d-none d-sm-block">
                         <a class="text-sm" href="#education">Education</a>
@@ -414,11 +414,28 @@
             </div>
         </div>
     </div>
+    <div class="container resume-section" id="work">
+        <div class="row my-5 py-5">
+            <div class="col-12 mb-4">
+                <h2 class="font-weight-bold">Work experience</h2>
+                <p class="subtext">
+                    Here are some of the companies I worked for.
+                </p>
+            </div>
+            <div class="col-12">
+                <section>
+                    <div class="row">
+                        <%= works %>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
     <div class="resume-section projects" id="projects">
         <div class="container">
             <div class="row mt-5 pt-5">
                 <div class="col-12 mb-3">
-                    <h2 class="font-weight-bold">Projects</h2>
+                    <h2 class="font-weight-bold">Pet Projects</h2>
                     <p class="subtext">
                         Here are some of the pet projects that I worked on over the years.
                     </p>
@@ -601,23 +618,6 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="container resume-section" id="work">
-        <div class="row my-5 py-5">
-            <div class="col-12 mb-4">
-                <h2 class="font-weight-bold">Work experience</h2>
-                <p class="subtext">
-                    Here are some of the companies I worked for.
-                </p>
-            </div>
-            <div class="col-12">
-                <section>
-                    <div class="row">
-                        <%= works %>
-                    </div>
-                </section>
             </div>
         </div>
     </div>
