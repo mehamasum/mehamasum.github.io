@@ -405,6 +405,68 @@ article>header h3 {
     height: 100%;
 }
 
+/* Project cards under each work experience: 16:9 homepage thumbnail on top, text below. */
+.work-projects {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: -0.5rem;
+}
+
+@media (max-width: 576px) {
+    .work-projects {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.work-project {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    color: var(--text);
+    border: 1px solid transparent;
+    transition: border-color 0.15s ease;
+}
+
+.work-project:hover,
+.work-project:focus-visible {
+    color: var(--text);
+    text-decoration: none;
+    border-color: var(--border);
+}
+
+.work-project-thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.work-project-body {
+    padding: 0.75rem 0.25rem 0.25rem;
+}
+
+.work-project-body h4 {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.work-project-body p {
+    font-size: 90%;
+    color: var(--subtext);
+    margin-bottom: 0.4rem;
+}
+
+.work-project-link {
+    font-size: 85%;
+    color: var(--link);
+}
+
 q::before {
     height: 1.125rem;
     border-left-width: 0.225rem;

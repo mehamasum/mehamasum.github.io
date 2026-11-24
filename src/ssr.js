@@ -363,6 +363,12 @@ const works = [
       'shell',
     ],
     location: 'Remote',
+    projects: [
+      { name: 'CNET', url: 'https://www.cnet.com/', image: 'images/work/cnet.jpg', description: 'Tech reviews and news. Moved to WordPress VIP with a shared product catalog, product blocks and affiliate flows.' },
+      { name: 'ZDNET', url: 'https://www.zdnet.com/', image: 'images/work/zdnet.jpg', description: 'Business tech news, moved to the same WordPress VIP multisite as CNET.' },
+      { name: 'PCMag', url: 'https://www.pcmag.com/', image: 'images/work/pcmag.jpg', description: 'Tech reviews and buying guides, part of the same Ziff Davis platform migration.' },
+      { name: 'CHOICE Australia', url: 'https://www.choice.com.au/', image: 'images/work/choice.jpg', description: 'Consumer advocacy group. Moved its 600k-member WooCommerce store from Sitecore to WordPress VIP.' },
+    ],
     "color": "#1d4ac4",
     "thumbnail": `<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
         <rect width="400" height="400" fill="#1d4ac4"></rect>
@@ -407,6 +413,9 @@ const works = [
       'circleci',
     ],
     location: 'Remote',
+    projects: [
+      { name: 'WooCommerce.com', url: 'https://woocommerce.com/', image: 'images/work/woocommerce.jpg', description: 'The Woo Marketplace: auth, orders, subscriptions, payments, taxes and APIs behind extension and theme sales.' },
+    ],
     "color": "#702bd5",
     "thumbnail": `<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
         <path d="M 405.081 244.936 C 405.081 169.024 350.136 101.067 249.642 101.067 C 149.937 101.067 94.92 169.024 94.92 244.936 L 94.92 254.26 C 94.92 330.173 149.866 398.848 249.642 398.848 C 350.065 398.848 405.081 330.165 405.081 254.26 Z M 249.642 461.102 C 110.83 461.102 20.464 360.608 20.464 256.505 L 20.464 243.494 C 20.464 137.218 110.83 38.898 249.642 38.898 C 389.17 38.898 479.537 137.218 479.537 243.494 L 479.537 256.505 C 479.537 360.608 389.17 461.102 249.642 461.102 Z" fill="#2f99ce" style=""></path>
@@ -467,6 +476,9 @@ const works = [
       'sentry',
     ],
     location: 'Dhaka, Bangladesh',
+    projects: [
+      { name: 'Optimizely CMP', url: 'https://www.optimizely.com/products/content-marketing/', image: 'images/work/optimizely.jpg', description: 'Content marketing platform, formerly NewsCred\'s Welcome, now part of Optimizely.' },
+    ],
     color: "#702bd5",
     thumbnail: `<svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M242.191 31.262h21.337c48.094 2.502 95.354 20.595 132.189 51.731 46.426 38.179 75.246 96.003 79.647 155.797v27.916c-2.78 40.588-16.24 80.55-39.707 113.887-31.716 45.917-81.362 79.022-135.989 90.42-43.276 9.614-89.308 5.236-130.313-11.444-46.357-18.765-85.925-53.747-110.274-97.463-25.298-45.152-34.495-99.362-24.325-150.213 9.452-50.503 37.252-97.323 77.03-129.873 36.487-30.418 83.052-48.071 130.405-50.758m98.783 88.358c14.109 28.657 11.977 61.461 10.24 92.412-3.869 40.773-9.684 81.941-24.974 120.166-4.17 9.684-8.502 19.831-16.518 26.989-4.008 4.286-12.371 4.077-15.128-1.529-4.54-8.131-4.934-17.792-5.583-26.873-1.436-53.562 1.552-107.1 2.016-160.615.718-6.95-5.584-11.653-11.885-12.186-8.108-.857-19.043-3.382-24.325 4.772-6.579 11.144-10.494 23.584-15.892 35.306-19.738 42.604-36.303 86.575-55.994 129.201-6.904 14.039-14.271 28.264-25.252 39.592-1.46-11.49-.556-23.074.834-34.541 5.073-52.844 20.92-103.764 32.711-155.333 1.483-5.792 1.089-12.001-2.455-16.958-6.626-.417-13.275-.464-19.877.092-.672 9.035-4.101 17.468-6.255 26.202-14.48 54.164-27.731 108.884-34.542 164.623-1.228 12.116-1.923 26.827 7.761 35.908 12.742 11.051 32.827 5.931 44.109-4.749 15.406-17.051 24.349-38.549 33.152-59.446 18.556-40.31 33.082-82.288 50.897-122.923a25.588 25.588 0 0 1 4.379-6.996c-1.066 51.152-8.155 102.212-5.004 153.433 1.251 13.02 5.977 27.221 17.56 34.588 10.703 5.931 24.047 7.669 35.631 3.197 14.664-5.513 25.622-18.301 31.599-32.503 9.73-24.047 16.634-49.183 20.92-74.759 7.923-44.989 12.927-91.161 7.367-136.73-1.437-9.683-3.753-21.985-14.178-25.854-7.066.533-16.078.139-21.314 5.514z" fill="#702bd5"/><path d="M340.974 119.62c5.236-5.375 14.248-4.981 21.314-5.514 10.425 3.869 12.741 16.171 14.178 25.854 5.56 45.569.556 91.741-7.367 136.73-4.286 25.576-11.19 50.712-20.92 74.759-5.977 14.202-16.935 26.99-31.599 32.503-11.584 4.472-24.928 2.734-35.631-3.197-11.583-7.367-16.309-21.568-17.56-34.588-3.151-51.221 3.938-102.281 5.004-153.433a25.588 25.588 0 0 0-4.379 6.996c-17.815 40.635-32.341 82.613-50.897 122.923-8.803 20.897-17.746 42.395-33.152 59.446-11.282 10.68-31.367 15.8-44.109 4.749-9.684-9.081-8.989-23.792-7.761-35.908 6.811-55.739 20.062-110.459 34.542-164.623 2.154-8.734 5.583-17.167 6.255-26.202 6.602-.556 13.251-.509 19.877-.092 3.544 4.957 3.938 11.166 2.455 16.958-11.791 51.569-27.638 102.489-32.711 155.333-1.39 11.467-2.294 23.051-.834 34.541 10.981-11.328 18.348-25.553 25.252-39.592 19.691-42.626 36.256-86.597 55.994-129.201 5.398-11.722 9.313-24.162 15.892-35.306 5.282-8.154 16.217-5.629 24.325-4.772 6.301.533 12.603 5.236 11.885 12.186-.464 53.515-3.452 107.053-2.016 160.615.649 9.081 1.043 18.742 5.583 26.873 2.757 5.606 11.12 5.815 15.128 1.529 8.016-7.158 12.348-17.305 16.518-26.989 15.29-38.225 21.105-79.393 24.974-120.166 1.737-30.951 3.869-63.755-10.24-92.412z" fill="#fff"/></svg>`,
     roles: [
@@ -490,7 +502,7 @@ const works = [
   },
   {
     companyName: 'Codemarshal',
-    companyWebsite: 'https://algo.codemarshal.org/',
+    companyWebsite: 'https://www.codemarshal.com/',
     tags: [
       'django',
       'django-rest-framework',
@@ -506,6 +518,9 @@ const works = [
       'gitlab-ci',
     ],
     location: 'Dhaka, Bangladesh',
+    projects: [
+      { name: 'CodeMarshal', url: 'https://www.codemarshal.com/', image: 'images/work/codemarshal.jpg', description: 'Face identification, OCR, process digitization and data analytics solutions.' },
+    ],
     color: "#87ceb4",
     thumbnail: `<svg viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path fill="#1e3b6e" d="M243.558 46.545c9.777-5.886 21.195 1.576 25.762 10.581 13.509 23.125 27.435 46.057 40.654 69.376 5.179 7.719.322 19.715-9.584 19.522-32.163.515-64.358.193-96.521.129-6.304.386-12.319-4.085-13.444-10.324.128-6.272 3.409-11.772 6.464-17.014 12.029-20.07 23.769-40.268 35.605-60.435 2.798-4.631 5.95-9.488 11.064-11.835z"/><path d="M147.616 224.566c25.023-12.222 57.957 3.506 64.647 30.394 8.331 25.859-10.935 55.417-37.566 59.244-23.125 4.407-47.665-11.353-53.39-34.125-6.594-21.742 5.628-46.604 26.309-55.513zm169.917-.386c25.955-11.996 59.469 5.597 64.422 33.675 6.336 25.827-13.476 53.873-39.882 56.542-22.739 3.57-46.154-12.029-51.782-34.285-6.497-22.064 5.853-47.473 27.242-55.932zm-251 150.265c26.663-10.388 59.212 8.974 62.396 37.438 4.857 26.374-17.078 53.423-43.838 54.066-23.865 2.091-46.958-17.014-49.531-40.783-3.312-21.517 10.485-43.741 30.973-50.721zm167.408.386c25.859-10.742 58.151 6.851 63.007 34.415 6.176 25.408-13.026 52.811-38.788 56.285-23.029 4.149-47.344-11.675-52.94-34.35-6.851-22.514 6.754-48.405 28.721-56.35zm167.601.804c21.356-9.681 48.984-.546 59.952 20.295 12.994 22.096 3.763 53.616-19.427 64.841-22.867 12.768-54.548 1.672-64.744-22.353-11.289-23.029.676-53.101 24.219-62.783z" fill="#88CFB5"/></svg>`,
     roles: [
@@ -579,8 +594,8 @@ const getWorks = () => {
       <div class="col-12 col-md-3 col-2 my-2 d-flex">
         <time>${companyTenure}</time>
       </div>
-      <div class="col-12 col-md-9 col-10 d-flex">
-        <article class="mb-4 p-4 flex-fill section-card">
+      <div class="col-12 col-md-9 col-10 d-flex flex-column">
+        <article class="mb-4 p-4 section-card">
             <header class="mb-3 d-flex">
                 <div class="mr-2 p-1 rounded placeholder" style="background: rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.33);">
                   ${work.thumbnail}
@@ -614,6 +629,19 @@ const getWorks = () => {
               ${work.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
             </footer>
         </article>
+        ${work.projects && work.projects.length ? `
+        <div class="work-projects mb-4">
+          ${work.projects.map(project => `
+            <a class="work-project section-card" href="${project.url}" target="_blank" rel="noopener noreferrer">
+              <img class="work-project-thumb" src="${project.image}" alt="${project.name} homepage" loading="lazy" width="960" height="540">
+              <div class="work-project-body">
+                <h4>${project.name}</h4>
+                <p>${project.description}</p>
+                <span class="work-project-link">${project.displayUrl || new URL(project.url).hostname.replace(/^www\./, '')}</span>
+              </div>
+            </a>
+          `).join('')}
+        </div>` : ''}
     </div>
     `
   });
